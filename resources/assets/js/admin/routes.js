@@ -28,6 +28,16 @@ import Page500 from './views/pages/Page500'
 import Login from './views/pages/Login'
 import Register from './views/pages/Register'
 
+// Views - Products
+import AddProducts from './views/products/Add';
+import ListProducts from './views/products/List';
+import EditProducts from './views/products/Edit';
+
+// Views - Category
+import ListCategory from './views/category/List';
+import EditCategory from './views/category/Edit';
+
+
 Vue.use(VueRouter)
 
 let routes = [
@@ -50,77 +60,47 @@ let routes = [
           component: Dashboard
         },
         {
-          path: 'charts',
-          name: 'Charts',
-          component: Charts
-        },
-        {
-          path: 'widgets',
-          name: 'Widgets',
-          component: Widgets
-        },
-        {
-          path: 'components',
-          redirect: '/components/buttons',
-          name: 'Components',
+          path: '/products',
+          redirect: '/pages/404',
+          name: 'Products',
           component: {
             render (c) { return c('router-view') }
           },
           children: [
             {
-              path: 'buttons',
-              name: 'Buttons',
-              component: Buttons
+              path : 'add',
+              name : 'Add Products',
+              component : AddProducts
             },
             {
-              path: 'social-buttons',
-              name: 'Social Buttons',
-              component: SocialButtons
+              path : 'list',
+              name : 'List Products',
+              component : ListProducts
             },
             {
-              path: 'cards',
-              name: 'Cards',
-              component: Cards
-            },
-            {
-              path: 'forms',
-              name: 'Forms',
-              component: Forms
-            },
-            {
-              path: 'modals',
-              name: 'Modals',
-              component: Modals
-            },
-            {
-              path: 'switches',
-              name: 'Switches',
-              component: Switches
-            },
-            {
-              path: 'tables',
-              name: 'Tables',
-              component: Tables
+              path : 'edit/:id',
+              name : 'Edit Products',
+              component : EditProducts
             }
           ]
         },
         {
-          path: 'icons',
-          redirect: '/icons/font-awesome',
-          name: 'Icons',
+          path: '/category',
+          redirect: '/pages/404',
+          name: 'Category',
           component: {
             render (c) { return c('router-view') }
           },
           children: [
             {
-              path: 'font-awesome',
-              name: 'Font Awesome',
-              component: FontAwesome
+              path : 'list',
+              name : 'Show Category',
+              component : ListCategory
             },
             {
-              path: 'simple-line-icons',
-              name: 'Simple Line Icons',
-              component: SimpleLineIcons
+              path : 'edit/:id',
+              name : 'Edit Category',
+              component : EditCategory
             }
           ]
         }

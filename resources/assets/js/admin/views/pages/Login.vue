@@ -76,7 +76,7 @@ export default {
         this.$auth.login({
             data: {email: this.form.email, password: this.form.password}
         }).catch(function(error) {
-            data.error = 'E-mail or password is incorrect';
+            
         });
     }
   }

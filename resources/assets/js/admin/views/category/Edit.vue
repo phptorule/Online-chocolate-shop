@@ -1,0 +1,71 @@
+<template>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Edit Category
+                    </div>
+                    <div class="card-body">
+                        <form novalidate>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" v-model="category.name" class="form-control" id="name" placeholder="Name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="code">Code</label>
+                                <input type="text" v-model="category.code" class="form-control" id="code" placeholder="Code" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="code">Position</label>
+                                <input type="text" v-model="category.position" class="form-control" id="position" placeholder="Position" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="code">Image</label>
+                                <img :src="category.image" alt="Image" />
+                            </div>
+
+
+                            <button type="button" @click="eidtCategory()" class="btn btn-default">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+import axios from 'axios';
+
+export default {
+    data() {
+        return {
+            category : {}
+        }
+    },
+    name: 'EditCategory',
+    mounted() {
+        this.getCategory();
+    },
+    methods : {
+        getCategory() {
+            let self = this;
+            axios.get('/api/category/get/' + this.$route.params.id)
+                .then((response) => {
+                    self.category = response.data;
+                });
+        },
+        eidtCategory() {
+            axios.put('/api/category/edit', this.category)
+                .then((response) => {
+                    this.$router.push('/category/list');
+                });
+        }
+    }
+}
+</script>
