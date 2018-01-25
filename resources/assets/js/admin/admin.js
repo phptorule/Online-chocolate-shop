@@ -22,11 +22,14 @@ Vue.use(VueAuth, {
     refreshData: {url: 'api/admin/refresh', method: 'POST'}
 });
 
+import { Photoshop } from 'vue-color';
+
 new Vue({
     el: '#app',
     template: '<App/>',
     router,
     components: {
-        App
+        App,
+        Photoshop
     }
 });

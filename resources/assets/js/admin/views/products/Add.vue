@@ -57,7 +57,7 @@
                                 <label for="color">Color</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"></div>
-                                    <input type="text" class="form-control" v-model="product.color" />
+                                    <input type="color" class="form-control" v-model="product.color" />
                                 </div>
                             </div>
 

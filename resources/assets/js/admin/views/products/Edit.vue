@@ -22,7 +22,8 @@
 
                              <div class="form-group">
                                 <label for="name">Picture</label>
-                                <input type="file" name="form-control-file" />
+                                <input type="file" name="form-control-file" @change="(e) => { product.tmp_image = e.target.files[0]; }" />
+                                <img v-if="product.image" :src="'/storage/' + product.image.replace('public', '')" alt="Image" />
                             </div>
                             
                             <div class="form-group">
@@ -57,7 +58,7 @@
                                 <label for="color">Color</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"></div>
-                                    <input type="text" class="form-control" v-model="product.color" />
+                                    <input type="color" class="form-control" v-model="product.color" />
                                 </div>
                             </div>
 
@@ -86,7 +87,9 @@ export default {
                 short_description : "",
                 position : 0,
                 status : "active",
-                color : "#ffffff"
+                image : false,
+                color : "#ffffff",
+                tmp_image: false
             }
         }
     },
@@ -106,9 +109,15 @@ export default {
                 });
         },
         eidtProduct() {
-            axios.put('/api/product/edit', this.product)
+            
+            let fd = new FormData
+            for(let i in this.product) {
+                fd.append(i, this.product[i]);
+            }
+            
+            axios.post('/api/product/edit', fd)
                 .then((response) => {
-                     this.$router.push('/products/list');
+                    this.$router.push('/products/list');
                 });
         },
         getCategory() {

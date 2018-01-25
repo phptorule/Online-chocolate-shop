@@ -19,7 +19,7 @@ class ProductController extends Controller
         $product->position = $request->position;
         $product->status = $request->status;
         $product->color = $request->color;
-        $product->image = $request->image ? : "";
+        $product->image = ! empty( $request->image ) ? $request->image->store("public/image") : "";
         $product->save();
     }
 
@@ -33,7 +33,9 @@ class ProductController extends Controller
         $product->position = $request->position;
         $product->status = $request->status;
         $product->color = $request->color;
-        $product->image = $request->image ? : "";
+        if ( ! empty($request->tmp_image)) {
+            $product->image = $request->tmp_image->store("public/image");
+        }
         $product->save();
     }
 

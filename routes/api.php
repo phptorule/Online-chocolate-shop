@@ -23,12 +23,12 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
 Route::prefix('product')->namespace('Admin')->group(function() {
     Route::post('add', 'ProductController@add');
     Route::get('get/{id?}', 'ProductController@get');
-    Route::put('edit', 'ProductController@edit');
+    Route::post('edit', 'ProductController@edit');
     Route::delete('delete/{id}', 'ProductController@delete');
 });
 
 Route::prefix('category')->namespace('Admin')->group(function() {
     Route::get('get/{id?}', 'CategoryController@get');
-    Route::put('edit', 'CategoryController@edit');
+    Route::post('edit', 'CategoryController@edit');
     Route::delete('delete/{id}', 'CategoryController@delete');
 });
