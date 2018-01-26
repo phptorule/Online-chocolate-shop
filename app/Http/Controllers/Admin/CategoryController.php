@@ -21,6 +21,9 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->position = $request->position;
         $category->code = $request->code;
+        if ( ! empty($request->image)) {
+            $category->image = $request->image->store("public/image");
+        }
         $category->save();
     }
 

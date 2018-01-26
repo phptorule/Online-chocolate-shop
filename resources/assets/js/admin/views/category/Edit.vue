@@ -25,7 +25,8 @@
 
                             <div class="form-group">
                                 <label for="code">Image</label>
-                                <img :src="category.image" alt="Image" />
+                                <input type="file" @change="(e) => { category.image = e.target.files[0]; }" />
+                                <img v-if="category.image" :src="'/storage/' + category.image.replace('public', '')" alt="Image" />
                             </div>
 
 
@@ -61,7 +62,13 @@ export default {
                 });
         },
         eidtCategory() {
-            axios.put('/api/category/edit', this.category)
+
+            let fd = new FormData
+            for(let i in this.category) {
+                fd.append(i, this.category[i]);
+            }
+            
+            axios.post('/api/category/edit', fd)
                 .then((response) => {
                     this.$router.push('/category/list');
                 });
