@@ -15,7 +15,7 @@
 
                             <div class="form-group">
                                 <label for="code">Code</label>
-                                <input type="text" v-model="category.code" class="form-control" id="code" placeholder="Code" />
+                                <input type="text" disabled readonly v-model="category.code" class="form-control" id="code" placeholder="Code" />
                             </div>
 
                             <div class="form-group">
@@ -25,10 +25,14 @@
 
                             <div class="form-group">
                                 <label for="code">Image</label>
-                                <input type="file" @change="(e) => { category.image = e.target.files[0]; }" />
-                                <img v-if="category.image" :src="'/storage/' + category.image.replace('public', '')" alt="Image" />
+                                <input type="file" @change="(e) => { category.tmp_image = e.target.files[0]; }" />
+                                <img class="img-fluid" v-if="category.image" :src="'/storage/' + category.image.replace('public', '')" alt="Image" />
                             </div>
 
+                            <div class="form-group">
+                                <label for="code">Short description</label>
+                                <textarea type="text" v-model="category.short_description" class="form-control" id="description" placeholder="Description"></textarea>
+                            </div>
 
                             <button type="button" @click="eidtCategory()" class="btn btn-default">Update</button>
                         </form>

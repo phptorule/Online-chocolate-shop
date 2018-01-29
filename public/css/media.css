@@ -1,0 +1,119 @@
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1199px) {
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) and (min-width : 768px) {
+	.mix_content_item {
+		width: 90px;
+		height: 90px;
+		line-height: 90px;
+	}
+
+	.mix_content_item img {
+		max-width: 50px;
+	}
+
+	.mix_content_item_caption {
+		max-width: 90px;
+		font-size: 10px;
+		line-height: 14px;
+	}
+
+	.small_mix_item {
+		width: 120px;
+		height: 120px;
+		line-height: 120px;
+	}
+
+	.small_mix_item img {
+		max-width: 50px;
+	}
+
+	.small_mix_item_caption {
+		font-size: 12px;
+		max-width: 120px;
+	}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	.shop_item {
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+	}
+
+	.shop_item > span {
+		font-size: 	10px;
+	}
+
+	.mix_count {
+		max-width: 100%;
+	}
+
+	.candies_count_img {
+		margin-bottom: 20px;
+	}
+
+	.packaging_img {
+		-webkit-transform:translate(0);
+		        transform:translate(0);
+	}
+
+	.packaging_box_item {
+		margin: 0 auto 20px;
+	}
+
+	.packaging_box_text {
+		max-width: 100%;
+		text-align: center;
+	}
+
+	section:nth-child(n) {
+		padding: 50px 0;
+	}
+
+	.original_box {
+		padding: 10px 0;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 575px) {
+	.shop_item {
+		width: 160px;
+		height: 160px;
+		line-height: 160px;
+		margin: 0 auto 20px;
+	}
+
+	.shop_item > span {
+		font-size: 	12px;
+	}
+
+	.mix_content_item {
+		width: 128px;
+		height: 128px;
+		line-height: 128px;
+	}
+
+	.mix_content_item img {
+		max-width: 50px;
+	}
+
+	.mix_content_item_caption,
+	.small_mix_item_caption {
+		max-width: 100%;
+		text-align: center;
+	}
+}
+

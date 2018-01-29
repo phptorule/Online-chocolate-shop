@@ -17,59 +17,74 @@ class CategorySeeder extends Seeder
                 "parent_id" => 0,
                 "code" => "mebfc",
                 "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
+                "short_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr. Hold musen over stykket for mere info!",
                 "position" => 1,
-                "image" => "http://placehold.it/250"
+                "image" => "",
+                "color" => "#73492a"
             ],
             [
                 "parent_id" => 0,
                 "code" => "mebfc2",
+                "short_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr. Hold musen over stykket for mere info!",
                 "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
                 "position" => 2,
-                "image" => "http://placehold.it/250"
+                "image" => "",
+                "color" => "#fef7ed"
             ],
             [
                 "parent_id" => 0,
                 "code" => "vc",
+                "short_description" => "6 stk. varmechokolade stænger",
                 "name" => "VARM CHOKOLADE",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
+                "image" => "public/image/pic.png",
+                "color" => "#422918"
             ],
             [
                 "parent_id" => 0,
                 "code" => "ob",
+                "short_description" => "59 kr. stk.- 3 stk. 155 kr.",
                 "name" => "ORIGINAL BEANS",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
+                "image" => "",
+                "color" => "#fd1f8c"
             ],
             [
                 "parent_id" => 4,
-                "code" => "",
-                "name" => "7 0 g. b a re r 5 9 k r. s t k . - 3 s t k . 1 5 5 k r.",
+                "code" => "70g",
+                "short_description" => "59 kr. stk.- 3 stk. 155 kr.",
+                "name" => "70 g. barer",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
+                "image" => "",
+                "color" => "#fd1f8c"
             ],
             [
                 "parent_id" => 4,
-                "code" => "",
-                "name" => "1 2 g. b a re r 1 5 k r. s t k . - 3 s t k . 4 0 k r .",
+                "code" => "12g",
+                "name" => "12 g. barer",
+                "short_description" => "15 kr. stk. - 3 stk. 40 kr.",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
+                "image" => ""
             ],
             [
                 "parent_id" => 4,
-                "code" => "",
-                "name" => "Poser med 200g. 1 1 0 k r. s t k .",
+                "code" => "200g",
+                "name" => "Poser med 200g.",
+                "short_description" => "110 kr. stk.",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
+                "image" => "public/image/border.png"
             ],
             [
                 "parent_id" => 4,
-                "code" => "",
-                "name" => "2000g. p o s e r 5 0 0 - 6 2 6 k r",
+                "code" => "2000g",
+                "name" => "2000g. poser",
+                "short_description" => "500 - 626 kr",
                 "position" => 3,
-                "image" => "http://placehold.it/250"
-            ],
+                "image" => ""
+            ]
         ];
+        
+        Category::truncate();
 
         foreach($categories as $c) {
             $category = new Category;
@@ -78,6 +93,8 @@ class CategorySeeder extends Seeder
             $category->code = $c["code"];
             $category->position = $c["position"];
             $category->image = $c["image"];
+            $category->color = ! empty($c["color"]) ? $c["color"] : "#ffffff";
+            $category->short_description =  ! empty($c["short_description"]) ? $c["short_description"] : "#ffffff";
             $category->save();
         }
     }

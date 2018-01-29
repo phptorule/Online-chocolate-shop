@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', 'MainController@index');
 
 Route::get('/admin', function() {
     return view('layouts.admin');

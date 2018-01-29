@@ -1,0 +1,60 @@
+
+@font-face {
+	font-family: "CooperHewittHeavy";
+	src: url("../fonts/CooperHewittHeavy/CooperHewittHeavy.eot");
+	src: url("../fonts/CooperHewittHeavy/CooperHewittHeavy.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CooperHewittHeavy/CooperHewittHeavy.woff") format("woff"),
+	url("../fonts/CooperHewittHeavy/CooperHewittHeavy.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CooperHewittMedium";
+	src: url("../fonts/CooperHewittMedium/CooperHewittMedium.eot");
+	src: url("../fonts/CooperHewittMedium/CooperHewittMedium.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CooperHewittMedium/CooperHewittMedium.woff") format("woff"),
+	url("../fonts/CooperHewittMedium/CooperHewittMedium.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CooperHewittLight";
+	src: url("../fonts/CooperHewittLight/CooperHewittLight.eot");
+	src: url("../fonts/CooperHewittLight/CooperHewittLight.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CooperHewittLight/CooperHewittLight.woff") format("woff"),
+	url("../fonts/CooperHewittLight/CooperHewittLight.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CooperHewittLightItalic";
+	src: url("../fonts/CooperHewittLightItalic/CooperHewittLightItalic.eot");
+	src: url("../fonts/CooperHewittLightItalic/CooperHewittLightItalic.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CooperHewittLightItalic/CooperHewittLightItalic.woff") format("woff"),
+	url("../fonts/CooperHewittLightItalic/CooperHewittLightItalic.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CamboRegular";
+	src: url("../fonts/CamboRegular/CamboRegular.eot");
+	src: url("../fonts/CamboRegular/CamboRegular.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CamboRegular/CamboRegular.woff") format("woff"),
+	url("../fonts/CamboRegular/CamboRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CicleFina";
+	src: url("../fonts/CicleFina/CicleFina.eot");
+	src: url("../fonts/CicleFina/CicleFina.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CicleFina/CicleFina.woff") format("woff"),
+	url("../fonts/CicleFina/CicleFina.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
