@@ -111764,7 +111764,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addProduct: function addProduct() {
             var fd = new FormData();
             for (var i in this.product) {
-                fd.append(i, this.product[i]);
+                fd.append(i, this.product[i] ? this.product[i] : "");
             }
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/product/add', fd).then(function (response) {

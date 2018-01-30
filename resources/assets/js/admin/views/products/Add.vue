@@ -101,7 +101,7 @@ export default {
         addProduct() {
             let fd = new FormData;
             for(let i in this.product) {
-                fd.append(i, this.product[i]);
+                fd.append(i, this.product[i] ? this.product[i] : "" );
             }
             
             axios.post('/api/product/add', fd)
