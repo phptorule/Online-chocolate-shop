@@ -564,3 +564,120 @@ button {
 .mix_count_list p:hover .trash_candi {
     opacity: 1;
 }
+
+/*SIGNUP*/
+
+.signup {
+    padding: 110px 0 200px;
+    background: url(../storage/image/picc.png) 107% center no-repeat;
+}
+
+.signup_caption {
+    font-family: "CooperHewittHeavy";
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0 0 75px 0;
+    letter-spacing: 0.5px;
+}
+
+.signup_form_wrapper input,
+.signup_form_wrapper label {
+    display: block;
+    font-family: "CamboRegular";
+    font-size: 19px;
+    text-transform: uppercase;
+}
+
+.signup_form_wrapper label  {
+    margin-bottom: 10px;
+}
+
+.signup_form_wrapper input {
+    margin-bottom: 55px;
+    background-color: transparent;
+    max-width: 250px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    color:#73492a;
+    border: 1px solid #73492a;
+    outline: none;
+}
+
+.signup_form_wrapper .input_butt {
+   margin-left: 0;
+   cursor: pointer;
+   background-color: transparent;
+}
+
+.signup_form_wrapper .input_butt:hover,
+.cart button.butt:hover {
+    background-color: #73492a;
+}
+
+.signup_img {
+    margin-top: -60px;
+}
+
+.cart {
+    padding: 40px 0 80px;
+}
+
+.cart td img {
+    width: 100px;
+    height: auto;
+}
+
+.table_cart {
+    width: 100%;
+}
+
+.table_cart .candies_count_add {
+    margin: 0;
+}
+
+.table_cart td,
+.table_cart  th {
+    vertical-align: middle;
+    border: none;
+}
+
+.table_cart td:nth-child(2) {
+    min-width: 200px;
+}
+
+.table_cart  th {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    font-family: "CooperHewittHeavy";
+    font-size: 15px;
+}
+
+.table_cart td {
+    padding-top: 30px;
+    font-size: 14px;
+}
+
+.table_cart .header_row {
+    border: 1px solid #73492a;
+}
+ 
+.cart .h2_caption {
+    font-family: "CicleFina";
+    font-size: 30px;   
+    margin-bottom: 50px;         
+}
+
+.cart .h2_caption span,
+.cart .h2_caption img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cart button.butt {
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 50px;
+}

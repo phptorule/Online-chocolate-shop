@@ -9,6 +9,33 @@
 	
 }
 
+@media only screen and (max-width : 991px) {
+	.signup {
+		padding: 100px 0;
+		background: url(../storage/image/picc.png) 127% center no-repeat;
+	}
+
+	.signup_caption,
+	.signup_form_wrapper,
+	.signup_img {
+		text-align: center;
+	}
+
+	.signup_form_wrapper input,
+	.signup_form_wrapper .input_butt {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.signup_form_wrapper .input_butt {
+		margin-bottom: 40px;
+	}
+
+	.signup_img {
+		margin-top: 0;
+	}
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) and (min-width : 768px) {
 	.mix_content_item {
@@ -41,6 +68,8 @@
 		font-size: 12px;
 		max-width: 120px;
 	}
+
+	
 
 }
 
@@ -85,6 +114,10 @@
 	.original_box {
 		padding: 10px 0;
 	}
+
+	.signup {
+		background: none;
+	}
 }
 
 /* Extra Small Devices, Phones */
@@ -114,6 +147,18 @@
 	.small_mix_item_caption {
 		max-width: 100%;
 		text-align: center;
+	}
+
+	.header_logo{
+		text-align: center;
+	}
+
+	.header_nav {
+		margin-bottom: 20px;
+	}
+
+	.header_social {
+		text-align: right;
 	}
 }
 
