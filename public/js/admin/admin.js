@@ -113269,6 +113269,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -113469,6 +113474,32 @@ var render = function() {
                         "short_description",
                         $event.target.value
                       )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "code" } }, [_vm._v("Color")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.category.color,
+                      expression: "category.color"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "color" },
+                  domProps: { value: _vm.category.color },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.category, "color", $event.target.value)
                     }
                   }
                 })

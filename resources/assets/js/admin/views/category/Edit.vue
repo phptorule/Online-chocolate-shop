@@ -34,6 +34,11 @@
                                 <textarea type="text" v-model="category.short_description" class="form-control" id="description" placeholder="Description"></textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label for="code">Color</label>
+                                <input type="color" class="form-control" v-model="category.color" />
+                            </div>
+
                             <button type="button" @click="eidtCategory()" class="btn btn-default">Update</button>
                         </form>
                     </div>
