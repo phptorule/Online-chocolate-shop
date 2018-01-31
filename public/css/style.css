@@ -704,6 +704,12 @@ button {
 .original_box_item_active:active .overlay,
 .original_box_item_active:focus .overlay {
     -webkit-transform: scale(1);
-    transform: scale(1)
+    transform: scale(1);
+}
+
+.original_box_item_active:active .overlay .overlay_text,
+.original_box_item_active:focus .overlay .overlay_text {
+    text-transform: uppercase;
+    font-size: 40px;
 }
 
