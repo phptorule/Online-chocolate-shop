@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="{{ asset('css/media.css') }}" />
     </head>
     <body>
+        @include('layouts.header')
         @yield('content')
+        @include('layouts.footer')
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.bundle.min.js') }}"></script>

@@ -32,3 +32,4 @@ Route::prefix('category')->namespace('Admin')->group(function() {
     Route::post('edit', 'CategoryController@edit');
     Route::delete('delete/{id}', 'CategoryController@delete');
 });
+

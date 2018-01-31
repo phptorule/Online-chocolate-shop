@@ -16,3 +16,11 @@ Route::get('/', 'MainController@index');
 Route::get('/admin', function() {
     return view('layouts.admin');
 });
+
+Route::get('/cart', function() {
+    return view('cart');
+});
+
+Route::get('/signup', function() {
+    return view('signup');
+});
