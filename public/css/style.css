@@ -701,8 +701,8 @@ button {
 }
 
 
-.original_box_item:active .overlay,
-.original_box_item:focus .overlay {
+.original_box_item_active:active .overlay,
+.original_box_item_active:focus .overlay {
     -webkit-transform: scale(1);
     transform: scale(1)
 }

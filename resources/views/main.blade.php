@@ -209,7 +209,7 @@
                         @foreach($row as $p)
                             <div class="col-md-4">
                                 <div class="original_box_wrap text-center">
-                                    <label class="original_box_item white item">
+                                    <label class="original_box_item original_box_item_active white item">
                                         <input type="text">
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay">
