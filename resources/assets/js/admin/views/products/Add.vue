@@ -16,7 +16,7 @@
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select id="category" v-model="product.category_id" class="form-control">
-                                    <option :value="c.id" v-for="c in category" v-bind:key="c.id">{{ c.name }}</option>
+                                    <option :disabled="c.code == 'ob'" :value="c.id" v-for="c in category" v-bind:key="c.id">{{ c.parent_id ? '-' : ''  }} {{ c.name }}</option>
                                 </select>
                             </div>
 
@@ -58,6 +58,14 @@
                                 <div class="input-group">
                                     <div class="input-group-addon"></div>
                                     <input type="color" class="form-control" v-model="product.color" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">Active effect</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"></div>
+                                    <input type="color" class="form-control" v-model="product.active_effect" />
                                 </div>
                             </div>
 

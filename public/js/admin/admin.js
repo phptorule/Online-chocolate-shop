@@ -111732,6 +111732,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -111865,8 +111873,16 @@ var render = function() {
                   _vm._l(_vm.category, function(c) {
                     return _c(
                       "option",
-                      { key: c.id, domProps: { value: c.id } },
-                      [_vm._v(_vm._s(c.name))]
+                      {
+                        key: c.id,
+                        attrs: { disabled: c.code == "ob" },
+                        domProps: { value: c.id }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(c.parent_id ? "-" : "") + " " + _vm._s(c.name)
+                        )
+                      ]
                     )
                   })
                 )
@@ -112078,6 +112094,42 @@ var render = function() {
                           return
                         }
                         _vm.$set(_vm.product, "color", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "color" } }, [
+                  _vm._v("Active effect")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group" }, [
+                  _c("div", { staticClass: "input-group-addon" }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.active_effect,
+                        expression: "product.active_effect"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "color" },
+                    domProps: { value: _vm.product.active_effect },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "active_effect",
+                          $event.target.value
+                        )
                       }
                     }
                   })
@@ -112437,6 +112489,14 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -112882,6 +112942,42 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "color" } }, [
+                  _vm._v("Active effect")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group" }, [
+                  _c("div", { staticClass: "input-group-addon" }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.active_effect,
+                        expression: "product.active_effect"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "color" },
+                    domProps: { value: _vm.product.active_effect },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "active_effect",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "button",
                 {
@@ -113073,7 +113169,13 @@ var render = function() {
                         ? _c("tr", { key: c.id }, [
                             _c("td", [_vm._v(_vm._s(c.id))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(c.name))]),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(c.parent_id ? "-" : "") +
+                                  " " +
+                                  _vm._s(c.name)
+                              )
+                            ]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(c.code))]),
                             _vm._v(" "),
@@ -113479,31 +113581,33 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "code" } }, [_vm._v("Color")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.category.color,
-                      expression: "category.color"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "color" },
-                  domProps: { value: _vm.category.color },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+              !(["70g", "12g", "200g", "2000g"].indexOf(_vm.category.code) + 1)
+                ? _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "code" } }, [_vm._v("Color")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.category.color,
+                          expression: "category.color"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "color" },
+                      domProps: { value: _vm.category.color },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.category, "color", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.category, "color", $event.target.value)
-                    }
-                  }
-                })
-              ]),
+                    })
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "button",

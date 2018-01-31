@@ -46,7 +46,7 @@
                                         <div class="mix_content_part">
                                             <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-title="{{ $p->name }}">
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
-                                                <div class="overlay">
+                                                <div class="overlay" style="backgrond-color: {{ $p->active_effect }}">
                                                     <div class="overlay_text">
                                                         {{ $p->short_description }}
                                                     </div>
@@ -105,7 +105,7 @@
                                         <div class="small_mix_content_part">
                                             <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-title="{{ $row->first()->name }}">
                                                 <img src="{{ ! empty($row->first()->image) ? '/storage/' . str_replace('public', '', $row->first()->image) : 'img/pic/cont6.png' }}" alt="img">
-                                                <div class="overlay">
+                                                <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                                     <div class="overlay_text">
                                                         {{ $row->first()->short_description }}
                                                     </div>
@@ -118,7 +118,7 @@
                                         <div class="mix_content_part">
                                             <a href="javascript:void(0);" class="small_mix_item item item_hover white candi_item" data-title="{{ $row->last()->name }}">
                                                 <img src="{{ ! empty($row->last()->image) ? '/storage/' . str_replace('public', '', $row->last()->image) : 'img/pic/cont6.png' }}" alt="img">
-                                                <div class="overlay">
+                                                <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                     <div class="overlay_text">
                                                         {{ $row->last()->short_description }}
                                                     </div>
@@ -212,7 +212,7 @@
                                     <label class="original_box_item original_box_item_active original_box_item_active white item">
                                         <input type="text">
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
-                                        <div class="overlay">
+                                        <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                             <div class="overlay_text">
                                             {{ $p->short_description }}
                                             </div>
@@ -248,7 +248,7 @@
                                         <label class="original_box_item original_box_item_active white item">
                                             <input type="text">
                                             <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
-                                            <div class="overlay">
+                                            <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                 <div class="overlay_text">
                                                 {{ $p->short_description }}
                                                 </div>
@@ -292,7 +292,7 @@
                                                 <label class="packaging_box_item original_box_item_active white item">
                                                     <input type="text" />
                                                     <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position4.png' }}" alt="img" />
-                                                    <div class="overlay">
+                                                    <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                         <div class="overlay_text">
                                                         {{ $p->short_description }}
                                                         </div>
@@ -337,7 +337,7 @@
                                                     <label class="original_box_item original_box_item_active original_box_down white  item">
                                                         <input type="text">
                                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position3.png' }}" alt="img">
-                                                        <div class="overlay">
+                                                        <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                             <div class="overlay_text">
                                                                 {{ $p->short_description }} 
                                                             </div>

@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('short_description');
             $table->integer('position');
             $table->enum('status', ['active', 'deleted']);
+            $table->string('active_effect');
             $table->string('color');
             $table->string('image');
             $table->timestamps();

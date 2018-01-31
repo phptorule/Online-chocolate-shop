@@ -518,6 +518,7 @@ class ProductSeeder extends Seeder
                 $product->color = $p['color'];
                 $product->status = $p['status'];
                 $product->position = $p['position'];
+                $product->active_effect = '#ffffff';
                 $product->save();
             }
         }

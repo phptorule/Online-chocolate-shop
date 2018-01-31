@@ -62,6 +62,14 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="color">Active effect</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"></div>
+                                    <input type="color" class="form-control" v-model="product.active_effect" />
+                                </div>
+                            </div>
+
                             <button type="button" @click="eidtProduct()" class="btn btn-default">Update</button>
                         </form>
                     </div>

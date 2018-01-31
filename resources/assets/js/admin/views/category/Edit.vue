@@ -34,7 +34,7 @@
                                 <textarea type="text" v-model="category.short_description" class="form-control" id="description" placeholder="Description"></textarea>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" v-if=" ! (['70g', '12g', '200g', '2000g'].indexOf(category.code) + 1)">
                                 <label for="code">Color</label>
                                 <input type="color" class="form-control" v-model="category.color" />
                             </div>

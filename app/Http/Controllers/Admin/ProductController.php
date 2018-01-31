@@ -19,6 +19,7 @@ class ProductController extends Controller
         $product->position = $request->position;
         $product->status = $request->status;
         $product->color = $request->color;
+        $product->active_effect = $request->active_effect;
         $product->image = ! empty( $request->image ) ? $request->image->store("public/image") : "";
         $product->save();
     }
@@ -33,6 +34,11 @@ class ProductController extends Controller
         $product->position = $request->position;
         $product->status = $request->status;
         $product->color = $request->color;
+        
+        if ($request->active_effect) {
+            $product->active_effect = $request->active_effect ? $request->active_effect : '';
+        }
+
         if ( ! empty($request->tmp_image)) {
             $product->image = $request->tmp_image->store("public/image");
         }

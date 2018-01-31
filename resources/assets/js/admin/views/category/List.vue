@@ -20,7 +20,7 @@
                                 <tbody>
                                     <tr v-if="category.length" v-for="c in category" v-bind:key="c.id">
                                         <td>{{ c.id }}</td>
-                                        <td>{{ c.name }}</td>
+                                        <td>{{ c.parent_id ? '-' : '' }} {{ c.name }}</td>
                                         <td>{{ c.code }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
