@@ -174,9 +174,9 @@
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="candies_count_add">
-                        <button type="button" id="plus">+</button>
+                        <button type="button" class="plus">+</button>
                         <input type="text" value="1" readonly>
-                        <button type="button" id="minus">-</button>
+                        <button type="button" class="minus">-</button>
                     </div>
                     <div class="candies_count_price">120 DKK</div>
                     <a href="#" class="butt">LÆG I KURV</a>

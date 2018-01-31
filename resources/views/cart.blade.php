@@ -25,9 +25,9 @@
                                 <td>59 DKK</td>
                                 <td>
                                     <div class="candies_count_add">
-                                        <button type="button" id="plus">+</button>
+                                        <button type="button" class="plus">+</button>
                                         <input type="text" value="1" readonly>
-                                        <button type="button" id="minus">-</button>
+                                        <button type="button" class="minus">-</button>
                                     </div>
                                 </td>
                                 <td>59 DKK</td>
@@ -38,9 +38,9 @@
                                 <td>59 DKK</td>
                                 <td>
                                     <div class="candies_count_add">
-                                        <button type="button" id="plus">+</button>
+                                        <button type="button" class="plus">+</button>
                                         <input type="text" value="1" readonly>
-                                        <button type="button" id="minus">-</button>
+                                        <button type="button" class="minus">-</button>
                                     </div>
                                 </td>
                                 <td>59 DKK</td>
