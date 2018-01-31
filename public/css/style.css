@@ -77,7 +77,7 @@ button {
     transition: .3s ease;
 }
 
-.item:hover .overlay {
+.item_hover:hover .overlay {
     -webkit-transform: scale(1);
         transform: scale(1)
 }
@@ -95,8 +95,11 @@ button {
     -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
     padding: 5px;
-
+    text-shadow: 1px 1px 2px #000;
 }
+
+
+
 /*BACKGROUND COLORS AND HOVER*/
 .item.light_brown {
     background-color: #73492a;
@@ -189,6 +192,7 @@ button {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px #000;
 }
 
 .item.light > span {
@@ -681,3 +685,25 @@ button {
     cursor: pointer;
     margin-top: 50px;
 }
+
+.small_mix_item:focus,
+.mix_content_item:focus,
+.small_mix_item:active,
+.mix_content_item:active {
+    opacity: 0.7;
+}
+
+.small_mix_item:focus .overlay,
+.mix_content_item:focus .overlay,
+.small_mix_item:active .overlay,
+.mix_content_item:active .overlay  {
+    display: none;
+}
+
+
+.original_box_item:active .overlay,
+.original_box_item:focus .overlay {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+}
+
