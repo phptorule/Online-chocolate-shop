@@ -44,7 +44,7 @@
                                 <div class="mix_content_item_box d-sm-flex justify-content-sm-between">
                                     @foreach($row as $p)
                                         <div class="mix_content_part">
-                                            <a href="javascript:void(0);" class="mix_content_item hover_brown item white candi_item" data-title="{{ $p->name }}">
+                                            <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-title="{{ $p->name }}">
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
                                                 <div class="overlay">
                                                     <div class="overlay_text">
@@ -103,7 +103,7 @@
                                 <div class="mix_content_item_box d-sm-flex justify-content-sm-between">
                                     @if( ! empty($row->first()))
                                         <div class="small_mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item white candi_item" data-title="{{ $row->first()->name }}">
+                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-title="{{ $row->first()->name }}">
                                                 <img src="{{ ! empty($row->first()->image) ? '/storage/' . str_replace('public', '', $row->first()->image) : 'img/pic/cont6.png' }}" alt="img">
                                                 <div class="overlay">
                                                     <div class="overlay_text">
@@ -116,7 +116,7 @@
                                     @endif
                                     @if( count($row) >= 2 && ! empty($row->last()))
                                         <div class="mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item white candi_item" data-title="{{ $row->last()->name }}">
+                                            <a href="javascript:void(0);" class="small_mix_item item item_hover white candi_item" data-title="{{ $row->last()->name }}">
                                                 <img src="{{ ! empty($row->last()->image) ? '/storage/' . str_replace('public', '', $row->last()->image) : 'img/pic/cont6.png' }}" alt="img">
                                                 <div class="overlay">
                                                     <div class="overlay_text">
@@ -162,7 +162,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-md-6 text-center">
-                    <label class="item candies_count_img">
+                    <label class="item item_hover candies_count_img">
                         <input type="text">
                         <img src="{{ ! empty($category['vc']->image) ? '/storage/' . str_replace('public', '', $category['vc']->image) : ' img/pic/pic.png' }}" alt="img" />
                         <div class="overlay">
@@ -209,7 +209,7 @@
                         @foreach($row as $p)
                             <div class="col-md-4">
                                 <div class="original_box_wrap text-center">
-                                    <label class="original_box_item white item">
+                                    <label class="original_box_item original_box_item_active white item">
                                         <input type="text">
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay">
