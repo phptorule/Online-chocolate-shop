@@ -63,7 +63,8 @@ button {
     border-radius: 6px;
 }
 
-.overlay {
+.overlay,
+.overlay-active {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -72,14 +73,21 @@ button {
     width: 100%;
     height: 100%;
     border-radius:50%;
-    -webkit-transform:scale(0);
     -webkit-transition: .3s ease;
     transition: .3s ease;
 }
 
+.overlay {
+    -webkit-transform:scale(0);
+}
+
+.overlay-active {
+    opacity: 0;
+}
+
 .item_hover:hover .overlay {
     -webkit-transform: scale(1);
-        transform: scale(1)
+    transform: scale(1)
 }
 
 .overlay_text {
@@ -98,8 +106,51 @@ button {
     text-shadow: 1px 1px 2px #000;
 }
 
+.overlay-active .overlay_text {
+    text-transform: uppercase;
+    font-size: 30px;
+}
 
 
+.small_mix_item:focus .overlay-active,
+.mix_content_item:focus .overlay-active,
+.small_mix_item:active .overlay-active,
+.mix_content_item:active .overlay-active,
+.original_box_item_active:active .overlay-active,
+.original_box_item_active:focus .overlay-active{
+    background-color: red;
+    opacity: 0.7;
+}
+
+.small_mix_item:focus .overlay,
+.mix_content_item:focus .overlay,
+.small_mix_item:active .overlay,
+.mix_content_item:active .overlay,
+.original_box_item_active:active .overlay,
+.original_box_item_active:focus .overlay  {
+    display: none;
+}
+
+
+.original_box_item_active:active .overlay-active,
+.original_box_item_active:focus .overlay-active {
+    opacity: 1;
+}
+
+.original_box_item_active:active .overlay .overlay_text,
+.original_box_item_active:focus .overlay .overlay_text {
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.float_item:nth-child(odd) .small_mix_content_part{
+    float: left;
+}
+
+
+.float_item:nth-child(even) .small_mix_content_part{
+    float: right;
+}
 /*BACKGROUND COLORS AND HOVER*/
 .item.light_brown {
     background-color: #73492a;
@@ -255,6 +306,8 @@ button {
     font-size: 12px;
     line-height: 16px;
     text-align: center;
+    margin-right:auto; 
+    margin-left:auto; 
 }
 
 .mix_count {
@@ -686,30 +739,4 @@ button {
     margin-top: 50px;
 }
 
-.small_mix_item:focus,
-.mix_content_item:focus,
-.small_mix_item:active,
-.mix_content_item:active {
-    opacity: 0.7;
-}
-
-.small_mix_item:focus .overlay,
-.mix_content_item:focus .overlay,
-.small_mix_item:active .overlay,
-.mix_content_item:active .overlay  {
-    display: none;
-}
-
-
-.original_box_item_active:active .overlay,
-.original_box_item_active:focus .overlay {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-.original_box_item_active:active .overlay .overlay_text,
-.original_box_item_active:focus .overlay .overlay_text {
-    text-transform: uppercase;
-    font-size: 40px;
-}
 

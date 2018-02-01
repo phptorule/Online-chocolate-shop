@@ -39,14 +39,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="mix_content text-center">
-                            @foreach($product['mebfc']['product'] as $row)
-                                <div class="mix_content_item_box d-sm-flex justify-content-sm-between">
-                                    @foreach($row as $p)
+                        <div class="row">
+                            @foreach($product['mebfc']['product'] as $p)
+                            <div class="col-md-4">
+                                <div class="mix_content text-center">
+                                    <div class="mix_content_item_box">
                                         <div class="mix_content_part">
                                             <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-title="{{ $p->name }}">
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
-                                                
                                                 <div class="overlay" style="background-color: {{ $p->hover_color }}">
                                                     <div class="overlay_text">
                                                         @if($p->hover_check)
@@ -56,14 +56,15 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="overlay-active" style="background-color: {{ $p->active_effect }}"></div>
-
+                                                <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                    <div class="overlay_text"></div>
+                                                </div>
                                             </a>
                                             <h4 class="mix_content_item_caption">{{ $p->name }}</h4>
                                         </div>
-                                    @endforeach                                
+                                    </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -106,36 +107,29 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="mix_content text-center">
+                        <div class="row">
                             @foreach($product['mebfc2']['product'] as $row)
-                                <div class="mix_content_item_box d-sm-flex justify-content-sm-between">
-                                    @if( ! empty($row->first()))
+                            <div class="col-md-6 float_item clearfix">
+                                <div class="mix_content text-center">
+                                    <div class="mix_content_item_box">
                                         <div class="small_mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-title="{{ $row->first()->name }}">
-                                                <img src="{{ ! empty($row->first()->image) ? '/storage/' . str_replace('public', '', $row->first()->image) : 'img/pic/cont6.png' }}" alt="img">
+                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-title="{{ $row->name }}">
+                                                <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont6.png' }}" alt="img">
                                                 <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                                     <div class="overlay_text">
-                                                        {{ $row->first()->short_description }}
+                                                        {{ $row->short_description }}
                                                     </div>
                                                 </div>
-                                            </a>
-                                            <h4 class="small_mix_item_caption">{{ $row->first()->name }}</h4>
-                                        </div>
-                                    @endif
-                                    @if( count($row) >= 2 && ! empty($row->last()))
-                                        <div class="mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item item_hover white candi_item" data-title="{{ $row->last()->name }}">
-                                                <img src="{{ ! empty($row->last()->image) ? '/storage/' . str_replace('public', '', $row->last()->image) : 'img/pic/cont6.png' }}" alt="img">
-                                                <div class="overlay"  style="background-color: {{ $p->active_effect }}">
-                                                    <div class="overlay_text">
-                                                        {{ $row->last()->short_description }}
-                                                    </div>
+                                                <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                    <div class="overlay_text"></div>
                                                 </div>
                                             </a>
-                                            <h4 class="small_mix_item_caption">{{ $row->last()->name }}</h4>
+                                            <h4 class="small_mix_item_caption">{{ $row->name }}</h4>
                                         </div>
-                                    @endif    
-                                </div>                       
+                                    </div>                       
+                                
+                                </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -173,11 +167,6 @@
                     <label class="item item_hover candies_count_img">
                         <input type="text">
                         <img src="{{ ! empty($category['vc']->image) ? '/storage/' . str_replace('public', '', $category['vc']->image) : ' img/pic/pic.png' }}" alt="img" />
-                        <div class="overlay">
-                            <div class="overlay_text">
-                                {{ $category['vc']->short_description }}
-                            </div>
-                        </div>
                     </label>
                 </div>
                 <div class="col-md-6 text-center">
@@ -212,17 +201,21 @@
                         </div>
                     </div>
                     
-                    @foreach($product['70g']['product'] as $row)
                     <div class="row">
-                        @foreach($row as $p)
+                        @foreach($product['70g']['product'] as $p)
                             <div class="col-md-4">
                                 <div class="original_box_wrap text-center">
-                                    <label class="original_box_item original_box_item_active original_box_item_active white item">
+                                    <label class="original_box_item original_box_item_active item_hover original_box_item_active white item">
                                         <input type="text">
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                             <div class="overlay_text">
                                             {{ $p->short_description }}
+                                            </div>
+                                        </div>
+                                        <div class="overlay-active">
+                                            <div class="overlay_text">
+                                                LÆG I KURV
                                             </div>
                                         </div>
                                     </label>
@@ -234,7 +227,6 @@
                             </div>    
                         @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
         @endif
@@ -248,17 +240,21 @@
                             <p class="original_section_description">{{ $category['12g']->short_description }}</p>
                         </div>
                     </div>
-                    @foreach($product['12g']['product'] as $row)
                         <div class="row">
-                            @foreach($row as $p)
+                            @foreach($product['12g']['product'] as $p)
                                 <div class="col-md-4">
                                     <div class="original_box_wrap text-center">
-                                        <label class="original_box_item original_box_item_active white item">
+                                        <label class="original_box_item original_box_item_active item_hover white item">
                                             <input type="text">
                                             <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                             <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                 <div class="overlay_text">
                                                 {{ $p->short_description }}
+                                                </div>
+                                            </div>
+                                            <div class="overlay-active">
+                                                <div class="overlay_text">
+                                                    LÆG I KURV
                                                 </div>
                                             </div>
                                         </label>
@@ -270,7 +266,6 @@
                                 </div>    
                             @endforeach
                         </div>
-                    @endforeach
                 </div>
             </section>
         @endif
@@ -292,17 +287,21 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            @foreach($product['200g']['product'] as $row)
-                                <div class="row">    
-                                    @foreach($row as $p)
+                            <div class="row">    
+                                    @foreach($product['200g']['product'] as $p)
                                         <div class="col-md-6">
                                             <div class="packaging_box_wrap text-center">
-                                                <label class="packaging_box_item original_box_item_active white item">
+                                                <label class="packaging_box_item item_hover original_box_item_active white item">
                                                     <input type="text" />
                                                     <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position4.png' }}" alt="img" />
                                                     <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                         <div class="overlay_text">
                                                         {{ $p->short_description }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="overlay-active">
+                                                        <div class="overlay_text">
+                                                            LÆG I KURV
                                                         </div>
                                                     </div>
                                                 </label>
@@ -314,8 +313,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
                         <div class="col-md-5">
                             <img src="{{ ! empty($category['200g']->image) ? '/storage/' . str_replace('public/', '', $category['200g']->image) : 'img/pic/border.png' }}" alt="img" class="packaging_img" />
                         </div>
@@ -337,17 +335,21 @@
                                     </div>
                                 </div>
 
-                                @foreach($product['2000g']['product'] as $row)
-                                    <div class="row">
-                                        @foreach($row as $p)
+                                <div class="row">
+                                        @foreach($product['2000g']['product'] as $p)
                                             <div class="col-md-4">
                                                 <div class="original_box_wrap text-center">
-                                                    <label class="original_box_item original_box_item_active original_box_down white  item">
+                                                    <label class="original_box_item original_box_item_active item_hover original_box_down white  item">
                                                         <input type="text">
                                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position3.png' }}" alt="img">
                                                         <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                             <div class="overlay_text">
                                                                 {{ $p->short_description }} 
+                                                            </div>
+                                                        </div>
+                                                        <div class="overlay-active">
+                                                            <div class="overlay_text">
+                                                                LÆG I KURV
                                                             </div>
                                                         </div>
                                                     </label>
@@ -359,7 +361,6 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                @endforeach
                                
                             </div>
                         </div>
