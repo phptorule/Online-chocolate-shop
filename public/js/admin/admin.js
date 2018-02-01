@@ -111740,6 +111740,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -111751,6 +111784,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             product: {
                 name: "",
                 category_id: 0,
+                hover_check: false,
+                hover_img: "",
+                hover_color: "#ffffff",
+                hover_text: "",
                 price: 0.0,
                 description: "",
                 short_description: "",
@@ -112136,6 +112173,158 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "color" } }, [
+                  _vm._v("Hover effect")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "switch switch-3d switch-primary" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.hover_check,
+                            expression: "product.hover_check"
+                          }
+                        ],
+                        staticClass: "switch-input",
+                        attrs: { type: "checkbox", value: "true" },
+                        domProps: {
+                          checked: Array.isArray(_vm.product.hover_check)
+                            ? _vm._i(_vm.product.hover_check, "true") > -1
+                            : _vm.product.hover_check
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.product.hover_check,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = "true",
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.product.hover_check = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.product.hover_check = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.$set(_vm.product, "hover_check", $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "switch-label" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "switch-handle" })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                !_vm.product.hover_check
+                  ? _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Text")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.product.hover_text,
+                                expression: "product.hover_text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "hover_text",
+                              placeholder: "Hover text"
+                            },
+                            domProps: { value: _vm.product.hover_text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.product,
+                                  "hover_text",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.product.hover_color,
+                                expression: "product.hover_color"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "color" },
+                            domProps: { value: _vm.product.hover_color },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.product,
+                                  "hover_color",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.product.hover_check
+                  ? _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Image")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: { type: "file" },
+                            on: {
+                              change: function(e) {
+                                _vm.product.hover_img = e.target.files[0]
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
               _c(
                 "button",
                 {
@@ -112489,6 +112678,38 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -112976,6 +113197,158 @@ var render = function() {
                     }
                   })
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "color" } }, [
+                  _vm._v("Hover effect")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "switch switch-3d switch-primary" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.hover_check,
+                            expression: "product.hover_check"
+                          }
+                        ],
+                        staticClass: "switch-input",
+                        attrs: { type: "checkbox", value: "true" },
+                        domProps: {
+                          checked: Array.isArray(_vm.product.hover_check)
+                            ? _vm._i(_vm.product.hover_check, "true") > -1
+                            : _vm.product.hover_check
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.product.hover_check,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = "true",
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.product.hover_check = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.product.hover_check = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.$set(_vm.product, "hover_check", $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "switch-label" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "switch-handle" })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                !_vm.product.hover_check
+                  ? _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Text")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.product.hover_text,
+                                expression: "product.hover_text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "hover_text",
+                              placeholder: "Hover text"
+                            },
+                            domProps: { value: _vm.product.hover_text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.product,
+                                  "hover_text",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.product.hover_color,
+                                expression: "product.hover_color"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "color" },
+                            domProps: { value: _vm.product.hover_color },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.product,
+                                  "hover_color",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.product.hover_check
+                  ? _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "hover_text" } }, [
+                            _vm._v("Hover Image")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: { type: "file" },
+                            on: {
+                              change: function(e) {
+                                _vm.product.hover_img = e.target.files[0]
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _c(

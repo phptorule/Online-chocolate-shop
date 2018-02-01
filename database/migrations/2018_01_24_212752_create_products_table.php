@@ -23,6 +23,12 @@ class CreateProductsTable extends Migration
             $table->integer('position');
             $table->enum('status', ['active', 'deleted']);
             $table->string('active_effect');
+            
+            $table->string('hover_text');
+            $table->string('hover_img');
+            $table->boolean('hover_check');
+            $table->string('hover_color');
+
             $table->string('color');
             $table->string('image');
             $table->timestamps();

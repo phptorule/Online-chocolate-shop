@@ -69,6 +69,39 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="color">Hover effect</label>
+                                <div class="input-group">
+                                    <label class="switch switch-3d switch-primary">
+                                        <input type="checkbox" v-model="product.hover_check" class="switch-input" value="true" />
+                                        <span class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="card" v-if=" ! product.hover_check">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="hover_text">Hover Text</label>
+                                            <textarea class="form-control" v-model="product.hover_text" id="hover_text" placeholder="Hover text"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="hover_text">Hover Color</label>
+                                            <input type="color" class="form-control" v-model="product.hover_color" />
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="card" v-if="product.hover_check">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="hover_text">Hover Image</label>
+                                            <input type="file" @change="(e) => { product.hover_img = e.target.files[0]; }" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           
+
                             <button type="button" @click="addProduct()" class="btn btn-default">Add</button>
                         </form>
                     </div>
@@ -89,6 +122,10 @@ export default {
             product : {
                 name : "",
                 category_id : 0,
+                hover_check : false,
+                hover_img : "",
+                hover_color : "#ffffff",
+                hover_text : "",
                 price : 0.0,
                 description : "",
                 short_description : "",

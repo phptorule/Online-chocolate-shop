@@ -519,6 +519,10 @@ class ProductSeeder extends Seeder
                 $product->status = $p['status'];
                 $product->position = $p['position'];
                 $product->active_effect = '#ffffff';
+                $product->hover_text = "text";
+                $product->hover_img = "";
+                $product->hover_check = true;
+                $product->hover_color = "#ffffff";
                 $product->save();
             }
         }
