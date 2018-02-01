@@ -521,7 +521,7 @@ class ProductSeeder extends Seeder
                 $product->active_effect = '#ffffff';
                 $product->hover_text = "text";
                 $product->hover_img = "";
-                $product->hover_check = true;
+                $product->hover_check = false;
                 $product->hover_color = "#ffffff";
                 $product->save();
             }

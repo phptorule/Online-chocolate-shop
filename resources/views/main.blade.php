@@ -49,7 +49,7 @@
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
                                                 <div class="overlay" style="background-color: {{ $p->hover_color }}">
                                                     <div class="overlay_text">
-                                                        @if($p->hover_check)
+                                                        @if( ! $p->hover_check)
                                                             {{ $p->hover_text }}
                                                         @else
                                                             <img src="//placehold.it/250" alt="hover" />
