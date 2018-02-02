@@ -54,14 +54,14 @@ class ProductController extends Controller
             $product->hover_text = $request->hover_text ?  $request->hover_text : "";
             $product->hover_color = $request->hover_color ? $request->hover_color : "#ffffff";
         } else {
-            $product->hover_img = ! empty($request->hover_img) ? $request->hover_img->store("public/image") : "";
+            $product->hover_img = $request->hover_img instanceof UploadedFile ? $request->hover_img->store("public/image") : "";
         }
         
         if ($request->active_effect) {
             $product->active_effect = $request->active_effect ? $request->active_effect : '';
         }
 
-        if ( ! empty($request->tmp_image)) {
+        if ($request->tmp_image instanceof UploadedFile) {
             $product->image = $request->tmp_image->store("public/image");
         }
         $product->save();

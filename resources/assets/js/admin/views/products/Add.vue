@@ -147,6 +147,9 @@ export default {
     },
     methods : {
         addProduct() {
+
+            this.product.hover_check = this.product.hover_check ? 1 : 0;
+
             let fd = new FormData;
             for(let i in this.product) {
                 fd.append(i, this.product[i] ? this.product[i] : "" );

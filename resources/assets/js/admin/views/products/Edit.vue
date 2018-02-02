@@ -152,7 +152,7 @@ export default {
         editProduct() {
             
             this.product.hover_check = this.product.hover_check ? 1 : 0;
-
+            
             let fd = new FormData
             for(let i in this.product) {
                 fd.append(i, this.product[i]);

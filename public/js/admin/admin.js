@@ -111812,6 +111812,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     methods: {
         addProduct: function addProduct() {
+
+            this.product.hover_check = this.product.hover_check ? 1 : 0;
+
             var fd = new FormData();
             for (var i in this.product) {
                 fd.append(i, this.product[i] ? this.product[i] : "");
