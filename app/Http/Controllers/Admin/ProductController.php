@@ -21,10 +21,14 @@ class ProductController extends Controller
         $product->color = $request->color;
         $product->active_effect = $request->active_effect;
 
-        $product->hover_text = $request->hover_text ?  $request->hover_text : "";
-        $product->hover_img = ! empty($request->hover_img) ? $request->hover_img->store("public/image") : "";
         $product->hover_check = $request->hover_check ? true : false;
-        $product->hover_color = $request->hover_color ? $request->hover_color : "#ffffff";
+
+        if ($request->hover_check) {
+            $product->hover_text = $request->hover_text ?  $request->hover_text : "";
+            $product->hover_color = $request->hover_color ? $request->hover_color : "#ffffff";
+        } else {
+            $product->hover_img = ! empty($request->hover_img) ? $request->hover_img->store("public/image") : "";
+        }
 
         $product->image = ! empty( $request->image ) ? $request->image->store("public/image") : "";
         $product->save();
@@ -41,10 +45,14 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->color = $request->color;
 
-        $product->hover_text = $request->hover_text ?  $request->hover_text : "";
-        $product->hover_img = ! empty($request->hover_img) ? $request->hover_img->store("public/image") : "";
         $product->hover_check = $request->hover_check ? true : false;
-        $product->hover_color = $request->hover_color ? $request->hover_color : "#ffffff";
+
+        if ( ! $request->hover_check) {
+            $product->hover_text = $request->hover_text ?  $request->hover_text : "";
+            $product->hover_color = $request->hover_color ? $request->hover_color : "#ffffff";
+        } else {
+            $product->hover_img = ! empty($request->hover_img) ? $request->hover_img->store("public/image") : "";
+        }
         
         if ($request->active_effect) {
             $product->active_effect = $request->active_effect ? $request->active_effect : '';

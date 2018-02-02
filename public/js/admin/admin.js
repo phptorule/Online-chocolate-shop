@@ -63188,7 +63188,7 @@ var routes = [{
     component: __WEBPACK_IMPORTED_MODULE_3__views_Dashboard___default.a
   }, {
     path: '/products',
-    redirect: '/pages/404',
+    redirect: '/products/list',
     name: 'Products',
     component: {
       render: function render(c) {
@@ -63210,7 +63210,7 @@ var routes = [{
     }]
   }, {
     path: '/category',
-    redirect: '/pages/404',
+    redirect: '/category/list',
     name: 'Category',
     component: {
       render: function render(c) {
@@ -112460,6 +112460,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -112539,10 +112540,12 @@ var render = function() {
                                 },
                                 [
                                   _c(
-                                    "a",
+                                    "router-link",
                                     {
                                       staticClass: "btn btn-primary",
-                                      attrs: { href: "#/products/edit/" + p.id }
+                                      attrs: {
+                                        to: { path: "/products/edit/" + p.id }
+                                      }
                                     },
                                     [_vm._v("Edit")]
                                   ),
@@ -112560,7 +112563,8 @@ var render = function() {
                                     },
                                     [_vm._v("Delete")]
                                   )
-                                ]
+                                ],
+                                1
                               )
                             ])
                           ])
@@ -112809,7 +112813,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 status: "active",
                 image: false,
                 color: "#ffffff",
-                tmp_image: false
+                tmp_image: false,
+                hover_img: false
             }
         };
     },
@@ -112828,8 +112833,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.product = response.data;
             });
         },
-        eidtProduct: function eidtProduct() {
+        editProduct: function editProduct() {
             var _this = this;
+
+            this.product.hover_check = this.product.hover_check ? 1 : 0;
 
             var fd = new FormData();
             for (var i in this.product) {
@@ -113358,7 +113365,7 @@ var render = function() {
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
-                      _vm.eidtProduct()
+                      _vm.editProduct()
                     }
                   }
                 },

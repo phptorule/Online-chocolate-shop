@@ -47,12 +47,12 @@
                                         <div class="mix_content_part">
                                             <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-title="{{ $p->name }}">
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
-                                                <div class="overlay" style="background-color: {{ $p->hover_color }}">
+                                                <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
                                                     <div class="overlay_text">
                                                         @if( ! $p->hover_check)
                                                             {{ $p->hover_text }}
                                                         @else
-                                                            <img src="//placehold.it/250" alt="hover" />
+                                                            <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $p->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
                                                         @endif
                                                     </div>
                                                 </div>

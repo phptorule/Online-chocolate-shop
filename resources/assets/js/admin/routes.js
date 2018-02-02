@@ -61,7 +61,7 @@ let routes = [
         },
         {
           path: '/products',
-          redirect: '/pages/404',
+          redirect: '/products/list',
           name: 'Products',
           component: {
             render (c) { return c('router-view') }
@@ -86,7 +86,7 @@ let routes = [
         },
         {
           path: '/category',
-          redirect: '/pages/404',
+          redirect: '/category/list',
           name: 'Category',
           component: {
             render (c) { return c('router-view') }

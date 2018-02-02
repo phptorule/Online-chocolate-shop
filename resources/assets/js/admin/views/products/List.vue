@@ -28,7 +28,8 @@
                                         <td>{{ p.status }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a :href="'#/products/edit/' + p.id" class="btn btn-primary">Edit</a>
+                                                <router-link class="btn btn-primary" :to="{ path: '/products/edit/' + p.id}">Edit</router-link>
+                                                <!-- <a :href="'#/products/edit/' + p.id" class="btn btn-primary">Edit</a> -->
                                                 <button type="button" @click="deleteProduct(p.id)" class="btn btn-danger">Delete</button>
                                             </div>
                                         </td>

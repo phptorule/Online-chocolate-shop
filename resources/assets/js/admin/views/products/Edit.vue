@@ -102,7 +102,7 @@
                                 
                             </div>
 
-                            <button type="button" @click="eidtProduct()" class="btn btn-default">Update</button>
+                            <button type="button" @click="editProduct()" class="btn btn-default">Update</button>
                         </form>
                     </div>
                 </div>
@@ -129,7 +129,8 @@ export default {
                 status : "active",
                 image : false,
                 color : "#ffffff",
-                tmp_image: false
+                tmp_image: false,
+                hover_img : false
             }
         }
     },
@@ -148,8 +149,10 @@ export default {
                     self.product = response.data;
                 });
         },
-        eidtProduct() {
+        editProduct() {
             
+            this.product.hover_check = this.product.hover_check ? 1 : 0;
+
             let fd = new FormData
             for(let i in this.product) {
                 fd.append(i, this.product[i]);
