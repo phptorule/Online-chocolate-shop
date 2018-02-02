@@ -13,7 +13,7 @@
                                     <tr>
                                         <th>#</td>
                                         <th>Name</th>
-                                        <th>Short description</th>
+                                        <th>Category</th>
                                         <th>Price</td>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -23,7 +23,7 @@
                                     <tr v-if="products.length" v-for="p in products" v-bind:key="p.id">
                                         <td>{{ p.id }}</td>
                                         <td>{{ p.name }}</td>
-                                        <td>{{ p.short_description }}</td>
+                                        <td>{{ p.category.name }}</td>
                                         <td>{{ p.price }}</td>
                                         <td>{{ p.status }}</td>
                                         <td>

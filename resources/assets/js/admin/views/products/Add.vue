@@ -30,7 +30,7 @@
                                 <input type="price" v-model="product.price" class="form-control" id="price" placeholder="Price" />
                             </div>
                             
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea class="form-control" v-model="product.description" id="description" placeholder="Description"></textarea>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label for="short_description">Short Description</label>
                                 <textarea class="form-control" v-model="product.short_description" id="short_description" placeholder="Short Description"></textarea>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label for="position">Position</label>
@@ -53,13 +53,13 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="color">Color</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"></div>
                                     <input type="color" class="form-control" v-model="product.color" />
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label for="color">Active effect</label>
@@ -132,7 +132,10 @@ export default {
                 position : 0,
                 status : "active",
                 color : "#ffffff",
-                image : false
+                image : false,
+                tmp_image: false,
+                hover_img : false,
+                hover_text : ""
             }
         }
     },

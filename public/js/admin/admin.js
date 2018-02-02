@@ -111660,6 +111660,8 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -111779,9 +111781,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
+        var _product;
+
         return {
             category: [],
-            product: {
+            product: (_product = {
                 name: "",
                 category_id: 0,
                 hover_check: false,
@@ -111794,8 +111798,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 position: 0,
                 status: "active",
                 color: "#ffffff",
-                image: false
-            }
+                image: false,
+                tmp_image: false
+            }, _defineProperty(_product, "hover_img", false), _defineProperty(_product, "hover_text", ""), _product)
         };
     },
 
@@ -111965,69 +111970,6 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.description,
-                      expression: "product.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "description", placeholder: "Description" },
-                  domProps: { value: _vm.product.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "description", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "short_description" } }, [
-                  _vm._v("Short Description")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.short_description,
-                      expression: "product.short_description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "short_description",
-                    placeholder: "Short Description"
-                  },
-                  domProps: { value: _vm.product.short_description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.product,
-                        "short_description",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "position" } }, [
                   _vm._v("Position")
                 ]),
@@ -112105,36 +112047,6 @@ var render = function() {
                     ])
                   ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [_vm._v("Color")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("div", { staticClass: "input-group-addon" }),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.color,
-                        expression: "product.color"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "color" },
-                    domProps: { value: _vm.product.color },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.product, "color", $event.target.value)
-                      }
-                    }
-                  })
-                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
@@ -112522,7 +112434,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(p.name))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(p.short_description))]),
+                            _c("td", [_vm._v(_vm._s(p.category.name))]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(p.price))]),
                             _vm._v(" "),
@@ -112608,7 +112520,7 @@ var staticRenderFns = [
         _c("th", [_vm._v("#")]),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Short description")]),
+        _c("th", [_vm._v("Category")]),
         _vm._v(" "),
         _c("th", [_vm._v("Price")]),
         _c("th", [_vm._v("Status")]),
@@ -112869,7 +112781,9 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("\n                   Edit Products\n                ")
+            _vm._v(
+              "\n                       Edit Products\n                    "
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -112998,69 +112912,6 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.description,
-                      expression: "product.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "description", placeholder: "Description" },
-                  domProps: { value: _vm.product.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "description", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "short_description" } }, [
-                  _vm._v("Short Description")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.short_description,
-                      expression: "product.short_description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "short_description",
-                    placeholder: "Short Description"
-                  },
-                  domProps: { value: _vm.product.short_description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.product,
-                        "short_description",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "position" } }, [
                   _vm._v("Position")
                 ]),
@@ -113138,36 +112989,6 @@ var render = function() {
                     ])
                   ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [_vm._v("Color")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("div", { staticClass: "input-group-addon" }),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.color,
-                        expression: "product.color"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "color" },
-                    domProps: { value: _vm.product.color },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.product, "color", $event.target.value)
-                      }
-                    }
-                  })
-                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
