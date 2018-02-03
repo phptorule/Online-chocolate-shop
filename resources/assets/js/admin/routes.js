@@ -38,6 +38,9 @@ import ListCategory from './views/category/List';
 import EditCategory from './views/category/Edit';
 
 
+// Order
+import ListOrders from './views/order/List';
+
 Vue.use(VueRouter)
 
 let routes = [
@@ -101,6 +104,21 @@ let routes = [
               path : 'edit/:id',
               name : 'Edit Category',
               component : EditCategory
+            }
+          ]
+        },
+        {
+          path: '/order',
+          redirect: '/order/list',
+          name: 'Order',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path : 'list',
+              name : 'List orders',
+              component : ListOrders
             }
           ]
         }

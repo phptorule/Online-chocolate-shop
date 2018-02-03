@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -20,10 +22,11 @@
         @include('layouts.header')
         @yield('content')
         @include('layouts.footer')
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('libs/PageScroll2id/PageScroll2id.min.js') }}"></script>
-        <script src="{{ asset('js/common.js') }}"></script>    
+        <script src="{{ asset('js/common.js') }}"></script>
+        @stack('js')
     </body>
 </html>

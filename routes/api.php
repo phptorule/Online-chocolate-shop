@@ -33,3 +33,7 @@ Route::prefix('category')->namespace('Admin')->group(function() {
     Route::delete('delete/{id}', 'CategoryController@delete');
 });
 
+Route::prefix('order')->namespace('Admin')->group(function() {
+    Route::get('get', 'OrderController@get');
+});
+

@@ -12,45 +12,128 @@
                 <form>
                     <div class="table-responsive">
                         <table class="table table_cart">
-                            <tr class="header_row">
-                                <th></th>
-                                <th>VARER</th>
-                                <th>PRIS</th>
-                                <th>ANTAL</th>
-                                <th>I ALT</th>
-                            </tr>
-                            <tr>
-                                <td><img src="/storage/image/pic_1.png" alt="img"></td>
-                                <td>EDEL WEISS 40% 70 g. bar</td>
-                                <td>59 DKK</td>
-                                <td>
-                                    <div class="candies_count_add">
-                                        <button type="button" class="plus">+</button>
-                                        <input type="text" value="1" readonly>
-                                        <button type="button" class="minus">-</button>
-                                    </div>
-                                </td>
-                                <td>59 DKK</td>
-                            </tr>
-                            <tr>
-                                <td><img src="/storage/image/pic_1.png" alt="img"></td>
-                                <td>EDEL WEISS 40% 70 g. bar</td>
-                                <td>59 DKK</td>
-                                <td>
-                                    <div class="candies_count_add">
-                                        <button type="button" class="plus">+</button>
-                                        <input type="text" value="1" readonly>
-                                        <button type="button" class="minus">-</button>
-                                    </div>
-                                </td>
-                                <td>59 DKK</td>
-                            </tr>
+                            <thead>
+                                <tr class="header_row">
+                                    <th></th>
+                                    <th>VARER</th>
+                                    <th>PRIS</th>
+                                    <th>ANTAL</th>
+                                    <th>I ALT</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartList"></tbody>
                         </table>
                         </div>
                     </div>
-                    <button type="submit" class="mix_count_butt butt">CHECK UD</button>
+                    <button type="button" class="mix_count_butt butt" id="orderCreate">CHECK UD</button>
                 </form>
             </div>
         </div>
     </section>
 @endsection
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            getCart();
+
+            $(document).on( 'click', '.plus', function() {
+                var count = $(this).parent().find('input').val() * 1,
+                    price = $(this).data('price');
+                
+                count = count + 1;                    
+
+                $(this).parent().find('input').val(count);
+                $(this).closest("tr").find(".count").text((count * price) + " DKK");
+            });
+
+            $(document).on('click', '.minus', function() {
+                var count = $(this).parent().find('input').val() * 1,
+                    price = $(this).data('price');
+                
+                count = count - 1;                    
+                if (count) {
+                    $(this).parent().find('input').val(count);
+                    $(this).closest("tr").find(".count").text((count * price) + " DKK");
+                }
+            });
+
+            $(document).on('click', '.remove-cart-item', function() {
+                cart.removeProduct($(this).data('id'));
+                window.location.reload();
+            });
+
+            $('#orderCreate').click(function() {
+                orderCreate();
+            })
+        });
+
+        function orderCreate() {
+            $.ajax({
+                url : "/createOrder",
+                method : "post",
+                data : {
+                    _token : $("meta[name='csrf-token']").attr('content'),
+                    cart : cart.getCart()
+                },
+                success : function(data) {
+                    cart.selfDestruction();
+                    
+                    setTimeout(function(){
+                        window.location.href = "/";
+                    }, 1500);
+                }
+            });
+        }
+
+        function getCart() {
+            $.ajax({
+                url : "/getCart",
+                method: "post",
+                data : {
+                    _token : $("meta[name='csrf-token']").attr('content'),
+                    cart : cart.getCart()
+                },
+                success : function(data) {
+                    printCart(data);
+                }
+            });
+        }
+
+        function printCart(data) {
+            var content = "";
+            for(var i in data) {
+                content += "<tr>";
+                content += "<td><img src='/storage/" + data[i].image.replace('public', '') + "' alt='img' /></td>";
+                content += "<td>" + data[i].name + "</td>";            
+                content += "<td>" + data[i].price + " DKK</td>";                                    
+                content += "<td>";
+                content += "<div class='candies_count_add'>";                            
+                content += "<button type='button' data-price='" + data[i].price + "' class='plus'>+</button>";
+                content += "<input type='text' value='" + getCountById(data[i].id) + "' readonly>";                                
+                content += "<button type='button' data-price='" + data[i].price + "' class='minus'>-</button>";
+                content += "</div>";
+                content += "</td>";
+                content += "<td class='count'>" + ( getCountById(data[i].id) ? data[i].price * getCountById(data[i].id) : data[i].price ) + " DKK</td>";
+                content += "<td>";
+                content += "<i class='fa fa-trash remove-cart-item' data-id='" + data[i].id + "'></i>";
+                content += "</td>";
+                content += "</tr>";
+            }
+            
+            $("#cartList").html(content);
+        }
+
+        function getCountById(product_id) {
+            var cart = JSON.parse(localStorage.getItem("_cart"));
+            for(var i in cart) {
+                var item = cart[i];
+                if(item.product_id * 1 == product_id) {
+                    return item.count;
+                }
+            }
+            return 0;
+        }
+    </script>
+@endpush

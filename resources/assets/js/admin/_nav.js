@@ -36,6 +36,18 @@ export default {
           icon: 'fa fa-th-large'
         }
       ]
+    },
+    {
+      name: 'Order',
+      url: '/orders',
+      icon: 'fa fa-users',
+      children : [
+        {
+          name : "List orders",
+          url : '/order/list',
+          icon : 'fa fa-user'
+        }
+      ]
     }
   ]
 }

@@ -45,7 +45,7 @@
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
                                         <div class="mix_content_part">
-                                            <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-title="{{ $p->name }}">
+                                            <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-box="candies" data-title="{{ $p->name }}" data-id="{{ $p->id }}">
                                                 <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
                                                 <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
                                                     <div class="overlay_text">
@@ -86,7 +86,7 @@
                                 <p>11.  <span></span></p>
                                 <p>12.  <span></span></p>
                             </div>
-                            <a href="#" class="mix_count_butt butt">LÆG I KURV</a>
+                            <a href="javascript:;" data-box="candies"  class="mix_count_butt butt add_to_card">LÆG I KURV</a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
                                         <div class="small_mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-title="{{ $row->name }}">
+                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-box="candle" data-title="{{ $row->name }}" data-id="{{ $row->id }}">
                                                 <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont6.png' }}" alt="img">
                                                 <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                                     <div class="overlay_text">
@@ -145,7 +145,7 @@
                                 <p>5.   <span></span></p>
                                 <p>6.   <span></span></p>
                             </div>
-                            <a href="#" class="mix_count_butt butt">LÆG I KURV</a>
+                            <a href="javascript:void(0);" data-box="candle" class="mix_count_butt butt add_to_card">LÆG I KURV</a>
                         </div>
                     </div>
                 </div>

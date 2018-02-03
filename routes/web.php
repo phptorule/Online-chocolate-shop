@@ -24,3 +24,6 @@ Route::get('/cart', function() {
 Route::get('/signup', function() {
     return view('signup');
 });
+
+Route::post('/getCart', 'CartController@get');
+Route::post('/createOrder', 'Admin\OrderController@create');
