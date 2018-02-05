@@ -21,9 +21,12 @@ Route::get('/cart', function() {
     return view('cart');
 });
 
+Route::get('/search', 'MainController@search');
+
 Route::get('/signup', function() {
     return view('signup');
 });
 
 Route::post('/getCart', 'CartController@get');
 Route::post('/createOrder', 'Admin\OrderController@create');
+Route::post('/searchProduct', 'MainController@searchAjax');

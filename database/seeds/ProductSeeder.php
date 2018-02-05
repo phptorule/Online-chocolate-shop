@@ -511,7 +511,7 @@ class ProductSeeder extends Seeder
                 $product = new Product;
                 $product->category_id = $category->id;
                 $product->name = $p['name'];
-                $product->price = $p['price'];
+                $product->price = 100;
                 $product->description = $p['description'];
                 $product->short_description = $p['short_description'];
                 $product->image = $p['image'];

@@ -17,4 +17,13 @@ class MainController extends Controller
             'product' => $product
         ]);
     }
+
+    public function search(Request $request) {
+        return view("search");
+    }
+
+    public function searchAjax(Request $request) {
+        $query = $request->input("query");
+        return Product::where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->limit(10)->get();
+    }
 }
