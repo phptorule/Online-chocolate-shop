@@ -54,6 +54,8 @@ button {
     border: 1px solid #73492a;
     color: #73492a;
     text-transform: uppercase;
+    background: transparent;
+    cursor: pointer;
 }
 
 .butt:hover {
@@ -649,7 +651,9 @@ button {
     margin-bottom: 10px;
 }
 
-.signup_form_wrapper input {
+.signup_form_wrapper input,
+.check_out_wrapper .input_form,
+.create_box .input_form  {
     margin-bottom: 55px;
     background-color: transparent;
     max-width: 250px;
@@ -739,4 +743,247 @@ button {
     margin-top: 50px;
 }
 
+.check_out {
+    padding: 78px 0 95px;
+}
 
+.check_out .h2_caption {
+    margin-bottom: 75px;
+}
+
+.check_out_wrapper {
+    max-width: 515px;
+    width: 100%;
+    margin: 0 auto 80px;
+}
+
+.check_out_wrapper {
+    font-family: "CamboRegular";
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 10px;
+}
+
+.check_out_wrapper label {
+    display: block;
+}
+
+.check_out_wrapper label > span {
+    font-size: 9px;
+}
+.check_out_wrapper .input_form,
+.create_box .input_form {
+   max-width: 100%;
+}
+
+.check_out_wrapper .form-row .col:nth-child(odd){
+    padding-right: 20px;
+}
+
+.check_out_wrapper .form-row .col:nth-child(even){
+    padding-left: 20px;
+}
+
+.form_row_wrapper {
+    margin-bottom: 40px;
+}
+
+.form_row_caption {
+    font-family: "CicleFina";
+    font-size: 30px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.create {
+    padding: 110px 0 150px;
+}
+
+.create .h2_caption {
+    margin-bottom: 43px;
+}
+
+.create_text {
+    font-family: "CooperHewittLight";
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+.create_box {
+    padding-top: 20px;
+}
+
+.create_box_row .input_form {
+    margin-bottom: 20px;
+}
+
+.create_box_row textarea {
+    background-color: transparent;
+    width: 100%;
+    padding: 0 15px;
+    color:#73492a;
+    border: 1px solid #73492a;
+    outline: none;
+    min-height: 152px;
+}
+
+.create_box_row.long_label label{
+    display: block;
+    margin-top: -25px;
+}
+
+.create_box_row_butt {
+    padding-top: 40px;
+}
+
+.terms {
+    padding: 75px 0 150px;
+}
+
+.h2_small_caption {
+    font-family: "CooperHewittHeavy";
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+}
+
+.terms_box {
+    max-width: 820px;
+    width: 100%;
+    margin:0 auto 55px;
+    text-align: center;
+}
+
+.terms_box .terms_box_caption {
+    font-family: "CicleFina";
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.terms_box p {
+    font-family: "CooperHewittLight";
+    font-size: 15px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.payment,
+.payment_info {
+    padding: 75px 0 150px;
+}
+
+.payment .h2_caption,
+.payment_info .h2_caption {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.payment_info_box {
+    margin-bottom: 100px;
+}
+
+.payment_info_box_item_caption {
+    display: block;
+    font-family: "CicleFina";
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.table thead th {
+    border-bottom: none;
+}
+
+.form_check {
+    padding: 140px 0 40px;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form_check span {
+    font-family: "CooperHewittLight";
+    font-size: 14px;
+}
+
+.form_check_row {
+    margin-bottom: 16px;
+}
+
+.form_check_row span > a {
+    color:#73492a;
+    text-decoration: underline;
+}
+
+.form_check_row span > a:hover {
+    text-decoration: none;
+}
+
+.check_row_label {
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.check_row_label input {
+    display: none;
+}
+
+.check_row_label > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.check_row_label input + span {
+    position: relative;
+}
+
+.check_row_label input + span:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #73492a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+}
+
+.check_row_label input:checked + span:after {
+    opacity: 0.8;
+}
+
+.check_row_label_im {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #fff;
+    -webkit-box-shadow: 6px 6px 20px -6px rgba(0, 0, 0, 0.65) inset;
+            box-shadow: 6px 6px 20px -6px rgba(0, 0, 0, 0.65) inset;
+}
+
+.header_social_lang {
+    position: absolute;
+    top:10px;
+    right: 15px;
+}
+
+.header_social_lang_box {
+    display: inline-block;
+    vertical-align: middle;
+    color:#73492a;
+    text-decoration: none;
+}
+
+.header_social_lang_box:hover {
+    color:#73492a;
+    text-decoration: none;
+}

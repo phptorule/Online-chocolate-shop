@@ -6,13 +6,23 @@
                 <div class="header_nav d-sm-flex align-items-sm-center justify-content-sm-between">
                     <div class="header_nav_icon">
                         <a href="javascript:void()">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 9 50 32" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 40px; height: 40px; fill: #734A2B"><g><path d="M50,37 v4 h-50 v-4 h50z"></path><path d="M50,9 v4 h-50 v-4 h50z"></path><path d="M50,23 v4 h-50 v-4 h50z"></path></g></svg>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 9 50 32" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 45px; height: 45px; fill: #734A2B"><g><path d="M50,37 v4 h-50 v-4 h50z"></path><path d="M50,9 v4 h-50 v-4 h50z"></path><path d="M50,23 v4 h-50 v-4 h50z"></path></g></svg>
                         </a>
                     </div>
                     <div class="header_logo">
                         <img src="img/pic/logo.png" alt="img">
                     </div>
                     <div class="header_social">
+                        <div class="header_social_lang">
+                            <a href="javascript:void(0);" class="header_social_lang_box">
+                                <img src="img/pic/norway.png" alt="">
+                                <span>NO</span>
+                            </a>
+                            <a href="javascript:void(0);" class="header_social_lang_box">
+                                <img src="img/pic/usa.png" alt="">
+                                <span>EN</span>
+                            </a>
+                        </div>
                         <a href="{{ url('search') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0.39999961853027344 0 199.1125946044922 199.90000915527344" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 21px; height: 21px; fill: #734A2B;">
                                 <g>
