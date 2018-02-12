@@ -987,17 +987,3 @@ button {
     color:#73492a;
     text-decoration: none;
 }
-
-.header_social_lang + a {
-    margin-top: 7px;
-    margin-right: 4px;
-}
-
-.h2_caption > span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.h2_caption > span:last-child {
-    margin-top: 8px;
-}
