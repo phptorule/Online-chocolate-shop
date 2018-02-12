@@ -27,6 +27,26 @@ Route::get('/signup', function() {
     return view('signup');
 });
 
+Route::get('/check-out', function() {
+    return view('check-out');
+});
+
+Route::get('/create', function() {
+    return view('create');
+});
+
+Route::get('/payment', function() {
+    return view('payment');
+});
+
+Route::get('/payment-info', function() {
+    return view('payment-info');
+});
+
+Route::get('/terms', function() {
+    return view('terms');
+});
+
 Route::post('/getCart', 'CartController@get');
 Route::post('/createOrder', 'Admin\OrderController@create');
 Route::post('/searchProduct', 'MainController@searchAjax');
