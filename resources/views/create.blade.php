@@ -6,9 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="h2_caption text-left">OPRET DIG SOM ENGRO KUNDE</h2>
+                <h2 class="h2_caption text-left">OPRET DIG SOM ENGROKUNDE</h2>
                 <p class="create_text">For at blive godkendt som engroskunde hos os, <br> skal I udfylde nedestående formular. </p>
-                <p class="create_text">I får besked pr. mail, når vi har behandlet ansøgningen. <br> Behandlingstid op til 5 hverdage</p>
+                <p class="create_text">I får besked pr. mail, når vi har behandlet ansøgningen. <br> Behandlingstid op til 5 hverdage !</p>
             </div>
         </div>
         <div class="row">
@@ -34,7 +34,7 @@
                                             <input type="text" id="telephone" name="telephone" class="input_form">
                                         </div>
                                         <div class="create_box_row">
-                                            <label for="telephone">E-MAIL*</label>
+                                            <label for="telephone">E-MAIL</label>
                                             <input type="text" id="telephone" name="telephone" class="input_form">
                                         </div>
                                     </div>
