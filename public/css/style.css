@@ -983,6 +983,11 @@ button {
     text-decoration: none;
 }
 
+.header_social_lang + a {
+    margin-right: 6px;
+    margin-top: 7px;
+}
+
 .header_social_lang_box:hover {
     color:#73492a;
     text-decoration: none;
