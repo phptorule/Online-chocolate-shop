@@ -6,8 +6,10 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1199px) {
-	
-}
+	.create_box_row.long_label label{
+		margin-top: 0;
+	}
+}	
 
 @media only screen and (max-width : 991px) {
 	.signup {
@@ -33,6 +35,10 @@
 
 	.signup_img {
 		margin-top: 0;
+	}
+
+	.create .h2_caption {
+		text-align: center !important;
 	}
 }
 
@@ -159,6 +165,14 @@
 
 	.header_social {
 		text-align: right;
+	}
+
+	.form_check span {
+		font-size: 11px;
+	}
+
+	.check_row_label_im {
+		margin-right: 5px;
 	}
 }
 
