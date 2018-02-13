@@ -506,7 +506,7 @@ class ProductSeeder extends Seeder
         ];
 
         Product::truncate();
-        Translate::truncate();
+        
 
         $langs = Lang::get()->keyBy('code');
 

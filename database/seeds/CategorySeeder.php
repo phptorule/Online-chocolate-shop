@@ -151,7 +151,7 @@ class CategorySeeder extends Seeder
         ];
         
         Category::truncate();
-        
+        Translate::truncate();
         $langs = Lang::get()->keyBy('code');
 
         foreach($categories as $c) {
