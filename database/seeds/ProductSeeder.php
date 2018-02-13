@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Category;
 use App\Product;
+use App\Translate;
+use App\Lang;
 
 class ProductSeeder extends Seeder
 {
@@ -504,6 +506,9 @@ class ProductSeeder extends Seeder
         ];
 
         Product::truncate();
+        Translate::truncate();
+
+        $langs = Lang::get()->keyBy('code');
 
         foreach($products as $code => $c) {
             $category = Category::where('code', $code)->first();
@@ -524,6 +529,15 @@ class ProductSeeder extends Seeder
                 $product->hover_check = false;
                 $product->hover_color = "#ffffff";
                 $product->save();
+
+                foreach(['en', 'no'] as $code) {
+                    Translate::create([
+                        'table' => 'products',
+                        'table_id' => $product->id,
+                        'langs_id' => $langs[$code]->id,
+                        'transalte' => json_encode(['name' => $p['name'], 'description' => $p['description'], 'short_description' => $p['short_description']])
+                    ]);
+                }
             }
         }
     }

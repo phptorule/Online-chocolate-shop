@@ -22,7 +22,9 @@
                                 <tbody>
                                     <tr v-if="products.length" v-for="p in products" v-bind:key="p.id">
                                         <td>{{ p.id }}</td>
-                                        <td>{{ p.name }}</td>
+                                        <td>
+                                            <span v-for="t in p.translate" v-bind:key="t.id"><span class="badge badge-secondary">{{ t.lang.name }}</span> : {{ t.translate.name }} </span>
+                                        </td>
                                         <td>{{ p.category.name }}</td>
                                         <td>{{ p.price }}</td>
                                         <td>{{ p.status }}</td>

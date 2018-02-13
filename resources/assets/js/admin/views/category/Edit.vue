@@ -7,12 +7,27 @@
                         Edit Category
                     </div>
                     <div class="card-body">
-                        <form novalidate>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" v-model="category.name" class="form-control" id="name" placeholder="Name" />
+                        
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item" v-for="l in langs" :key="l.id">
+                                <a class="nav-link" @click="changeLange(l.id)" :class="{'active' : l.default}">{{ l.name }}</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane fade show" :class="{'active' : l.default}" v-for="l in langs" :key="l.id" >
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].name" class="form-control" placeholder="Name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Short description</label>
+                                    <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].short_description" class="form-control" placeholder="Short Description" />
+                                </div>
                             </div>
+                        </div>
 
+                        <form novalidate>
                             <div class="form-group">
                                 <label for="code">Code</label>
                                 <input type="text" disabled readonly v-model="category.code" class="form-control" id="code" placeholder="Code" />
@@ -27,11 +42,6 @@
                                 <label for="code">Image</label>
                                 <input type="file" @change="(e) => { category.tmp_image = e.target.files[0]; }" />
                                 <img class="img-fluid" v-if="category.image" :src="'/storage/' + category.image.replace('public', '')" alt="Image" />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="code">Short description</label>
-                                <textarea type="text" v-model="category.short_description" class="form-control" id="description" placeholder="Description"></textarea>
                             </div>
 
                             <div class="form-group" v-if=" ! (['70g', '12g', '200g', '2000g'].indexOf(category.code) + 1)">
@@ -55,28 +65,83 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            category : {}
+            langs : [],
+            category : {
+                name : "",
+                code : "",
+                position : 0,
+                image : "",
+                short_description : "",
+                color : "",
+                translate : {}
+            }
         }
     },
     name: 'EditCategory',
     mounted() {
+        this.getLangs();
         this.getCategory();
     },
     methods : {
+         changeLange(id) {
+            this.langs = this.langs.map((l) => {
+                l.default = l.id == id ? true : false;
+                return l; 
+            });
+        },
+        convert(obj) {
+            for(var o in obj) {
+                if (obj[o] * 1) {
+                    obj[o] = obj[o] * 1;
+                }
+            }
+            return obj;
+        },
+        getLangs() {
+            let self = this;
+            axios.get('/api/langs/get')
+                .then((res) => {
+                   self.langs = res.data;
+                });
+        },
         getCategory() {
             let self = this;
             axios.get('/api/category/get/' + this.$route.params.id)
                 .then((response) => {
-                    self.category = response.data;
+                    
+                    self.category.translate = {};
+                    self.langs.map(function(l) {
+                       self.category.translate[l.code] = {};
+                    });
+
+                     if (response.data.translate) {                         
+                        for(let i in response.data.translate) {
+                            self.category.translate[response.data.translate[i].lang.code] = response.data.translate[i].translate;
+                        }
+                    }
+
+                    self.category.id = response.data.id;
+                    self.category.code = response.data.code;
+                    self.category.position = response.data.position;
+                    self.category.image = response.data.image;
+                    self.category.color = response.data.color;
                 });
         },
         eidtCategory() {
+            let convertedField = [
+                'translate'
+            ];
 
-            let fd = new FormData
+            let fd = new FormData;
+
             for(let i in this.category) {
+                if (convertedField.indexOf(i) + 1) {
+                    fd.append(i, JSON.stringify(this.category[i]));
+                    continue;
+                }
                 fd.append(i, this.category[i]);
             }
-            
+
             axios.post('/api/category/edit', fd)
                 .then((response) => {
                     this.$router.push('/category/list');

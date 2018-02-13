@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                 <h2 class="h2_caption text-center">
-                    <span>INKØBSKURV</span>
-                    <img src="img/pic/cart.png" alt="cart">
+                    <span>{{ __('cart.cart') }}</span>
+                    <img src="/img/pic/cart.png" alt="cart">
                 </h2>
                 <form>
                     <div class="table-responsive">
@@ -15,10 +15,10 @@
                             <thead>
                                 <tr class="header_row">
                                     <th></th>
-                                    <th>VARER</th>
-                                    <th>PRIS</th>
-                                    <th>ANTAL</th>
-                                    <th>I ALT</th>
+                                    <th>{{ __('cart.product') }}</th>
+                                    <th>{{ __('cart.price') }}</th>
+                                    <th>{{ __('cart.number') }}</th>
+                                    <th>{{ __('cart.total') }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -26,7 +26,7 @@
                         </table>
                         </div>
                     </div>
-                    <button type="button" class="mix_count_butt butt" id="orderCreate">CHECK UD</button>
+                    <button type="button" class="mix_count_butt butt" id="orderCreate">{{ __('cart.checkout') }}</button>
                 </form>
             </div>
         </div>
@@ -79,7 +79,6 @@
                 },
                 success : function(data) {
                     cart.selfDestruction();
-                    
                     setTimeout(function(){
                         window.location.href = "/";
                     }, 1500);

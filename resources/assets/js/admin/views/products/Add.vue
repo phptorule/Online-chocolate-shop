@@ -7,12 +7,23 @@
                         Add Product
                     </div>
                     <div class="card-body">
-                        <form novalidate>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" v-model="product.name" class="form-control" id="name" placeholder="Name" />
+                      
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item" v-for="l in langs" :key="l.id">
+                                <a class="nav-link" @click="changeLange(l.id)" :class="{'active' : l.default}">{{ l.name }}</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane fade show" :class="{'active' : l.default}" v-for="l in langs" :key="l.id" >
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" v-model="product.translate[l.code].name" class="form-control" placeholder="Name" />
+                                </div>
                             </div>
+                        </div>
 
+                        <form novalidate>
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select id="category" v-model="product.category_id" class="form-control">
@@ -27,19 +38,9 @@
                             
                             <div class="form-group">
                                 <label for="price">Price</label>
-                                <input type="price" v-model="product.price" class="form-control" id="price" placeholder="Price" />
+                                <input type="number" v-model="product.price" class="form-control" id="price" placeholder="Price" />
                             </div>
-                            
-                            <!-- <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" v-model="product.description" id="description" placeholder="Description"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="short_description">Short Description</label>
-                                <textarea class="form-control" v-model="product.short_description" id="short_description" placeholder="Short Description"></textarea>
-                            </div> -->
-
+                 
                             <div class="form-group">
                                 <label for="position">Position</label>
                                 <input type="text" v-model="product.position" class="form-control" id="position" placeholder="Position" />
@@ -52,14 +53,6 @@
                                     <option value="deleted">Deleted</option>
                                 </select>
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label for="color">Color</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"></div>
-                                    <input type="color" class="form-control" v-model="product.color" />
-                                </div>
-                            </div> -->
 
                             <div class="form-group">
                                 <label for="color">Active effect</label>
@@ -98,10 +91,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                            
-
                             <button type="button" @click="addProduct()" class="btn btn-default">Add</button>
                         </form>
                     </div>
@@ -118,15 +109,15 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            langs : [],
             category : [],
             product : {
-                name : "",
                 category_id : 0,
                 hover_check : false,
                 hover_img : "",
                 hover_color : "#ffffff",
                 hover_text : "",
-                price : 0.0,
+                price : 0,
                 description : "",
                 short_description : "",
                 position : 0,
@@ -135,24 +126,47 @@ export default {
                 image : false,
                 tmp_image: false,
                 hover_img : false,
-                hover_text : ""
+                hover_text : "",
+                translate : {}
             }
         }
     },
     name: 'AddProducts',
     mounted() {
-        
         this.getCategory();
-
+        this.getLangs();
     },
     methods : {
+        changeLange(id) {
+            this.langs = this.langs.map((l) => { 
+                l.default = l.id == id ? true : false;
+                return l; 
+            });
+        },
+        getLangs() {
+            let self = this;
+            axios.get('/api/langs/get')
+                .then((res) => {
+                   self.langs = res.data;
+                   self.langs.map(function(l) {
+                       self.product.translate[l.code] = {};
+                   });
+                });
+        },
+        convert(obj) {
+            for(var o in obj) {
+                if (obj[o] * 1) {
+                    obj[o] = obj[o] * 1;
+                }
+            }
+            return obj;
+        },
         addProduct() {
-
             this.product.hover_check = this.product.hover_check ? 1 : 0;
 
             let fd = new FormData;
-            for(let i in this.product) {
-                fd.append(i, this.product[i] ? this.product[i] : "" );
+            for(let i in this.convert(this.product)) {
+                fd.append(i, this.product[i] ? ( this.product[i] instanceof File ? this.product[i] : JSON.stringify(this.product[i]) ) : "" );
             }
             
             axios.post('/api/product/add', fd)

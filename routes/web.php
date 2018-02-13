@@ -11,20 +11,28 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+function()
+{
+    Route::get('/', 'MainController@index');
 
-Route::get('/admin', function() {
-    return view('layouts.admin');
-});
+    Route::get('/admin', function() {
+        return view('layouts.admin');
+    });
 
-Route::get('/cart', function() {
-    return view('cart');
-});
+    Route::get('/cart', function() {
+        return view('cart');
+    });
 
-Route::get('/search', 'MainController@search');
+    Route::get('/search', 'MainController@search');
 
-Route::get('/signup', function() {
-    return view('signup');
+    Route::get('/signup', function() {
+        return view('signup');
+    });
 });
 
 Route::post('/getCart', 'CartController@get');

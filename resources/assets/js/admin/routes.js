@@ -27,7 +27,7 @@ import Page404 from './views/pages/Page404'
 import Page500 from './views/pages/Page500'
 import Login from './views/pages/Login'
 import Register from './views/pages/Register'
-
+  
 // Views - Products
 import AddProducts from './views/products/Add';
 import ListProducts from './views/products/List';
@@ -36,23 +36,25 @@ import EditProducts from './views/products/Edit';
 // Views - Category
 import ListCategory from './views/category/List';
 import EditCategory from './views/category/Edit';
-
-
-// Order
+ 
+// Order 
 import ListOrders from './views/order/List';
+ 
+// Langs
+import ListLangs from './views/langs/list';  
 
 Vue.use(VueRouter)
-
-let routes = [
+ 
+let routes = [ 
     {
-      path: '/login',
-      name: 'login',
+      path: '/login', 
+      name: 'login', 
       component: Login,
       meta: { auth: false }
     },
     {
-      path: '/',
-      redirect: 'dashboard',
+      path: '/', 
+      redirect: 'dashboard', 
       name: 'Home',
       component: Full,
       meta: { auth : true },
@@ -119,6 +121,21 @@ let routes = [
               path : 'list',
               name : 'List orders',
               component : ListOrders
+            }
+          ]
+        },
+        {
+          path: '/langs',
+          redirect: '/langs/list',
+          name: 'Langs',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path : 'list',
+              name : 'List langs',
+              component : ListLangs
             }
           ]
         }
