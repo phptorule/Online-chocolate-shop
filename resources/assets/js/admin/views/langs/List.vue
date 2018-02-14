@@ -14,7 +14,7 @@
                                         <th>#</td>
                                         <th>Name</th>
                                         <th>Code</th>
-                                        <th>Default</th>
+                                        <!-- <th>Default</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -22,9 +22,9 @@
                                         <td>{{ o.id }}</td> 
                                         <td>{{ o.name }}</td>
                                         <td>{{ o.code }}</td>
-                                        <td>
+                                        <!-- <td>
                                             <input type="radio" :value="o.id" v-model="radio" @change="updateDefault(o.id)" />
-                                        </td> 
+                                        </td>  -->
                                     </tr>
                                     <tr v-if=" ! langs.length">
                                         <td colspan="7" class="text-center">

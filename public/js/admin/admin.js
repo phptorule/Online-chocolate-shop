@@ -113468,35 +113468,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(o.name))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(o.code))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.radio,
-                                    expression: "radio"
-                                  }
-                                ],
-                                attrs: { type: "radio" },
-                                domProps: {
-                                  value: o.id,
-                                  checked: _vm._q(_vm.radio, o.id)
-                                },
-                                on: {
-                                  change: [
-                                    function($event) {
-                                      _vm.radio = o.id
-                                    },
-                                    function($event) {
-                                      _vm.updateDefault(o.id)
-                                    }
-                                  ]
-                                }
-                              })
-                            ])
+                            _c("td", [_vm._v(_vm._s(o.code))])
                           ])
                         : _vm._e()
                     }),
@@ -113538,9 +113510,7 @@ var staticRenderFns = [
         _c("th", [_vm._v("#")]),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Code")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Default")])
+        _c("th", [_vm._v("Code")])
       ])
     ])
   }
