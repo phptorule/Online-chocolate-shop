@@ -9,6 +9,10 @@
 	.create_box_row.long_label label{
 		margin-top: 0;
 	}
+
+	.img_box img {
+		height: 250px;
+	}
 }	
 
 @media only screen and (max-width : 991px) {
@@ -74,7 +78,6 @@
 		font-size: 12px;
 		max-width: 120px;
 	}
-
 	
 
 }
@@ -123,6 +126,48 @@
 
 	.signup {
 		background: none;
+	}
+
+	.inst_autor_info, 
+	.inst_description > div, 
+	.inst_caption,
+	.inst_img {
+		float: none;
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.modal_instagram.modal {
+		padding: 0;
+	}
+
+	.modal_instagram .close {
+		font-size: 35px;
+		position: absolute;
+		right: 23px;
+		top: 20px;
+		z-index: 10;
+	}
+
+	.modal_instagram .slider_wrapper_modal .prev.slick-arrow, 
+	.modal_instagram .slider_wrapper_modal .next.slick-arrow {
+		display: none;
+	}
+
+	.modal_instagram .slider_wrapper_modal .prev.slick-arrow{
+		left: 14px;
+	}
+
+	.modal_instagram .slider_wrapper_modal .next.slick-arrow {
+		right: 14px;
+	}
+
+	.modal_instagram.modal.fade .modal-dialog {
+		max-width: 100%;
+		position: relative;
+		top: auto;
+		-webkit-transform: translateY(-0);
+				transform: translateY(-0);
 	}
 }
 
@@ -173,6 +218,13 @@
 
 	.check_row_label_im {
 		margin-right: 5px;
+	}
+
+	.slider_wrapper .prev.slick-arrow {
+		left: 10px;
+	}
+	.slider_wrapper .next.slick-arrow {
+		right: 10px;
 	}
 }
 

@@ -992,3 +992,236 @@ button {
     color:#73492a;
     text-decoration: none;
 }
+
+.slider_item {
+    padding: 5px;
+    background-color: #fff;
+}
+
+.slider_wrapper .prev.slick-arrow,
+.slider_wrapper .next.slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    cursor: pointer;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.slider_wrapper .prev.slick-arrow {
+    left: 50px;
+}
+
+.slider_wrapper .next.slick-arrow {
+    left: auto;
+    right: 50px;
+}
+
+.slider_wrapper .prev.slick-arrow svg,
+.slider_wrapper .next.slick-arrow svg {
+    color:#fff;
+}
+
+.img_box {
+    position: relative;
+    display: block;
+    z-index: 0;
+}
+
+.img_box img {
+    height: 394px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.img_box .overlay_inst {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+  
+.img_box:hover .overlay_inst {
+    opacity: 1;
+}
+
+.overlay_text {
+    font-size: 24px;
+    text-align: center;
+}
+
+.overlay_text > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.overlay_text > span:first-child {
+    margin-right: 20px;
+}
+
+.modal_instagram {
+    background: #fff;
+}
+
+.modal_instagram .close {
+    font-size: 55px;
+    font-weight: 300;
+    font-family: "CooperHewittLight";
+    margin: 40px;
+}
+
+.modal_instagram .modal-content {
+    max-width: 100%;
+    width: 100%;
+}
+
+.modal_instagram .modal-body {
+    max-width: 990px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inst_description {
+    padding-left: 
+}
+
+.inst_img {
+    float: left;
+    width: 50%;
+}
+
+.inst_img img {
+    width: 100%;
+    height: auto;
+}
+
+.inst_autor_info {
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 24px;
+}
+
+.modal_instagram.modal.fade .modal-dialog {
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100%;
+}
+
+.modal_instagram .modal-content {
+    border: none;
+}
+
+.inst_autor_info img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.inst_autor_info,
+.inst_description > div,
+.inst_caption {
+    float: right;
+    width: calc(50% - 42px);
+    margin-left: 42px;
+}
+
+.inst_autor_info img,
+.inst_description_autor_name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inst_description_autor_name {
+    font-family: "CicleFina";
+    font-size: 14px;
+    vertical-align: middle;
+    margin-top: 8px;
+    color: #030303;
+}
+
+.modal_instagram .slider_wrapper_modal .prev.slick-arrow,
+.modal_instagram .slider_wrapper_modal .next.slick-arrow{
+    position: fixed;
+    top: 50%;
+    cursor: pointer;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.modal_instagram .slider_wrapper_modal .prev.slick-arrow  {
+    left: 60px;
+}
+.modal_instagram .slider_wrapper_modal .next.slick-arrow {
+    right: 60px;
+}
+
+.inst_description_autor,
+.inst_description_autor + div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inst_description_autor {
+    margin-right: 10px;
+}
+
+.inst_description_autor_name {
+    display: block;
+    margin: 0;
+}
+
+.inst_description_autor_name,
+.inst_caption {
+    font-size: 14px;
+    letter-spacing: .6px;
+    color: #030303;
+    line-height: 14px;
+}
+
+.inst_caption {
+    font-family: "CicleFina";
+    line-height: 16px;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.inst_description_autor_name:first-child{
+    font-weight: 700;
+}
+
+.inst_description_autor_name:last-child{
+    font-weight: 300;
+
+}
+
+.inst_description > div {
+    padding: 20px 0 15px;
+}
+
+.inst_description > div  span,
+.inst_description > div  > span > span,
+.inst_description > div  > span i {
+    display: inline-block;
+    vertical-align: middle;
+    color: #030303;
+}
+
+.inst_autor_info > div > span i {
+    margin-right: 4px;
+}
+
+
+.inst_autor_info > div > span:first-child {
+    margin-right: 8px;
+}

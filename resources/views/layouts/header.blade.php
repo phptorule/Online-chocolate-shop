@@ -16,7 +16,7 @@
                         <div class="header_social_lang">
                             <a href="javascript:void(0);" class="header_social_lang_box">
                                 <img src="img/pic/norway.png" alt="">
-                                <span>NO</span>
+                                <span>DK</span>
                             </a>
                             <a href="javascript:void(0);" class="header_social_lang_box">
                                 <img src="img/pic/usa.png" alt="">

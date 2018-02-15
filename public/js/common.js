@@ -126,4 +126,87 @@ $(document).ready(function() {
             window.location.href = "/cart";
         }
     });
+
+    $('.slider_wrapper').slick({
+        dots: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        autoplaySpeed: 9000,
+        autoplay: false,
+        arrows: true,
+        prevArrow: '<div class="prev"><svg width="28px" height="50px" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points=" 45.63,75.8 0.375,38.087 45.63,0.375 "/></svg> </div>',
+        nextArrow: '<div class="next"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="50px" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/></svg></div>',
+        infinite: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+        ]
+    });
+
+    $('.slider_wrapper_modal').slick({
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 9000,
+        autoplay: false,
+        arrows: true,
+        prevArrow: '<div class="prev"><svg width="28px" height="50px" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points=" 45.63,75.8 0.375,38.087 45.63,0.375 "/></svg> </div>',
+        nextArrow: '<div class="next"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="50px" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "/></svg></div>',
+        infinite: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+    });
+
+    $(document).on('click', '.modal_instagram_butt', function(){
+        $('.slider_wrapper_modal').slick('slickGoTo', $(this).parent().data('slick-index'));
+        $("#modal_instagram").modal(); 
+        $('#modal_instagram').on('show.bs.modal', function () {
+            $(body).append('<div id="bg_overlay" style="position:fixed; top:0;bottom:0;left:0;right:0; background:#000;z-index:9999"');
+        })
+        $('#modal_instagram').on('shown.bs.modal', function () {
+            console.log('2')
+            $('#bg_overlay').remove();
+        })
+    });
+
+    //2348904022.724ad1a.db58f613dfab44ca894f5f481583fede 
+
+    $.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=2348904022.724ad1a.db58f613dfab44ca894f5f481583fede").done(function(data) {
+        var response = data.data;
+        response.forEach(function(item, i, arr) {
+            var url = item.images.standard_resolution.url;
+            var count_comment = item.comments.count;
+            var count_likes = item.likes.count;
+            var autor = item.user.username;
+            var autorPhoto = item.user.profile_picture;
+            var autorFullName = item.user.full_name;
+            var caption = item.caption.text;
+            var link = item.link;
+            $('.slider_wrapper').slick('slickAdd', '<div class="slider_item"><a href="#" class="img_box modal_instagram_butt"><img src="' + url +'" alt="picture" class="instagram_photo"> <div class="overlay_inst"><div class="overlay_text"><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div></div></a></div>');
+            $('.slider_wrapper_modal').slick('slickAdd', '<div class="slider_wrapper_modal_item clearfix"><div class="inst_autor_info"><img src="' + autorPhoto + '" alt="img" class="inst_description_autor"><div><p class="inst_description_autor_name">' + autor + '</p><p class="inst_description_autor_name">' + autorFullName + '</p></div></div><a href="' + link + '" class="inst_img"><img src="' + url + '" alt="img"></a>  <div class="inst_description"><div><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div><p class="inst_caption">' + caption + '</p></div></div>');
+
+        });
+    });
+    
 });

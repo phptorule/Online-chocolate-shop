@@ -31,7 +31,32 @@
             </div>
         </div>
     </section>
+    <section class="instagram_box">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="slider_wrapper">
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div id="modal_instagram" class="modal modal_instagram fade" role="dialog">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="slider_wrapper_modal">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+
+
 
 @push('js')
     <script>

@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{{ asset('libs/bootstrap-4.0.0/css/bootstrap-reboot.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/fonts.css') }}" />
         <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('libs/slick/slick.css') }}" />
+	    <link rel="stylesheet" href="{{ asset('libs/slick/slick-theme.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/media.css') }}" />
     </head>
@@ -26,6 +28,7 @@
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('libs/bootstrap-4.0.0/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('libs/PageScroll2id/PageScroll2id.min.js') }}"></script>
+        <script  src="{{ asset('libs/slick/slick.min.js') }}"></script>
         <script src="{{ asset('js/common.js') }}"></script>
         @stack('js')
     </body>
