@@ -10,16 +10,19 @@
                         </a>
                     </div>
                     <div class="header_logo">
-                        <img src="img/pic/logo.png" alt="img">
+                        <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/') }}">
+                            <img src="/img/pic/logo.png" alt="img" />
+                        </a>
                     </div>
                     <div class="header_social">
+                        <!-- <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'search') }}"> -->
                         <div class="header_social_lang">
-                            <a href="javascript:void(0);" class="header_social_lang_box">
+                            <a href="{{ url('/dk') }}" class="header_social_lang_box">
                                 <img src="img/pic/norway.png" alt="">
                                 <span>DK</span>
                             </a>
-                            <a href="javascript:void(0);" class="header_social_lang_box">
-                                <img src="img/pic/usa.png" alt="">
+                            <a href="{{ url('/en') }}" class="header_social_lang_box">
+                                <img src="/img/pic/usa.png" alt="usa" />
                                 <span>EN</span>
                             </a>
                         </div>
@@ -30,7 +33,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="{{ url('cart') }}"><img src="img/pic/cart.png" alt="cart"></a>
+                        <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'cart') }}"><img src="/img/pic/cart.png" alt="cart"></a>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,8 @@ import VueAuth from '@websanova/vue-auth'
 
 Vue.router = router;
 
+window.axios = axios;
+
 Vue.use(VueAxios, axios)
 Vue.use(VueAuth, {
     auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),

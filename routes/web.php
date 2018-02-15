@@ -11,20 +11,28 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+function()
+{
+    Route::get('/', 'MainController@index');
 
-Route::get('/admin', function() {
-    return view('layouts.admin');
-});
+    Route::get('/admin', function() {
+        return view('layouts.admin');
+    });
 
-Route::get('/cart', function() {
-    return view('cart');
-});
+    Route::get('/cart', function() {
+        return view('cart');
+    });
 
-Route::get('/search', 'MainController@search');
+    Route::get('/search', 'MainController@search');
 
-Route::get('/signup', function() {
-    return view('signup');
+    Route::get('/signup', function() {
+        return view('signup');
+    });
 });
 
 Route::get('/check-out', function() {
@@ -47,6 +55,7 @@ Route::get('/terms', function() {
     return view('terms');
 });
 
+Route::get('/subscribe', 'MainController@subscribeUser');
 Route::post('/getCart', 'CartController@get');
 Route::post('/createOrder', 'Admin\OrderController@create');
 Route::post('/searchProduct', 'MainController@searchAjax');

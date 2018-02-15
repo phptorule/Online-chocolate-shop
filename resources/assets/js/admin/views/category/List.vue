@@ -20,7 +20,10 @@
                                 <tbody>
                                     <tr v-if="category.length" v-for="c in category" v-bind:key="c.id">
                                         <td>{{ c.id }}</td>
-                                        <td>{{ c.parent_id ? '-' : '' }} {{ c.name }}</td>
+                                        <td>{{ c.parent_id ? '-' : '' }}
+                                            <span v-for="t in c.translate" v-bind:key="t.id"><span class="badge badge-secondary">{{ t.lang.name }}</span> : {{ t.translate.name }} </span>
+                                        </td>
+                                        </td>
                                         <td>{{ c.code }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">

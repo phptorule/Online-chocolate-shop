@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use App\Translate;
+use App\Lang;
 
 class CategorySeeder extends Seeder
 {
@@ -16,86 +18,161 @@ class CategorySeeder extends Seeder
             [
                 "parent_id" => 0,
                 "code" => "mebfc",
-                "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
-                "short_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr. Hold musen over stykket for mere info!",
                 "position" => 1,
                 "image" => "",
-                "color" => "#73492a"
+                "color" => "#73492a",
+                "translate" => [
+                    "dk" => [
+                        "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
+                        "short_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr. Hold musen over stykket for mere info!"
+                    ],
+                    "en" => [
+                        "name" => "MIX A BOX FILLED CHOCOLADER",
+                        "short_description" => "With 12 stuffed chocolates & cream karamels Choose 12 delicious pieces for 155 kr. Hold your mouse over the piece for more info!"
+                    ]
+                ]
             ],
             [
                 "parent_id" => 0,
                 "code" => "mebfc2",
-                "short_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr. Hold musen over stykket for mere info!",
-                "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
                 "position" => 2,
                 "image" => "",
-                "color" => "#fef7ed"
+                "color" => "#fef7ed",
+                "translate" => [
+                    "dk" => [
+                        "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
+                        "short_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr. Hold musen over stykket for mere info!"
+                    ],
+                    "en" => [
+                        "name" => "MIX A BOX FILLED CHOCOLADER",
+                        "short_description" => "With 6 stuffed chocolates & cream karamels Choose 6 delicious pieces for 65 kr. Hold your mouse over the piece for more info!"
+                    ]
+                ]
             ],
             [
                 "parent_id" => 0,
                 "code" => "vc",
-                "short_description" => "6 stk. varmechokolade stænger",
-                "name" => "VARM CHOKOLADE",
                 "position" => 3,
                 "image" => "public/image/pic.png",
-                "color" => "#422918"
+                "color" => "#422918",
+                "translate" => [
+                    "dk" => [
+                        "name" => "VARM CHOKOLADE",
+                        "short_description" => "6 stk. varmechokolade stænger"
+                    ],
+                    "en" => [
+                        "name" => "HOT CHOCOLATE",
+                        "short_description" => "6 pieces. hot chocolate bars"
+                    ]
+                ]
             ],
             [
                 "parent_id" => 0,
                 "code" => "ob",
-                "short_description" => "59 kr. stk.- 3 stk. 155 kr.",
-                "name" => "ORIGINAL BEANS",
                 "position" => 3,
                 "image" => "",
-                "color" => "#fd1f8c"
+                "color" => "#fd1f8c",
+                "translate" => [
+                    "dk" => [
+                        "name" => "ORIGINAL BEANS",
+                        "short_description" => "59 kr. stk.- 3 stk. 155 kr."
+                    ],
+                    "en" => [
+                        "name" => "ORIGINAL BEANS",
+                        "short_description" => "59 kr. pcs. 155 kr."
+                    ]
+                ]
             ],
             [
                 "parent_id" => 4,
                 "code" => "70g",
-                "short_description" => "59 kr. stk.- 3 stk. 155 kr.",
-                "name" => "70 g. barer",
                 "position" => 3,
                 "image" => "",
-                "color" => "#fd1f8c"
+                "color" => "#fd1f8c",
+                "translate" => [
+                    "dk" => [
+                        "name" => "70 g. barer ",
+                        "short_description" => "59 kr. stk.- 3 stk. 155 kr."
+                    ],
+                    "en" => [
+                        "name" => "70 g. Bars",
+                        "short_description" => "59 kr. stk.- 3 stk. 155 kr."
+                    ]
+                ]
             ],
             [
                 "parent_id" => 4,
                 "code" => "12g",
-                "name" => "12 g. barer",
-                "short_description" => "15 kr. stk. - 3 stk. 40 kr.",
                 "position" => 3,
-                "image" => ""
+                "image" => "",
+                "translate" => [
+                    "dk" => [
+                        "name" => "12 g. barer",
+                        "short_description" => "15 kr. stk. - 3 stk. 40 kr."
+                    ],
+                    "en" => [
+                        "name" => "12 g. Bars",
+                        "short_description" => "15 kr. pcs. - 3 pcs. 40 kr."
+                    ]
+                ]
             ],
             [
                 "parent_id" => 4,
                 "code" => "200g",
-                "name" => "Poser med 200g.",
-                "short_description" => "110 kr. stk.",
                 "position" => 3,
-                "image" => "public/image/border.png"
+                "image" => "public/image/border.png",
+                "translate" => [
+                    "dk" => [
+                        "name" => "2000g. poser",
+                        "short_description" => "110 kr. stk."
+                    ],
+                    "en" => [
+                        "name" => "2000g. to pose",
+                        "short_description" => "110 kr. pcs."
+                    ]
+                ]
             ],
             [
                 "parent_id" => 4,
                 "code" => "2000g",
-                "name" => "2000g. poser",
-                "short_description" => "500 - 626 kr",
                 "position" => 3,
-                "image" => ""
+                "image" => "",
+                "translate" => [
+                    "dk" => [
+                        "name" => "2000g. poser",
+                        "short_description" => "500 - 626 kr"
+                    ],
+                    "en" => [
+                        "name" => "2000g. pose",
+                        "short_description" => "500 - 626 kr "
+                    ]
+                ]
             ]
         ];
         
         Category::truncate();
+        Translate::truncate();
+        $langs = Lang::get()->keyBy('code');
 
         foreach($categories as $c) {
             $category = new Category;
             $category->parent_id = $c["parent_id"];
-            $category->name = $c["name"];
+            $category->name = "";
             $category->code = $c["code"];
             $category->position = $c["position"];
             $category->image = $c["image"];
             $category->color = ! empty($c["color"]) ? $c["color"] : "#ffffff";
-            $category->short_description =  ! empty($c["short_description"]) ? $c["short_description"] : "#ffffff";
+            $category->short_description = "";
             $category->save();
+
+            foreach($c["translate"] as $code => $lng) {
+                Translate::create([
+                    'table' => 'categories',
+                    'table_id' => $category->id,
+                    'langs_id' => $langs[$code]->id,
+                    'transalte' => json_encode($lng)
+                ]);
+            }
         }
     }
 }

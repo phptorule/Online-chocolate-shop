@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                 <h2 class="h2_caption text-center">
-                    <span>Søg</span>
+                    <span>{{ __('search.search') }}</span>
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0.39999961853027344 0 199.1125946044922 199.90000915527344" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 21px; height: 21px; fill: #734A2B;">
                             <g>
@@ -23,9 +23,9 @@
                         <table class="table table_cart">
                             <thead>
                                 <tr class="header_row">
-                                    <th>VARER</th>
-                                    <th>PRIS</th>
-                                    <th>BESKRIVELSEN</th>
+                                    <th>{{ __("search.product") }}</th>
+                                    <th>{{ __("search.price") }}</th>
+                                    <th>{{ __("search.description") }}</th>
                                 </tr>
                             </thead>
                             <tbody id="productList">

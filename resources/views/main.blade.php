@@ -8,8 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="shop_caption text-center">SHOP</h1>
-                    <p class="shop_caption_description text-center">Alle vores lækre produkter</p>
+                    <h1 class="shop_caption text-center text-uppercase">{{ __('main.shop') }}</h1>
+                    <p class="shop_caption_description text-center">{{ __('main.short_description') }} </p>
                     <div class="shop_item_box d-sm-flex justify-content-sm-between">
                         @foreach($category as $c)
                             @if( ! $c->parent_id)
@@ -70,8 +70,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mix_count">
-                            <h3 class="mix_count_caption">STYKKER</h3>
-                            <p class="mix_count_caption_description">I din box</p>
+                            <h3 class="mix_count_caption text-uppercase">{{ __("main.pieces") }}</h3>
+                            <p class="mix_count_caption_description">{{ __("main.in_your_box") }}</p>
                             <div class="mix_count_list">
                                 <p>1.   <span></span></p>
                                 <p>2.   <span></span></p>
@@ -86,7 +86,7 @@
                                 <p>11.  <span></span></p>
                                 <p>12.  <span></span></p>
                             </div>
-                            <a href="javascript:;" data-box="candies"  class="mix_count_butt butt add_to_card">LÆG I KURV</a>
+                            <a href="javascript:;" data-box="candies"  class="mix_count_butt butt add_to_card">{{ __('main.ad_to_the_basket') }}</a>
                         </div>
                     </div>
                 </div>
@@ -109,6 +109,7 @@
                     <div class="col-md-6">
                         <div class="row">
                             @foreach($product['mebfc2']['product'] as $row)
+                             
                             <div class="col-md-6 float_item clearfix">
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
@@ -135,8 +136,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mix_count">
-                            <h3 class="mix_count_caption">STYKKER</h3>
-                            <p class="mix_count_caption_description">I din box</p>
+                            <h3 class="mix_count_caption text-uppercase">{{ __("main.pieces") }}</h3>
+                            <p class="mix_count_caption_description">{{ __("main.in_your_box") }}</p>
                             <div class="mix_count_list">
                                 <p>1.   <span></span></p>
                                 <p>2.   <span></span></p>
@@ -145,7 +146,7 @@
                                 <p>5.   <span></span></p>
                                 <p>6.   <span></span></p>
                             </div>
-                            <a href="javascript:void(0);" data-box="candle" class="mix_count_butt butt add_to_card">LÆG I KURV</a>
+                            <a href="javascript:void(0);" data-box="candle" class="mix_count_butt butt add_to_card">{{ __('main.ad_to_the_basket') }}</a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +177,7 @@
                         <button type="button" class="minus">-</button>
                     </div>
                     <div class="candies_count_price">120 DKK</div>
-                    <a href="#" class="butt">LÆG I KURV</a>
+                    <a href="javascript:void(0);" data-box="hot_candy" class="butt add_to_card">{{ __('main.ad_to_the_basket') }}</a>
                 </div>
             </div>
         </div>
@@ -210,7 +211,7 @@
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                             <div class="overlay_text">
-                                            {{ $p->short_description }}
+                                                {{ $p->short_description }}
                                             </div>
                                         </div>
                                         <div class="overlay-active">
@@ -306,7 +307,7 @@
                                                     </div>
                                                 </label>
                                                 <div class="packaging_box_text">
-                                                    <span>{{ $p->short_name }}</span>
+                                                    <span>{{ $p->name }}</span>
                                                     <p>{{ $p->short_description }}</p>
                                                 </div>
                                             </div>
@@ -354,7 +355,7 @@
                                                         </div>
                                                     </label>
                                                     <div class="original_box_text">
-                                                        <span>{{ $p->name }} </span>
+                                                        <span>{{ $p->name }}</span>
                                                         <p>{{ $p->short_description }} </p>
                                                     </div>
                                                 </div>
