@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\Subscriber;
 use LaravelLocalization;
+use App\Mail\InviteSubscribeUser;
+use Mail;
 
 class MainController extends Controller
 {
@@ -33,5 +36,26 @@ class MainController extends Controller
         });
         
         return $products;
+    }
+
+    public function subscribeUser(Request $request) {
+        $email = $request->input("email");
+
+        if ( ! empty($email)) {
+
+            if ( ! Subscriber::where('email', $email)->count()) {
+                $subscriber = new Subscriber;
+                $subscriber->email = $email;
+                $subscriber->status = "subscribe";
+                $subscriber->save();
+                
+                Mail::to(env('ADMIN_EMAIL', 'admin@admin.com'))->send(new InviteSubscribeUser());
+
+                return redirect('/')->with(['status' => 'success', 'message' => __('messages.success_subscribe')]);
+            }
+            return redirect('/')->with(['status' => 'warning', 'message' => __('messages.subscriber_already_exist')]);
+        }
+        
+        return redirect('/')->with(['status' => 'danger', 'message' => __('messages.error_success')]);
     }
 }

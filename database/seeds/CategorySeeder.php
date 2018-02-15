@@ -22,7 +22,7 @@ class CategorySeeder extends Seeder
                 "image" => "",
                 "color" => "#73492a",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
                         "short_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr. Hold musen over stykket for mere info!"
                     ],
@@ -39,7 +39,7 @@ class CategorySeeder extends Seeder
                 "image" => "",
                 "color" => "#fef7ed",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
                         "short_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr. Hold musen over stykket for mere info!"
                     ],
@@ -56,7 +56,7 @@ class CategorySeeder extends Seeder
                 "image" => "public/image/pic.png",
                 "color" => "#422918",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "VARM CHOKOLADE",
                         "short_description" => "6 stk. varmechokolade stænger"
                     ],
@@ -73,7 +73,7 @@ class CategorySeeder extends Seeder
                 "image" => "",
                 "color" => "#fd1f8c",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "ORIGINAL BEANS",
                         "short_description" => "59 kr. stk.- 3 stk. 155 kr."
                     ],
@@ -90,7 +90,7 @@ class CategorySeeder extends Seeder
                 "image" => "",
                 "color" => "#fd1f8c",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "70 g. barer ",
                         "short_description" => "59 kr. stk.- 3 stk. 155 kr."
                     ],
@@ -106,7 +106,7 @@ class CategorySeeder extends Seeder
                 "position" => 3,
                 "image" => "",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "12 g. barer",
                         "short_description" => "15 kr. stk. - 3 stk. 40 kr."
                     ],
@@ -122,7 +122,7 @@ class CategorySeeder extends Seeder
                 "position" => 3,
                 "image" => "public/image/border.png",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "2000g. poser",
                         "short_description" => "110 kr. stk."
                     ],
@@ -138,7 +138,7 @@ class CategorySeeder extends Seeder
                 "position" => 3,
                 "image" => "",
                 "translate" => [
-                    "no" => [
+                    "dk" => [
                         "name" => "2000g. poser",
                         "short_description" => "500 - 626 kr"
                     ],

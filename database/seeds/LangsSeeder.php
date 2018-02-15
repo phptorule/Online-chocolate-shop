@@ -20,8 +20,8 @@ class LangsSeeder extends Seeder
                 'default' => 1
             ],
             [
-                'name' => 'No',
-                'code' => 'no',
+                'name' => 'Dk',
+                'code' => 'dk',
                 'default' => 0
             ]
         ];

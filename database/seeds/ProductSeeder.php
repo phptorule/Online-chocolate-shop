@@ -530,7 +530,7 @@ class ProductSeeder extends Seeder
                 $product->hover_color = "#ffffff";
                 $product->save();
 
-                foreach(['en', 'no'] as $code) {
+                foreach(['en', 'dk'] as $code) {
                     Translate::create([
                         'table' => 'products',
                         'table_id' => $product->id,

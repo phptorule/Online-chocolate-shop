@@ -26,8 +26,15 @@
             </div>
             <div class="col-md-5">
                 <h3 class="footer_caption">{{ __("footer.singup_for_newsletter") }}</h3>
-                <form class="footer_form">
-                    <input type="text" class="email" placeholder="{{ __("footer.enter_email_address") }} ">
+                
+                @if(session()->exists('message'))
+                <div class="alert alert-{{ session()->get('status') }}" role="alert">
+                    {{ session()->get('message') }}
+                </div>    
+                @endif
+                
+                <form class="footer_form" method="get" action="/subscribe">
+                    <input type="text" name="email" class="email" placeholder="{{ __("footer.enter_email_address") }} ">
                     <button type="submit">{{ __("footer.register") }} </button>
                 </form>
             </div>

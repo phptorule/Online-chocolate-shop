@@ -55,6 +55,7 @@ Route::get('/terms', function() {
     return view('terms');
 });
 
+Route::get('/subscribe', 'MainController@subscribeUser');
 Route::post('/getCart', 'CartController@get');
 Route::post('/createOrder', 'Admin\OrderController@create');
 Route::post('/searchProduct', 'MainController@searchAjax');
