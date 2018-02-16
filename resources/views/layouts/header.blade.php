@@ -19,15 +19,15 @@
                                 </svg>
                             </a>
                             <ul>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate">HJEM</a></li>  
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/csr">CSR</a></li>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">ORIGINAL BEANS</a></li>  
-                                <li><a href="http://chocolate.da4.info/">SHOP</a></li>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/events">EVENTS</a></li>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/kurser">KURSER</a></li>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/bryllupskagen">BRYLLUPSKAGEN</a></li>
-                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/om-os">OM OS</a></li>
-                                <li><a href="http://chocolate.da4.info/signup">B2B</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate">{{ __('header.home') }}</a></li>  
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/csr">{{ __('header.csr') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">{{ __('header.original_beands') }}</a></li>  
+                                <li><a class="text-uppercase" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/') }}">{{ __('header.shop') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/events">{{ __('header.events') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/kurser">{{ __('header.courses') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/bryllupskagen">{{ __('header.wedding_cake') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/om-os">{{ __('header.about_us') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'signup') }}">{{ __('header.b2b') }}</a></li>
                             </ul>
                         </div>
                         <!-- END NAV -->
