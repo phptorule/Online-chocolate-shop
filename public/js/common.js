@@ -181,13 +181,6 @@ $(document).ready(function() {
     $(document).on('click', '.modal_instagram_butt', function(){
         $('.slider_wrapper_modal').slick('slickGoTo', $(this).parent().data('slick-index'));
         $("#modal_instagram").modal(); 
-        $('#modal_instagram').on('show.bs.modal', function () {
-            $(body).append('<div id="bg_overlay" style="position:fixed; top:0;bottom:0;left:0;right:0; background:#000;z-index:9999"');
-        })
-        $('#modal_instagram').on('shown.bs.modal', function () {
-            console.log('2')
-            $('#bg_overlay').remove();
-        })
     });
 
     //2348904022.724ad1a.db58f613dfab44ca894f5f481583fede 
