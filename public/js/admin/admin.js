@@ -113191,6 +113191,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -113245,20 +113251,27 @@ var render = function() {
                         ? _c("tr", { key: o.id }, [
                             _c("td", [_vm._v(_vm._s(o.id))]),
                             _vm._v(" "),
-                            _c(
-                              "td",
-                              _vm._l(o.cart, function(p) {
-                                return _c("span", { key: p.id }, [
-                                  _vm._v(
-                                    "\n                                            Product Id : " +
-                                      _vm._s(p.product_id) +
-                                      ", Count :  " +
-                                      _vm._s(p.count) +
-                                      ";\n                                        "
-                                  )
-                                ])
-                              })
-                            )
+                            _c("td", [_vm._v(_vm._s(o.phone))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(o.email))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("span", [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(o.cart) +
+                                    "\n                                        "
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                       " +
+                                  _vm._s(o.status) +
+                                  "\n                                    "
+                              )
+                            ])
                           ])
                         : _vm._e()
                     }),
@@ -113296,7 +113309,16 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [_c("th", [_vm._v("#")]), _c("th", [_vm._v("Cart")])])
+      _c("tr", [
+        _c("th", [_vm._v("#")]),
+        _c("th", [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Product")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")])
+      ])
     ])
   }
 ]

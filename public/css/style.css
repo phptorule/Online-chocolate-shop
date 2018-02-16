@@ -1320,3 +1320,12 @@ button {
     stroke-width: 0px;
 }
 /*END NAVIGATION*/
+
+.has-error .input_form  {
+    border: 1px solid #dc3545;
+}
+
+
+.has-success .input_form  {
+    border: 1px solid #28a745;
+}

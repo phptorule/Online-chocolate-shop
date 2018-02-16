@@ -2,14 +2,14 @@
 
 @section('content')
     <section class="cart">
-        <div class="container">
+        <div class="container" >
             <div class="row">
                 <div class="col-md-12">
                 <h2 class="h2_caption text-center">
                     <span>{{ __('cart.cart') }}</span>
                     <img src="/img/pic/cart.png" alt="cart">
                 </h2>
-                <form>
+                <form class="cart-show">
                     <div class="table-responsive">
                         <table class="table table_cart">
                             <thead>
@@ -26,8 +26,11 @@
                         </table>
                         </div>
                     </div>
-                    <button type="button" class="mix_count_butt butt" id="orderCreate">{{ __('cart.checkout') }}</button>
+                    <button type="button" class="mix_count_butt butt cart-show" data-url="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'check-out') }}" id="orderCheckOut">{{ __('cart.checkout') }}</button>
                 </form>
+                <div class="cart-empty" style="display: none;">
+                    <p>{{ __("cart.cart_empty") }}</p>
+                </div>
             </div>
         </div>
     </section>
@@ -55,8 +58,6 @@
     </div>
 </div>
 @endsection
-
-
 
 @push('js')
     <script>
@@ -89,27 +90,11 @@
                 window.location.reload();
             });
 
-            $('#orderCreate').click(function() {
-                orderCreate();
-            })
+            $('#orderCheckOut').click(function() {
+                window.location.href = $(this).data('url');
+            });
         });
 
-        function orderCreate() {
-            $.ajax({
-                url : "/createOrder",
-                method : "post",
-                data : {
-                    _token : $("meta[name='csrf-token']").attr('content'),
-                    cart : cart.getCart()
-                },
-                success : function(data) {
-                    cart.selfDestruction();
-                    setTimeout(function(){
-                        window.location.href = "/";
-                    }, 1500);
-                }
-            });
-        }
 
         function getCart() {
             $.ajax({
@@ -120,7 +105,13 @@
                     cart : cart.getCart()
                 },
                 success : function(data) {
-                    printCart(data);
+                    if (data) {
+                        printCart(data);
+                        return ;
+                    }
+
+                    $(".cart-show").hide();
+                    $(".cart-empty").show();
                 }
             });
         }
@@ -147,6 +138,7 @@
             }
             
             $("#cartList").html(content);
+           
         }
 
         function getCountById(product_id) {

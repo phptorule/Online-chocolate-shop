@@ -15,9 +15,19 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code')->default('');
             $table->string('email');
             $table->string('phone');
+            $table->string('billing_fname');
+            $table->string('billing_address');
+            $table->string('billing_surname');
+            $table->string('billing_zip_code');
+            $table->string('delivery_fname');
+            $table->string('delivery_address');
+            $table->string('delivery_surname');
+            $table->string('delivery_zip_code');
             $table->text('cart');
+            $table->enum('status', ['pending', 'payed', 'delivered']);
             $table->timestamps();
         });
     }

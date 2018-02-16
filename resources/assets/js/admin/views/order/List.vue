@@ -12,18 +12,24 @@
                                 <thead>
                                     <tr>
                                         <th>#</td>
-                                        <!-- <th>Email</th> -->
-                                        <th>Cart</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Product</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-if="orders.length" v-for="o in orders" v-bind:key="o.id">
                                         <td>{{ o.id }}</td>
-                                        <!-- <td>{{ o.email }}</td> -->
+                                        <td>{{ o.phone }}</td>
+                                        <td>{{ o.email }}</td>
                                         <td>
-                                            <span v-for="p in o.cart" v-bind:key="p.id">
-                                                Product Id : {{ p.product_id }}, Count :  {{ p.count }};
+                                            <span>
+                                                {{ o.cart }}
                                             </span>
+                                        </td>
+                                        <td>
+                                           {{ o.status}}
                                         </td>
                                     </tr>
                                     <tr v-if=" ! orders.length">

@@ -5,5 +5,6 @@
         'price' => 'Price',
         'number' => 'Number',
         'total' => 'Total',
-        'checkout' => 'CHECK OUT'
+        'checkout' => 'CHECK OUT',
+        'cart_empty' => 'Cart is empty !'
     ];
