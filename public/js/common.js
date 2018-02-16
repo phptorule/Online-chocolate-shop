@@ -191,7 +191,9 @@ $(document).ready(function() {
 
     $(document).on('click', '.modal_instagram_butt', function(){
         $('.slider_wrapper_modal').slick('slickGoTo', $(this).parent().data('slick-index'));
-        $("#modal_instagram").modal(); 
+        $("#modal_instagram").modal({
+            backdrop: false
+        }); 
     });
 
     //2348904022.724ad1a.db58f613dfab44ca894f5f481583fede 
@@ -207,9 +209,11 @@ $(document).ready(function() {
             var autorFullName = item.user.full_name;
             var caption = item.caption.text;
             var link = item.link;
-            $('.slider_wrapper').slick('slickAdd', '<div class="slider_item"><a href="#" class="img_box modal_instagram_butt"><img src="' + url +'" alt="picture" class="instagram_photo"> <div class="overlay_inst"><div class="overlay_text"><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div></div></a></div>');
-            $('.slider_wrapper_modal').slick('slickAdd', '<div class="slider_wrapper_modal_item clearfix"><div class="inst_autor_info"><img src="' + autorPhoto + '" alt="img" class="inst_description_autor"><div><p class="inst_description_autor_name">' + autor + '</p><p class="inst_description_autor_name">' + autorFullName + '</p></div></div><a href="' + link + '" class="inst_img"><img src="' + url + '" alt="img"></a>  <div class="inst_description"><div><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div><p class="inst_caption">' + caption + '</p></div></div>');
 
+            $('.slider_wrapper').slick('slickAdd', '<div class="slider_item"><a href="#" class="img_box modal_instagram_butt"><img src="' + url +'" alt="picture" class="instagram_photo"> <div class="overlay_inst"><div class="overlay_text"><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div></div></a></div>');
+            $('#modal_instagram').on('shown.bs.modal', function (e) {
+                $('.slider_wrapper_modal').slick('slickAdd', '<div class="slider_wrapper_modal_item clearfix"><div class="inst_autor_info"><img src="' + autorPhoto + '" alt="img" class="inst_description_autor"><div><p class="inst_description_autor_name">' + autor + '</p><p class="inst_description_autor_name">' + autorFullName + '</p></div></div><a href="' + link + '" class="inst_img"><img src="' + url + '" alt="img"></a>  <div class="inst_description"><div><span><i class="fa fa-heart-o" aria-hidden="true"></i> <span class="inst_likes">' + count_comment + '</span> </span><span><i class="fa fa-comment-o" aria-hidden="true"></i><span class="inst_comments">' + count_likes + '</span></span></div><p class="inst_caption">' + caption + '</p></div></div>');
+            })
         });
     });
     
