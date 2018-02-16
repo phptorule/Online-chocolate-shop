@@ -1225,3 +1225,98 @@ button {
 .inst_autor_info > div > span:first-child {
     margin-right: 8px;
 }
+
+/*NAVIGATION*/
+#hidden_menu_overlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(69, 128, 123, 0.74);
+    display: none;
+}
+
+.hidden_menu {
+    display: block;
+    position: fixed;
+    padding-top: 150px;
+    background-color: rgb(181, 232, 213);
+    width: 411px;
+    height: 100%;
+    top: 0;
+    left: -411px;
+    -webkit-transition: left .4s ease-out;
+    transition: left .4s ease-out;
+    z-index: 2;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+.hidden_menu ul {
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    margin: auto;
+    overflow: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.hidden_menu ul li {
+    text-align: center;
+    margin-bottom: 47px;
+}
+
+.hidden_menu ul li:last-child{
+    margin-bottom: 0;
+}
+
+.hidden_menu ul a {
+    font-family: "CooperHewittHeavy";
+    -webkit-transition: color 0.4s ease 0s;
+    transition: color 0.4s ease 0s;
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.hidden_menu ul a:hover {
+    color: #734A2B;
+    text-decoration: none;
+    -webkit-transition: color 0.4s ease 0s;
+    transition: color 0.4s ease 0s;
+}
+
+.nav_close {
+    width: 28px;
+    position: absolute;
+    cursor: pointer;
+    top: 17px;
+    height: 27px;
+    left: auto;
+    right: 20px;
+}
+
+.nav_close svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    fill: #F2F2F2;
+    fill-opacity: 1;
+    stroke: rgba(237, 21, 102, 1);
+    stroke-width: 0px;
+}
+/*END NAVIGATION*/

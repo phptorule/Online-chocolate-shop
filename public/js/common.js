@@ -128,6 +128,16 @@ $(document).ready(function() {
         }
     });
 
+    $('#nav_open').on('click', function() {
+        $('.hidden_menu').css('left', '0');
+        $('#hidden_menu_overlay').css('display', 'block');
+    });
+
+    $('#nav_close').on('click', function() {
+        $('.hidden_menu').css('left', '-411px');
+        $('#hidden_menu_overlay').css('display', 'none');
+    });
+
     $('.slider_wrapper').slick({
         dots: false,
         slidesToShow: 4,
