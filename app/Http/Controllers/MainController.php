@@ -51,11 +51,11 @@ class MainController extends Controller
                 
                 Mail::to(env('ADMIN_EMAIL', 'admin@admin.com'))->send(new InviteSubscribeUser($email));
 
-                return redirect('/')->with(['status' => 'success', 'message' => __('messages.success_subscribe')]);
+                return back()->with(['status' => 'success', 'message' => __('messages.success_subscribe')]);
             }
-            return redirect('/')->with(['status' => 'warning', 'message' => __('messages.subscriber_already_exist')]);
+            return back()->with(['status' => 'warning', 'message' => __('messages.subscriber_already_exist')]);
         }
         
-        return redirect('/')->with(['status' => 'danger', 'message' => __('messages.error_success')]);
+        return back()->with(['status' => 'danger', 'message' => __('messages.error_success')]);
     }
 }

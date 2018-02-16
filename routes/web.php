@@ -59,3 +59,8 @@ Route::get('/subscribe', 'MainController@subscribeUser');
 Route::post('/getCart', 'CartController@get');
 Route::post('/createOrder', 'Admin\OrderController@create');
 Route::post('/searchProduct', 'MainController@searchAjax');
+
+// iframes
+Route::get('/iframe/subscribe', function() {
+    return view('iframes.subscribe');
+});
