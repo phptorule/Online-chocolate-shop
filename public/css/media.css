@@ -178,6 +178,7 @@
 		height: 160px;
 		line-height: 160px;
 		margin: 0 auto 20px;
+		display: block;
 	}
 
 	.shop_item > span {
@@ -226,5 +227,10 @@
 	.slider_wrapper .next.slick-arrow {
 		right: 10px;
 	}
+
+	.hidden_menu {
+		padding-top: 50px;
+	}
+
 }
 

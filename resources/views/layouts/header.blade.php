@@ -5,9 +5,32 @@
             <div class="col-md-12">
                 <div class="header_nav d-sm-flex align-items-sm-center justify-content-sm-between">
                     <div class="header_nav_icon">
-                        <a href="javascript:void()">
+                        <!-- NAV -->
+                        <a href="javascript:void(0);" id="nav_open" class="nav_open">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 9 50 32" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 45px; height: 45px; fill: #734A2B"><g><path d="M50,37 v4 h-50 v-4 h50z"></path><path d="M50,9 v4 h-50 v-4 h50z"></path><path d="M50,23 v4 h-50 v-4 h50z"></path></g></svg>
                         </a>
+                        <div id="hidden_menu_overlay"></div>
+                        <div class="hidden_menu">
+                            <a href="javascript:void(0);" id="nav_close" class="nav_close">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="25.974998474121094 25.975000381469727 148.05001831054688 148.0500030517578" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
+                                    <g>
+                                        <path d="M172.9 167.6L105.3 100l67.6-67.6c1.5-1.5 1.5-3.8 0-5.3s-3.8-1.5-5.3 0L100 94.7 32.4 27.1c-1.5-1.5-3.8-1.5-5.3 0s-1.5 3.8 0 5.3L94.7 100l-67.6 67.6c-1.5 1.5-1.5 3.8 0 5.3s3.8 1.5 5.3 0l67.6-67.6 67.6 67.6c1.5 1.5 3.8 1.5 5.3 0s1.5-3.8 0-5.3z"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                            <ul>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate">HJEM</a></li>  
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/csr">CSR</a></li>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">ORIGINAL BEANS</a></li>  
+                                <li><a href="http://chocolate.da4.info/">SHOP</a></li>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/events">EVENTS</a></li>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/kurser">KURSER</a></li>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/bryllupskagen">BRYLLUPSKAGEN</a></li>
+                                <li><a href="https://karoline-relster.wixsite.com/mhchocolate/om-os">OM OS</a></li>
+                                <li><a href="http://chocolate.da4.info/signup">B2B</a></li>
+                            </ul>
+                        </div>
+                        <!-- END NAV -->
                     </div>
                     <div class="header_logo">
                         <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/') }}">
@@ -19,7 +42,7 @@
                         <div class="header_social_lang">
                             <a href="{{ url('/dk') }}" class="header_social_lang_box">
                                 <img src="img/pic/norway.png" alt="">
-                                <span>DK</span>
+                                <span>DA</span>
                             </a>
                             <a href="{{ url('/en') }}" class="header_social_lang_box">
                                 <img src="/img/pic/usa.png" alt="usa" />
@@ -40,4 +63,5 @@
         </div>
     </div>
 </header>
+
 <!-- END HEADER -->
