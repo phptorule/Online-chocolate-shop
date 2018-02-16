@@ -78,6 +78,10 @@
 		font-size: 12px;
 		max-width: 120px;
 	}
+
+	.modal_instagram .close {
+		margin: 40px;
+	}
 	
 
 }
