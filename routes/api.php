@@ -37,3 +37,10 @@ Route::prefix('order')->namespace('Admin')->group(function() {
     Route::get('get', 'OrderController@get');
 });
 
+//langs/get
+
+Route::prefix('langs')->namespace('Admin')->group(function() {
+    Route::get('get', 'LangsController@get');
+    Route::put('update', 'LangsController@update');
+});
+    

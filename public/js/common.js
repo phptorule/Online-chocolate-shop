@@ -62,6 +62,7 @@ $(document).ready(function() {
     //Add
     window.candies = [];
     window.candle = [];
+    window.hot_candy = [];
 
     $('.candi_item').click(function(e) {
         var value = $(this).data('title'),

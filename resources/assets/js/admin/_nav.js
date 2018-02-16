@@ -48,6 +48,18 @@ export default {
           icon : 'fa fa-user'
         }
       ]
+    },
+    {
+      name: 'Langs',
+      url: '/langs',
+      icon: 'fa fa-language',
+      children : [
+        {
+          name : "List langs",
+          url : '/langs/list',
+          icon : 'fa fa-globe'
+        }
+      ]
     }
   ]
 }
