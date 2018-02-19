@@ -3,7 +3,7 @@
     return [
         'home' => 'home',
         'csr' => 'csr',
-        'original_beands' => 'origin beands',
+        'original_beands' => 'ORIGINAL BEANS',
         'shop' => 'shop',
         'events' => 'events',
         'courses' => 'courses',

@@ -38,9 +38,9 @@ function()
         return view('create');
     });
     
-    Route::get('/payment', function() {
-        return view('payment');
-    });
+    Route::get('/payment', 'PaymentController@payment');
+
+    Route::get('/pay', 'PaymentController@pay');
     
     Route::get('/payment-info', function() {
         return view('payment-info');
