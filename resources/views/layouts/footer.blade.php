@@ -20,7 +20,7 @@
             <div class="col-md-3">
                 <h3 class="footer_caption">{{ __("footer.opening_hours") }}</h3>
                 <p class="footer_text">
-                    <span>ONSDAG & FREDAG</span>
+                    <span>{{ __("footer.hours") }}</span>
                     <span>09.00 -18.00</span>
                 </p>
             </div>
