@@ -22,7 +22,7 @@ class Category extends Model
             }
         })->first();
 
-        return ! empty($translate->translate) ? $translate->translate->name : "";
+        return ! empty($translate->translate->name) ? $translate->translate->name : "";
     }
 
     public function getShortDescriptionAttribute($value) {
@@ -32,6 +32,6 @@ class Category extends Model
             }
         })->first();
         
-        return ! empty($translate->translate) ? $translate->translate->short_description : "";
+        return ! empty($translate->translate->short_description) ? $translate->translate->short_description : "";
     }
 }
