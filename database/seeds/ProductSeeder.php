@@ -502,6 +502,18 @@ class ProductSeeder extends Seeder
                     'status' => 'active',
                     'position' => 0
                 ]
+            ],
+            'vc' => [
+                [
+                    'name' => '6 stk. varmechokolade stænger',
+                    'price' => 0,
+                    'description' => '',
+                    'short_description' => '',
+                    'image' => 'public/image/pic.png',
+                    'color' => '#ffffff',
+                    'status' => 'active',
+                    'position' => 0
+                ]
             ]
         ];
 

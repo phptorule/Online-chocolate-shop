@@ -173,11 +173,11 @@
                 <div class="col-md-6 text-center">
                     <div class="candies_count_add">
                         <button type="button" class="plus">+</button>
-                        <input type="text" value="1" readonly>
+                        <input type="text" id="hot_candy" value="1" readonly>
                         <button type="button" class="minus">-</button>
                     </div>
-                    <div class="candies_count_price">120 DKK</div>
-                    <a href="javascript:void(0);" data-box="hot_candy" class="butt add_to_card">{{ __('main.ad_to_the_basket') }}</a>
+                    <div class="candies_count_price">{{ $product['vc']['product']->first()->price }} DKK</div>
+                    <a href="javascript:void(0);" data-id="{{ $product['vc']['product']->first()->id }}" class="butt" id="add_to_hot_card">{{ __('main.ad_to_the_basket') }}</a>
                 </div>
             </div>
         </div>
@@ -206,8 +206,8 @@
                         @foreach($product['70g']['product'] as $p)
                             <div class="col-md-4">
                                 <div class="original_box_wrap text-center">
-                                    <label class="original_box_item original_box_item_active item_hover original_box_item_active white item">
-                                        <input type="text">
+                                    <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover original_box_item_active white item">
+                                        <input type="text" disabled />
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                             <div class="overlay_text">
@@ -245,8 +245,8 @@
                             @foreach($product['12g']['product'] as $p)
                                 <div class="col-md-4">
                                     <div class="original_box_wrap text-center">
-                                        <label class="original_box_item original_box_item_active item_hover white item">
-                                            <input type="text">
+                                        <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover white item">
+                                            <input type="text" disabled />
                                             <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                             <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                 <div class="overlay_text">
@@ -292,8 +292,8 @@
                                     @foreach($product['200g']['product'] as $p)
                                         <div class="col-md-6">
                                             <div class="packaging_box_wrap text-center">
-                                                <label class="packaging_box_item item_hover original_box_item_active white item">
-                                                    <input type="text" />
+                                                <label data-id="{{ $p->id }}" class="direct-product packaging_box_item item_hover original_box_item_active white item">
+                                                    <input type="text" disabled />
                                                     <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position4.png' }}" alt="img" />
                                                     <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                         <div class="overlay_text">
@@ -340,8 +340,8 @@
                                         @foreach($product['2000g']['product'] as $p)
                                             <div class="col-md-4">
                                                 <div class="original_box_wrap text-center">
-                                                    <label class="original_box_item original_box_item_active item_hover original_box_down white  item">
-                                                        <input type="text">
+                                                    <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover original_box_down white  item">
+                                                        <input type="text" disabled />
                                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position3.png' }}" alt="img">
                                                         <div class="overlay"  style="background-color: {{ $p->active_effect }}">
                                                             <div class="overlay_text">
@@ -374,3 +374,22 @@
 
 
 @endsection
+
+@push('js')
+<script>
+
+    var cartUrl = "{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'cart') }}";
+
+    $(document).ready(function() {
+        $(".direct-product").click(function() {
+            cart.addToCart($(this).data('id')); 
+            window.location.href = cartUrl;
+        });
+        
+        $('#add_to_hot_card').click(function() {
+            cart.addToCart($(this).data('id'), $("#hot_candy").val() * 1);
+            window.location.href = cartUrl;
+        });
+    });
+</script>
+@endpush

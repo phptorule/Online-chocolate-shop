@@ -1,6 +1,6 @@
 var cart = (function() {
     var cartKey = "_cart";
-
+    
     function readStorage() {
         var data = window.localStorage.getItem(cartKey);
         return JSON.parse(data ? data : "[]");
@@ -29,12 +29,12 @@ var cart = (function() {
         },
         addToCart : function(product_id, count) {
             count = count || 1;
-            
+            console.log(count);
             var cart = readStorage(),
                 check = false;
             cart = cart.map(function(item) {
                 if (item.product_id == product_id) {
-                    item.count = count;
+                    item.count += count;
                     check = true;
                 }
                 return item;
@@ -62,14 +62,17 @@ $(document).ready(function() {
     //Add
     window.candies = [];
     window.candle = [];
-    window.hot_candy = [];
+    window.limitation = {
+        candies : 12,
+        candle : 6
+    };
 
     $('.candi_item').click(function(e) {
         var value = $(this).data('title'),
             box = $(this).data("box");
             product_id = $(this).data('id');
 
-        if (window[box] != undefined) {
+        if (window[box] != undefined &&  window.limitation[box] != window[box].length) {
             window[box].push(product_id);
         }
         
