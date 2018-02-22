@@ -8,5 +8,5 @@
         'opening_hours' => 'OPENING HOURS',
         'register' => 'REGISTER',
         'enter_email_address' => 'Enter email address',
-        'hours' => 'МONDAY & FRIDAY.'
+        'hours' => 'MONDAY & FRIDAY'
     ];
