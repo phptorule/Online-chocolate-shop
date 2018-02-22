@@ -52,6 +52,11 @@ var cart = (function() {
     };
 })();
 
+window.limitation = {
+    candies : 12,
+    candle : 6
+};
+
 $(document).ready(function() {
     
     //Scrooll
@@ -62,10 +67,6 @@ $(document).ready(function() {
     //Add
     window.candies = [];
     window.candle = [];
-    window.limitation = {
-        candies : 12,
-        candle : 6
-    };
 
     $('.candi_item').click(function(e) {
         var value = $(this).data('title'),
@@ -74,6 +75,11 @@ $(document).ready(function() {
 
         if (window[box] != undefined &&  window.limitation[box] != window[box].length) {
             window[box].push(product_id);
+        }
+        
+        if (window.limitation[box] == window[box].length) {
+            $("button[data-box='" + box + "']").removeAttr('disabled');
+            $("button[data-box='" + box + "']").removeClass('disabled');
         }
         
         var selector = $(this).parents('.col-md-6').siblings('.col-md-6').children('.mix_count').children('.mix_count_list').find('p');
@@ -94,6 +100,11 @@ $(document).ready(function() {
         if (window[box]) {
             delete window[box][window[box].indexOf(product_id)];
             window[box] = window[box].filter(function(a){ return a ? true : false; })
+        }
+
+        if (window.limitation[box] != window[box].length) {
+            $("button[data-box='" + box + "']").attr('disabled', 'disabled');
+            $("button[data-box='" + box + "']").addClass('disabled');
         }
     });
 

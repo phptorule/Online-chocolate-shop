@@ -1327,3 +1327,7 @@ button {
 .has-success .input_form  {
     border: 1px solid #28a745;
 }
+
+button.disabled {
+    cursor: not-allowed;
+}
