@@ -136,7 +136,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mix_count">
-                            <h3 class="mix_count_caption text-uppercase">{{ __("main.pieces") }}</h3>
+                            <h3 class="mix_count_caption text-uppercase">{{ __("main.chocolate_covered_meringue") }}</h3>
                             <p class="mix_count_caption_description">{{ __("main.in_your_box") }}</p>
                             <div class="mix_count_list">
                                 <p>1.   <span></span></p>

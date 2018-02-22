@@ -8,5 +8,5 @@
         'opening_hours' => 'ÅBNINGSTIDER',
         'register' => 'TILMELD',
         'enter_email_address' => 'Indtast email adresse',
-        'hours' => ' ONSDAG & FREDAG'
+        'hours' => ' Onsdag & fredag'
     ];
