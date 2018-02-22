@@ -113,7 +113,7 @@
                         }, order),
                         success : function(data) {
                             cart.selfDestruction();
-                            window.location.href = paymentUrl;
+                            window.location.href = paymentUrl + "?code=" + data.code;
                         }
                     });
                 }

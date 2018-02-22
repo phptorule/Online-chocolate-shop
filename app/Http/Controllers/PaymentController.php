@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Quickpay;
+use App\Order;
+use App\Product;
 
 class PaymentController extends Controller
 {
@@ -12,7 +14,15 @@ class PaymentController extends Controller
         return view('payment');
     }
 
-    public function pay() {
+    public function pay(Request $request) {
+        $amount = 0;
+        $products = Product::get()->keyBy('id');
+
+        Order::where('code', $request->code)->get()->each(function($order) use (&$amount, $products) {
+            collect($order->cart)->each(function($p) use (&$amount, $products) {
+                $amount += $p->count * $products[$p->product_id]->price;
+            }); 
+        });
 
         $client = new Quickpay(env('QP_API_KEY'), env('QP_PRIVATE_KEY'));
 
@@ -22,7 +32,7 @@ class PaymentController extends Controller
         ]);
         
         $link = $client->payments()->link($payment->getId(), [
-            'amount' => 10000,
+            'amount' => $amount * 100,
         ]);
         
         return redirect($link->getUrl());

@@ -19,7 +19,9 @@ Route::group(
 function()
 {
     Route::get('/', 'MainController@index');
-
+    Route::get('/payment', 'PaymentController@payment');
+    Route::get('/pay', 'PaymentController@pay');
+    Route::get('/search', 'MainController@search');
     Route::get('/admin', function() {
         return view('layouts.admin');
     });
@@ -31,21 +33,15 @@ function()
     Route::get('/check-out', function() {
         return view('check-out');
     });
-
-    Route::get('/search', 'MainController@search');
-
+    
     Route::get('/create', function() {
         return view('create');
     });
     
-    Route::get('/payment', 'PaymentController@payment');
-
-    Route::get('/pay', 'PaymentController@pay');
-    
     Route::get('/payment-info', function() {
         return view('payment-info');
     });
-    
+
     Route::get('/terms', function() {
         return view('terms');
     });
@@ -53,6 +49,44 @@ function()
     Route::get('/signup', function() {
         return view('signup');
     });
+
+    Route::group(
+        [
+            'prefix' => 'api'
+        ]
+        ,function () {
+            Route::prefix('admin')->namespace('Admin')->group(function() {
+                Route::post('login', 'AuthController@login');
+                Route::get('account', 'AuthController@account');
+                Route::post('refresh', 'AuthController@refresh');
+                Route::post('logout', 'AuthController@logout'); 
+            });
+            
+            Route::prefix('product')->namespace('Admin')->group(function() {
+                Route::post('add', 'ProductController@add');
+                Route::get('get/{id?}', 'ProductController@get');
+                Route::post('edit', 'ProductController@edit');
+                Route::delete('delete/{id}', 'ProductController@delete');
+            });
+            
+            Route::prefix('category')->namespace('Admin')->group(function() {
+                Route::get('get/{id?}', 'CategoryController@get');
+                Route::post('edit', 'CategoryController@edit');
+                Route::delete('delete/{id}', 'CategoryController@delete');
+            });
+            
+            Route::prefix('order')->namespace('Admin')->group(function() {
+                Route::get('get', 'OrderController@get');
+            });
+            
+            //langs/get
+            
+            Route::prefix('langs')->namespace('Admin')->group(function() {
+                Route::get('get', 'LangsController@get');
+                Route::put('update', 'LangsController@update');
+            });
+        }
+    );
 });
 
 Route::get('/subscribe', 'MainController@subscribeUser');

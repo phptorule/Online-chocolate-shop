@@ -29,6 +29,8 @@ class OrderController extends Controller
 
         $order->code = md5($order->id);
         $order->save();
+
+        return ['code' => $order->code];
     }
 
     public function get(Request $request) {
