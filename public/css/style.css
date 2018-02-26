@@ -262,7 +262,7 @@ button {
 }
 
 .h2_caption {
-    font-family: "CooperHewittMedium";
+    font-family: "CooperHewittHeavy";
     font-size: 34.56px;
     line-height: 34.56px;
     margin: 0 0 10px 0;
@@ -276,6 +276,7 @@ button {
 .mix_paragraphe {
     margin-bottom: 45px;
     line-height: 20px;
+    font-family: "CamboRegular";
 }
 
 .mix_paragraphe > span {
