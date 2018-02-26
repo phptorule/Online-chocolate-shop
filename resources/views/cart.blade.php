@@ -213,7 +213,7 @@
             var content = "";
             content += "<td><img src='" + image + "' alt='box' /></td>";
             content += "<td>" + name + "</td>";            
-            content += "<td></td>";                                    
+            content += "<td>" + total + "</td>";                              
             content += "<td>";
             content += "<div class='candies_count_add'>";                            
             content += "<button type='button' data-price='" + total + "' class='plus'>+</button>";

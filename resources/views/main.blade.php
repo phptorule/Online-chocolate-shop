@@ -146,7 +146,7 @@
                                 <p>5.   <span></span></p>
                                 <p>6.   <span></span></p>
                             </div>
-                            <button href="javascript:void(0);" data-box="candle" class="mix_count_butt butt add_to_card disabled">{{ __('main.ad_to_the_basket') }}</button>
+                            <button href="javascript:void(0);" data-box="candle" class="mix_count_butt butt add_to_card disabled" disabled>{{ __('main.ad_to_the_basket') }}</button>
                         </div>
                     </div>
                 </div>
