@@ -170,15 +170,15 @@
             var content = "";
             content += "<td><img src='/storage/" + item.image.replace('public', '') + "' alt='img' /></td>";
             content += "<td>" + item.name + "</td>";            
-            content += "<td>" + item.price + " DKK</td>";                                    
+            content += "<td>" + item.price.toFixed(2) + " DKK</td>";                                    
             content += "<td>";
             content += "<div class='candies_count_add'>";                            
-            content += "<button type='button' data-price='" + item.price + "' class='plus'>+</button>";
+            content += "<button type='button' data-price='" + item.price.toFixed(2) + "' class='plus'>+</button>";
             content += "<input type='text' value='" + getCountById(item.id) + "' readonly>";                                
-            content += "<button type='button' data-price='" + item.price + "' class='minus'>-</button>";
+            content += "<button type='button' data-price='" + item.price.toFixed(2) + "' class='minus'>-</button>";
             content += "</div>";
             content += "</td>";
-            content += "<td class='count'>" + ( getCountById(item.id) ? item.price * getCountById(item.id) : item.price ) + " DKK</td>";
+            content += "<td class='count'>" + ( getCountById(item.id) ? item.price.toFixed(2) * getCountById(item.id) : item.price.toFixed(2) ) + " DKK</td>";
             content += "<td>";
             content += "<i class='fa fa-trash remove-cart-item' data-id='" + item.id + "'></i>";
             content += "</td>";
@@ -206,6 +206,8 @@
                 count += item.count;
                 total += item.price * item.count;
             });
+
+            total = total.toFixed(2)
 
             name =  attach[count] ? attach[count].name : name;
             image = attach[count] ? attach[count].img : image;
