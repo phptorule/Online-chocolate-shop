@@ -68,10 +68,10 @@
                 var count = $(this).parent().find('input').val() * 1,
                     price = $(this).data('price');
                 
-                count = count + 1;                    
+                count = count + 1;   
 
                 $(this).parent().find('input').val(count);
-                $(this).closest("tr").find(".count").text((count * price) + " DKK");
+                $(this).closest("tr").find(".count").text((count * price).toFixed(2) + " DKK");
             });
 
             $(document).on('click', '.minus', function() {
@@ -82,7 +82,7 @@
 
                 if (count) {
                     $(this).parent().find('input').val(count);
-                    $(this).closest("tr").find(".count").text((count * price) + " DKK");
+                    $(this).closest("tr").find(".count").text((count * price).toFixed(2) + " DKK");
                 }
             });
 
@@ -206,12 +206,14 @@
                 count += item.count;
                 total += item.price * item.count;
             });
-
-            total = total.toFixed(2)
+            
+            if (total) {
+                total = total.toFixed(2) * 1;
+            }
 
             name =  attach[count] ? attach[count].name : name;
             image = attach[count] ? attach[count].img : image;
-           
+            
             var content = "";
             content += "<td><img src='" + image + "' alt='box' /></td>";
             content += "<td>" + name + "</td>";            
