@@ -20,9 +20,9 @@
                             </a>
                             <ul>
                                 <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate">{{ __('header.home') }}</a></li>  
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/csr">{{ __('header.csr') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">{{ __('header.original_beands') }}</a></li>  
                                 <li><a class="text-uppercase" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/') }}">{{ __('header.shop') }}</a></li>
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">{{ __('header.original_beands') }}</a></li>  
+                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/csr">{{ __('header.csr') }}</a></li>
                                 <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/events">{{ __('header.events') }}</a></li>
                                 <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/kurser">{{ __('header.courses') }}</a></li>
                                 <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/bryllupskagen">{{ __('header.wedding_cake') }}</a></li>

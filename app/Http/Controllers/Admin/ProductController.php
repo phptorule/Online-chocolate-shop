@@ -47,6 +47,7 @@ class ProductController extends Controller
     }
 
     public function edit(Request $request) {
+        
         $product = Product::find($request->id);
         $product->category_id = $request->category_id;
         $product->name = ! empty($request->name) ? $request->name : ""; ;

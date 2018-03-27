@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Login as RequestLogin;
+use LaravelLocalization;
 
 class AuthController extends Controller
 {
@@ -29,11 +30,15 @@ class AuthController extends Controller
 
     public function login(RequestLogin $request)
     {
+        LaravelLocalization::setLocale("en");
+
         $credentials = $request->only('email', 'password');
         
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
+
+        
 
         return response()->json(['error' => 'Unauthorized'], 401);
     }

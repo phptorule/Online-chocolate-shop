@@ -55,6 +55,7 @@ function()
             'prefix' => 'api'
         ]
         ,function () {
+            
             Route::prefix('admin')->namespace('Admin')->group(function() {
                 Route::post('login', 'AuthController@login');
                 Route::get('account', 'AuthController@account');
@@ -79,14 +80,17 @@ function()
                 Route::get('get', 'OrderController@get');
             });
             
-            //langs/get
-            
             Route::prefix('langs')->namespace('Admin')->group(function() {
                 Route::get('get', 'LangsController@get');
                 Route::put('update', 'LangsController@update');
             });
         }
     );
+});
+
+
+Route::get('/dk/admin', function() {
+    return redirect('/en/admin');
 });
 
 Route::get('/subscribe', 'MainController@subscribeUser');
