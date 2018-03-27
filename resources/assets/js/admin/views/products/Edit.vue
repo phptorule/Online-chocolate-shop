@@ -184,13 +184,10 @@ export default {
                 });
         },
         editProduct() {
-            
             this.product.hover_check = this.product.hover_check ? 1 : 0;
-            
-             let convertedField = [
+            let convertedField = [
                 'translate'
             ];
-
             let fd = new FormData;
             for(let i in this.product) {
                  if (convertedField.indexOf(i) + 1) {
@@ -200,7 +197,7 @@ export default {
                 fd.append(i, this.product[i]);
             }
             
-            axios.post('/api/product/edit', fd)
+            axios.post('http://chocolate.da/api/product/edit', fd)
                 .then((response) => {
                     this.$router.push('/products/list');
                 });

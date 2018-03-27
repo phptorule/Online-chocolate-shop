@@ -50,6 +50,16 @@ function()
         return view('signup');
     });
 
+    
+});
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+    ],
+function() {
+    
     Route::group(
         [
             'prefix' => 'api'
@@ -86,11 +96,6 @@ function()
             });
         }
     );
-});
-
-
-Route::get('/dk/admin', function() {
-    return redirect('/en/admin');
 });
 
 Route::get('/subscribe', 'MainController@subscribeUser');
