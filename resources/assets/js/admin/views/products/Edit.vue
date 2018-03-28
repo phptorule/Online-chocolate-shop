@@ -197,7 +197,7 @@ export default {
                 fd.append(i, this.product[i]);
             }
             
-            axios.post('http://chocolate.da/api/product/edit', fd)
+            axios.post('/api/product/edit', fd)
                 .then((response) => {
                     this.$router.push('/products/list');
                 });
