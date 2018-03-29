@@ -46,7 +46,8 @@
 
                             <div class="form-group" v-if=" ! (['70g', '12g', '200g', '2000g'].indexOf(category.code) + 1)">
                                 <label for="code">Color</label>
-                                <input type="color" class="form-control" v-model="category.color" />
+                                <!-- <input type="color" class="form-control" v-model="category.color" /> -->
+                                <photoshop-picker v-model="category.color" />
                             </div>
 
                             <button type="button" @click="eidtCategory()" class="btn btn-default">Update</button>
@@ -61,6 +62,7 @@
 <script>
 
 import axios from 'axios';
+import { Photoshop } from 'vue-color';
 
 export default {
     data() {
@@ -72,7 +74,7 @@ export default {
                 position : 0,
                 image : "",
                 short_description : "",
-                color : "",
+                color : { hex : "#ffffff" },
                 translate : {}
             }
         }
@@ -81,6 +83,9 @@ export default {
     mounted() {
         this.getLangs();
         this.getCategory();
+    },    
+    components: {
+        'photoshop-picker': Photoshop
     },
     methods : {
          changeLange(id) {
@@ -124,13 +129,15 @@ export default {
                     self.category.code = response.data.code;
                     self.category.position = response.data.position;
                     self.category.image = response.data.image;
-                    self.category.color = response.data.color;
+                    self.category.color = { hex : response.data.color };
                 });
         },
         eidtCategory() {
             let convertedField = [
                 'translate'
             ];
+            
+            this.category.color = this.category.color.hex;
 
             let fd = new FormData;
 

@@ -57,8 +57,9 @@
                             <div class="form-group">
                                 <label for="color">Active effect</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon"></div>
-                                    <input type="color" class="form-control" v-model="product.active_effect" />
+                                    <!-- <div class="input-group-addon"></div> -->
+                                    <!-- <input type="color" class="form-control" v-model="product.active_effect" /> -->
+                                    <photoshop-picker v-model="product.active_effect" />
                                 </div>
                             </div>
 
@@ -79,7 +80,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="hover_text">Hover Color</label>
-                                            <input type="color" class="form-control" v-model="product.hover_color" />
+                                            <!-- <input type="color" class="form-control" v-model="product.hover_color" /> -->
+                                            <photoshop-picker v-model="product.hover_color" />
                                         </div>
                                     </div>
                                 </div>
@@ -104,6 +106,7 @@
 
 <script>
 
+import { Photoshop } from 'vue-color';
 import axios from 'axios';
 
 export default {
@@ -115,14 +118,15 @@ export default {
                 category_id : 0,
                 hover_check : false,
                 hover_img : "",
-                hover_color : "#ffffff",
+                hover_color : { hex : "#ffffff" },
+                active_effect : { hex : "#ffffff" },
                 hover_text : "",
                 price : 0,
                 description : "",
                 short_description : "",
                 position : 0,
                 status : "active",
-                color : "#ffffff",
+                color : { hex : "#ffffff" },
                 image : false,
                 tmp_image: false,
                 hover_img : false,
@@ -135,6 +139,9 @@ export default {
     mounted() {
         this.getCategory();
         this.getLangs();
+    },
+    components: {
+        'photoshop-picker': Photoshop
     },
     methods : {
         changeLange(id) {
@@ -163,6 +170,10 @@ export default {
         },
         addProduct() {
             this.product.hover_check = this.product.hover_check ? 1 : 0;
+            
+            this.product.active_effect = this.product.active_effect.hex;
+            this.product.hover_color = this.product.hover_color.hex;
+            this.product.color = this.product.color.hex;
 
             let fd = new FormData;
             for(let i in this.convert(this.product)) {

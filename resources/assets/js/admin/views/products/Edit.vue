@@ -80,7 +80,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="hover_text">Hover Color</label>
-                                            <input type="color" class="form-control" v-model="product.hover_color" />
+                                            <!-- <input type="color" class="form-control" v-model="product.hover_color" /> -->
+                                            <photoshop-picker v-model="product.hover_color" />
                                         </div>
                                     </div>
                                 </div>
@@ -106,6 +107,7 @@
 
 <script>
 
+import { Photoshop } from 'vue-color';
 import axios from 'axios';
 
 export default {
@@ -122,7 +124,8 @@ export default {
                 position : 0,
                 status : "active",
                 image : false,
-                color : "#ffffff",
+                color : { hex : "#ffffff" },
+                hover_color : { hex : "#ffffff" },
                 tmp_image: false,
                 hover_img : false,
                 translate : {}
@@ -134,6 +137,9 @@ export default {
         this.getLangs();
         this.getProduct();
         this.getCategory();
+    },
+    components: {
+        'photoshop-picker': Photoshop
     },
     methods : {
         changeLange(id) {
@@ -173,7 +179,7 @@ export default {
                     self.product.active_effect = response.data.active_effect;
 
                     self.product.hover_text = response.data.hover_text;
-                    self.product.hover_color = response.data.hover_color;
+                    self.product.hover_color = { hex : response.data.hover_color };
 
                     if (response.data.translate) {
                         
@@ -185,6 +191,8 @@ export default {
         },
         editProduct() {
             this.product.hover_check = this.product.hover_check ? 1 : 0;
+            this.product.hover_color =  this.product.hover_color.hex;
+
             let convertedField = [
                 'translate'
             ];
