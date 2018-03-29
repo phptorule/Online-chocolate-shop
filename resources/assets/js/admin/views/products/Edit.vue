@@ -58,8 +58,9 @@
                             <div class="form-group">
                                 <label for="color">Active effect</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon"></div>
-                                    <input type="color" class="form-control" v-model="product.active_effect" />
+                                    <!-- <div class="input-group-addon"></div> -->
+                                    <!-- <input type="color" class="form-control" v-model="product.active_effect" /> -->
+                                    <photoshop-picker v-model="product.active_effect" />
                                 </div>
                             </div>
 
@@ -126,6 +127,7 @@ export default {
                 image : false,
                 color : { hex : "#ffffff" },
                 hover_color : { hex : "#ffffff" },
+                active_effect : { hex : "#ffffff" },
                 tmp_image: false,
                 hover_img : false,
                 translate : {}
@@ -176,7 +178,8 @@ export default {
                     self.product.price = response.data.price;
                     self.product.position = response.data.position;
                     self.product.status = response.data.status;
-                    self.product.active_effect = response.data.active_effect;
+                    
+                    self.product.active_effect = { hex : response.data.active_effect };
 
                     self.product.hover_text = response.data.hover_text;
                     self.product.hover_color = { hex : response.data.hover_color };
@@ -192,6 +195,7 @@ export default {
         editProduct() {
             this.product.hover_check = this.product.hover_check ? 1 : 0;
             this.product.hover_color =  this.product.hover_color.hex;
+            this.product.active_effect = this.product.active_effect.hex;
 
             let convertedField = [
                 'translate'
