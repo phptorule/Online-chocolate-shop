@@ -31,9 +31,11 @@
                     <div class="col-md-6">
                         <div class="mix_text text-center">
                             <h2 class="h2_caption">{{ $category['mebfc']->name }}</h2>
+                            
                             <p class="mix_paragraphe">
                                 {{ $category['mebfc']->short_description }}
                             </p>
+                            <p class="h2_caption_description">{{ $category['mebfc']->sub_description }}</p>
                         </div>
                     </div>
                 </div>
@@ -101,7 +103,9 @@
                     <div class="col-md-6">
                         <div class="mix_text text-center">
                             <h2 class="h2_caption">{{ $category['mebfc2']->name }}</h2>
-                            <p class="h2_caption_description">{{ $category['mebfc2']->short_description }}</p>
+                            <p class="mix_paragraphe">{{ $category['mebfc2']->short_description }}</p>
+                            <p class="h2_caption_description">{{ $category['mebfc2']->sub_description }}</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -109,7 +113,6 @@
                     <div class="col-md-6">
                         <div class="row">
                             @foreach($product['mebfc2']['product'] as $row)
-                             
                             <div class="col-md-6 float_item clearfix">
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
@@ -160,6 +163,7 @@
             <div class="row">
                 <div class="col-md-6 text-center">
                     <h2 class="h2_caption">{{ $category['vc']->name }}</h2>
+                    <p class="mix_paragraphe">{{ $category['vc']->sub_description }}</p>
                     <p class="h2_caption_description">{{ $category['vc']->short_description }}</p>
                 </div>
             </div>
@@ -198,6 +202,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="original_section_caption">{{ $category['70g']->name }}</h3>
+                            <p class="mix_paragraphe">{{ $category['70g']->sub_description }}</p>
                             <p class="original_section_description">{{ $category['70g']->short_description }}</p>
                         </div>
                     </div>
@@ -238,6 +243,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="original_section_caption">{{ $category['12g']->name }}</h3>
+                            <p class="mix_paragraphe">{{ $category['12g']->sub_description }}</p>
                             <p class="original_section_description">{{ $category['12g']->short_description }}</p>
                         </div>
                     </div>
@@ -280,7 +286,9 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <h3 class="original_section_caption">{{ $category['200g']->name }}</h3>
+                                        <p class="original_section_caption">{{ $category['200g']->sub_description }}</p>
                                         <h3 class="original_section_caption">{{ $category['200g']->short_description }}</h3>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -332,6 +340,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <h3 class="original_section_caption">{{ $product['2000g']->name }}</h3>
+                                        <p class="original_section_description">{{ $product['2000g']->sub_description }}</p>
                                         <p class="original_section_description">{{ $product['2000g']->short_description }}</p>
                                     </div>
                                 </div>

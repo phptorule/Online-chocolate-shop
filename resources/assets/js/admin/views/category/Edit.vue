@@ -21,7 +21,11 @@
                                     <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].name" class="form-control" placeholder="Name" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Short description</label>
+                                    <label for="name">Sub Description</label>
+                                    <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].sub_description" class="form-control" placeholder="Sub description" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Description</label>
                                     <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].short_description" class="form-control" placeholder="Short Description" />
                                 </div>
                             </div>
@@ -74,6 +78,7 @@ export default {
                 position : 0,
                 image : "",
                 short_description : "",
+                sub_description : "",
                 color : { hex : "#ffffff" },
                 translate : {}
             }

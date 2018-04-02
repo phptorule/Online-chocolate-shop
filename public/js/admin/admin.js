@@ -109779,6 +109779,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -109794,6 +109798,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 position: 0,
                 image: "",
                 short_description: "",
+                sub_description: "",
                 color: { hex: "#ffffff" },
                 translate: {}
             }
@@ -109963,7 +109968,50 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Short description")
+                        _vm._v("Sub Description")
+                      ]),
+                      _vm._v(" "),
+                      _vm.category.translate && l.code in _vm.category.translate
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value:
+                                  _vm.category.translate[l.code]
+                                    .sub_description,
+                                expression:
+                                  "category.translate[l.code].sub_description"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Sub description"
+                            },
+                            domProps: {
+                              value:
+                                _vm.category.translate[l.code].sub_description
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.category.translate[l.code],
+                                  "sub_description",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Description")
                       ]),
                       _vm._v(" "),
                       _vm.category.translate && l.code in _vm.category.translate

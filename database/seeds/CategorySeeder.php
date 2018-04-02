@@ -24,11 +24,13 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
-                        "short_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr. Hold musen over stykket for mere info!"
+                        "sub_description" => "Med 12 fyldte chokolader & flødekarameller Vælg 12 lækre stykker for 155 kr.",
+                        "short_description" => " Hold musen over stykket for mere info!"
                     ],
                     "en" => [
                         "name" => "MIX A BOX FILLED CHOCOLADER",
-                        "short_description" => "With 12 stuffed chocolates & cream karamels Choose 12 delicious pieces for 155 kr. Hold your mouse over the piece for more info!"
+                        "sub_description" => "With 12 stuffed chocolates & cream karamels Choose 12 delicious pieces for 155 kr.",
+                        "short_description" => " Hold your mouse over the piece for more info!"
                     ]
                 ]
             ],
@@ -41,11 +43,13 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "MIX EN BOKS FYLDTE CHOKOLADER",
-                        "short_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr. Hold musen over stykket for mere info!"
+                        "sub_description" => "Med 6 fyldte chokolader & flødekarameller Vælg 6 lækre stykker for 65 kr.",
+                        "short_description" => " Hold musen over stykket for mere info!"
                     ],
                     "en" => [
                         "name" => "MIX A BOX FILLED CHOCOLADER",
-                        "short_description" => "With 6 stuffed chocolates & cream karamels Choose 6 delicious pieces for 65 kr. Hold your mouse over the piece for more info!"
+                        "sub_description" => "With 6 stuffed chocolates & cream karamels Choose 6 delicious pieces for 65 kr.",
+                        "short_description" => " Hold your mouse over the piece for more info!"
                     ]
                 ]
             ],
@@ -58,10 +62,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "VARM CHOKOLADE",
+                        "sub_description" => "",
                         "short_description" => "6 stk. varmechokolade stænger"
                     ],
                     "en" => [
                         "name" => "HOT CHOCOLATE",
+                        "sub_description" => "",
                         "short_description" => "6 pieces. hot chocolate bars"
                     ]
                 ]
@@ -75,10 +81,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "ORIGINAL BEANS",
+                        "sub_description" => "",
                         "short_description" => "59 kr. stk.- 3 stk. 155 kr."
                     ],
                     "en" => [
                         "name" => "ORIGINAL BEANS",
+                        "sub_description" => "",
                         "short_description" => "59 kr. pcs. 155 kr."
                     ]
                 ]
@@ -92,10 +100,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "70 g. barer ",
+                        "sub_description" => "",
                         "short_description" => "59 kr. stk.- 3 stk. 155 kr."
                     ],
                     "en" => [
                         "name" => "70 g. Bars",
+                        "sub_description" => "",
                         "short_description" => "59 kr. stk.- 3 stk. 155 kr."
                     ]
                 ]
@@ -108,10 +118,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "12 g. barer",
+                        "sub_description" => "",
                         "short_description" => "15 kr. stk. - 3 stk. 40 kr."
                     ],
                     "en" => [
                         "name" => "12 g. Bars",
+                        "sub_description" => "",
                         "short_description" => "15 kr. pcs. - 3 pcs. 40 kr."
                     ]
                 ]
@@ -124,10 +136,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "2000g. poser",
+                        "sub_description" => "",
                         "short_description" => "110 kr. stk."
                     ],
                     "en" => [
                         "name" => "2000g. to pose",
+                        "sub_description" => "",
                         "short_description" => "110 kr. pcs."
                     ]
                 ]
@@ -140,10 +154,12 @@ class CategorySeeder extends Seeder
                 "translate" => [
                     "dk" => [
                         "name" => "2000g. poser",
+                        "sub_description" => "",
                         "short_description" => "500 - 626 kr"
                     ],
                     "en" => [
                         "name" => "2000g. pose",
+                        "sub_description" => "",
                         "short_description" => "500 - 626 kr "
                     ]
                 ]
@@ -163,6 +179,7 @@ class CategorySeeder extends Seeder
             $category->image = $c["image"];
             $category->color = ! empty($c["color"]) ? $c["color"] : "#ffffff";
             $category->short_description = "";
+            $category->sub_description = "";
             $category->save();
 
             foreach($c["translate"] as $code => $lng) {

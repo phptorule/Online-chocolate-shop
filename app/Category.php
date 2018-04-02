@@ -34,4 +34,14 @@ class Category extends Model
         
         return ! empty($translate->translate->short_description) ? $translate->translate->short_description : "";
     }
+
+    public function getSubDescriptionAttribute($value) {
+        $translate = $this->translate->filter(function($t){
+            if ($t->lang->code == LaravelLocalization::getCurrentLocale()) {
+                return true;
+            }
+        })->first();
+        
+        return ! empty($translate->translate->sub_description) ? $translate->translate->sub_description : "";
+    }
 }
