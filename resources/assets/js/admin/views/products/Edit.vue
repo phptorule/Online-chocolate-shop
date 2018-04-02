@@ -19,6 +19,10 @@
                                     <label for="name">Name</label>
                                     <input type="text" v-if="product.translate && l.code in product.translate" v-model="product.translate[l.code].name" class="form-control" placeholder="Name" />
                                 </div>
+                                <div class="form-group">
+                                    <label for="name">Description</label>
+                                    <textarea type="text" v-if="product.translate && l.code in product.translate" v-model="product.translate[l.code].description" class="form-control" placeholder="Description" ></textarea>
+                                </div>
                             </div>
                         </div>
 

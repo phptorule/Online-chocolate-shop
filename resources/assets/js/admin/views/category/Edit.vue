@@ -21,11 +21,11 @@
                                     <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].name" class="form-control" placeholder="Name" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Sub Description</label>
-                                    <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].sub_description" class="form-control" placeholder="Sub description" />
+                                    <label for="name">Subname</label>
+                                    <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].sub_description" class="form-control" placeholder="Subname" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Description</label>
+                                    <label for="name">Short Description</label>
                                     <input type="text" v-if="category.translate && l.code in category.translate" v-model="category.translate[l.code].short_description" class="form-control" placeholder="Short Description" />
                                 </div>
                             </div>

@@ -107805,6 +107805,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -107968,6 +107972,40 @@ var render = function() {
                             _vm.$set(
                               _vm.product.translate[l.code],
                               "name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Description")
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.translate[l.code].description,
+                            expression: "product.translate[l.code].description"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Description" },
+                        domProps: {
+                          value: _vm.product.translate[l.code].description
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.product.translate[l.code],
+                              "description",
                               $event.target.value
                             )
                           }
@@ -108800,6 +108838,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -108995,6 +109037,44 @@ var render = function() {
                                 _vm.$set(
                                   _vm.product.translate[l.code],
                                   "name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Description")
+                      ]),
+                      _vm._v(" "),
+                      _vm.product.translate && l.code in _vm.product.translate
+                        ? _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value:
+                                  _vm.product.translate[l.code].description,
+                                expression:
+                                  "product.translate[l.code].description"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", placeholder: "Description" },
+                            domProps: {
+                              value: _vm.product.translate[l.code].description
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.product.translate[l.code],
+                                  "description",
                                   $event.target.value
                                 )
                               }
@@ -109968,7 +110048,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Sub Description")
+                        _vm._v("Subname")
                       ]),
                       _vm._v(" "),
                       _vm.category.translate && l.code in _vm.category.translate
@@ -109985,10 +110065,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: "Sub description"
-                            },
+                            attrs: { type: "text", placeholder: "Subname" },
                             domProps: {
                               value:
                                 _vm.category.translate[l.code].sub_description
@@ -110011,7 +110088,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Description")
+                        _vm._v("Short Description")
                       ]),
                       _vm._v(" "),
                       _vm.category.translate && l.code in _vm.category.translate
