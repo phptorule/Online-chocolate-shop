@@ -216,7 +216,7 @@
                                         <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
                                         <div class="overlay" style="background-color: {{ $p->active_effect }}">
                                             <div class="overlay_text">
-                                                {{ $p->short_description }}
+                                                {{ $p->description }}
                                             </div>
                                         </div>
                                         <div class="overlay-active">
@@ -227,7 +227,7 @@
                                     </label>
                                     <div class="original_box_text">
                                         <span>{{ $p->name }}</span>
-                                        <p>{{ $p->short_description }}</p>
+                                        <p>{{ $p->description }}</p>
                                     </div>
                                 </div>
                             </div>    
