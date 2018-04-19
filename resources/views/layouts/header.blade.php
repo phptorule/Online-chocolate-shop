@@ -7,7 +7,7 @@
                     <div class="header_nav_icon">
                         <!-- NAV -->
                         <a href="javascript:void(0);" id="nav_open" class="nav_open">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 9 50 32" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px; width: 45px; height: 45px; fill: #734A2B"><g><path d="M50,37 v4 h-50 v-4 h50z"></path><path d="M50,9 v4 h-50 v-4 h50z"></path><path d="M50,23 v4 h-50 v-4 h50z"></path></g></svg>
+                            <img src="https://static.wixstatic.com/media/bf03ed_cca79d55df80482bb10d2bf5f66a25f0~mv2_d_5100_3300_s_4_2.png/v1/fill/w_60,h_39,al_c,usm_0.66_1.00_0.01/bf03ed_cca79d55df80482bb10d2bf5f66a25f0~mv2_d_5100_3300_s_4_2.png" style="width: 60px; height: 39px; object-fit: cover;">
                         </a>
                         <div id="hidden_menu_overlay"></div>
                         <div class="hidden_menu">
@@ -19,14 +19,14 @@
                                 </svg>
                             </a>
                             <ul>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate">{{ __('header.home') }}</a></li>  
+                            <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}">{{ __('header.home') }}</a></li>  
                                 <li><a class="text-uppercase" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/') }}">{{ __('header.shop') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/original-beans">{{ __('header.original_beands') }}</a></li>  
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/csr">{{ __('header.csr') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/events">{{ __('header.events') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/kurser">{{ __('header.courses') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/bryllupskagen">{{ __('header.wedding_cake') }}</a></li>
-                                <li><a class="text-uppercase" href="https://karoline-relster.wixsite.com/mhchocolate/om-os">{{ __('header.about_us') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/original-beans">{{ __('header.original_beands') }}</a></li>  
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/csr">{{ __('header.csr') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/events">{{ __('header.events') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/kurser">{{ __('header.courses') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/bryllupskagen">{{ __('header.wedding_cake') }}</a></li>
+                                <li><a class="text-uppercase" href="{{ env('APP_URL_ORIGIN') }}/om-os">{{ __('header.about_us') }}</a></li>
                                 <li><a class="text-uppercase" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'signup') }}">{{ __('header.b2b') }}</a></li>
                             </ul>
                         </div>
