@@ -655,7 +655,7 @@ button {
 .signup_form_wrapper input,
 .check_out_wrapper .input_form,
 .create_box .input_form  {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
     background-color: transparent;
     max-width: 250px;
     width: 100%;
@@ -753,7 +753,7 @@ button {
 }
 
 .check_out_wrapper {
-    max-width: 515px;
+    max-width: 600px;
     width: 100%;
     margin: 0 auto 80px;
 }
@@ -1332,3 +1332,4 @@ button {
 button.disabled {
     cursor: not-allowed;
 }
+

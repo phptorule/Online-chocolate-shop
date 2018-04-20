@@ -123,7 +123,7 @@
 				errorElement: "em",
 				errorPlacement: function ( error, element ) {
 					error.addClass( "help-block" );
-
+                    error.css({display: "block", transform: "translateY(-43px)"});
 					if ( element.prop( "type" ) === "checkbox" ) {
 						error.insertAfter( element.parent( "label" ) );
 					} else {
