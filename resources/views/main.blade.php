@@ -121,8 +121,8 @@
                                                 <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont.png' }}" alt="img">
                                                 <div class="overlay" style="{{ $row->hover_check ? '' : 'background-color: ' . $row->hover_color }}">
                                                     <div class="overlay_text">
-                                                        @if( ! $p->hover_check)
-                                                            {{ $p->hover_text }}
+                                                        @if( ! $row->hover_check)
+                                                            {{ $row->hover_text }}
                                                         @else
                                                             <img src="{{ ! empty($row->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
                                                         @endif
@@ -222,7 +222,7 @@
                                                 @if( ! $p->hover_check)
                                                     {{ $p->hover_text }}
                                                 @else
-                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $p->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
                                                 @endif
                                             </div>
                                         </div>
@@ -264,7 +264,7 @@
                                                     @if( ! $p->hover_check)
                                                         {{ $p->hover_text }}
                                                     @else
-                                                        <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                        <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $p->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
                                                     @endif
                                                 </div>
                                             </div>
@@ -314,7 +314,7 @@
                                                                 @if( ! $p->hover_check)
                                                                     {{ $p->hover_text }}
                                                                 @else
-                                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $p->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
                                                                 @endif
                                                             </div>
                                                         </div>
