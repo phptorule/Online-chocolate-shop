@@ -117,14 +117,18 @@
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
                                         <div class="small_mix_content_part">
-                                            <a href="javascript:void(0);" class="small_mix_item item_hover item white candi_item" data-box="candle" data-title="{{ $row->name }}" data-id="{{ $row->id }}">
-                                                <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont6.png' }}" alt="img">
-                                                <div class="overlay" style="background-color: {{ $p->active_effect }}">
+                                            <a href="javascript:void(0);" class="mix_content_item item_hover  hover_brown item white candi_item" data-box="candies" data-title="{{ $row->name }}" data-id="{{ $row->id }}">
+                                                <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont.png' }}" alt="img">
+                                                <div class="overlay" style="{{ $row->hover_check ? '' : 'background-color: ' . $row->hover_color }}">
                                                     <div class="overlay_text">
-                                                        {{ $row->short_description }}
+                                                        @if( ! $p->hover_check)
+                                                            {{ $p->hover_text }}
+                                                        @else
+                                                            <img src="{{ ! empty($row->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                        @endif
                                                     </div>
                                                 </div>
-                                                <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                <div class="overlay-active" style="background-color: {{ $row->active_effect }}">
                                                     <div class="overlay_text"></div>
                                                 </div>
                                             </a>
@@ -212,19 +216,21 @@
                             <div class="col-md-4">
                                 <div class="original_box_wrap text-center">
                                     <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover original_box_item_active white item">
-                                        <input type="text" disabled />
-                                        <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
-                                        <div class="overlay" style="background-color: {{ $p->active_effect }}">
+                                        <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
+                                        <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
                                             <div class="overlay_text">
-                                                {{ $p->description }}
+                                                @if( ! $p->hover_check)
+                                                    {{ $p->hover_text }}
+                                                @else
+                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="overlay-active">
-                                            <div class="overlay_text">
-                                                LÆG I KURV
-                                            </div>
+                                        <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                            <div class="overlay_text"></div>
                                         </div>
                                     </label>
+
                                     <div class="original_box_text">
                                         <span>{{ $p->name }}</span>
                                         <p>{{ $p->description }}</p>
@@ -252,17 +258,18 @@
                                 <div class="col-md-4">
                                     <div class="original_box_wrap text-center">
                                         <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover white item">
-                                            <input type="text" disabled />
-                                            <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position.png' }}" alt="img" />
-                                            <div class="overlay"  style="background-color: {{ $p->active_effect }}">
+                                            <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
+                                            <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
                                                 <div class="overlay_text">
-                                                {{ $p->short_description }}
+                                                    @if( ! $p->hover_check)
+                                                        {{ $p->hover_text }}
+                                                    @else
+                                                        <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="overlay-active">
-                                                <div class="overlay_text">
-                                                    LÆG I KURV
-                                                </div>
+                                            <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                <div class="overlay_text"></div>
                                             </div>
                                         </label>
                                         <div class="original_box_text">
@@ -300,20 +307,21 @@
                                     @foreach($product['200g']['product'] as $p)
                                         <div class="col-md-6">
                                             <div class="packaging_box_wrap text-center">
-                                                <label data-id="{{ $p->id }}" class="direct-product packaging_box_item item_hover original_box_item_active white item">
-                                                    <input type="text" disabled />
-                                                    <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position4.png' }}" alt="img" />
-                                                    <div class="overlay"  style="background-color: {{ $p->active_effect }}">
-                                                        <div class="overlay_text">
-                                                        {{ $p->short_description }}
+                                                <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover original_box_down white  item">
+                                                        <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
+                                                        <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
+                                                            <div class="overlay_text">
+                                                                @if( ! $p->hover_check)
+                                                                    {{ $p->hover_text }}
+                                                                @else
+                                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                                @endif
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="overlay-active">
-                                                        <div class="overlay_text">
-                                                            LÆG I KURV
+                                                        <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                            <div class="overlay_text"></div>
                                                         </div>
-                                                    </div>
-                                                </label>
+                                                    </label>
                                                 <div class="packaging_box_text">
                                                     <span>{{ $p->name }}</span>
                                                     <p>{{ $p->short_description }}</p>
@@ -350,17 +358,18 @@
                                             <div class="col-md-4">
                                                 <div class="original_box_wrap text-center">
                                                     <label data-id="{{ $p->id }}" class="direct-product original_box_item original_box_item_active item_hover original_box_down white  item">
-                                                        <input type="text" disabled />
-                                                        <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/position3.png' }}" alt="img">
-                                                        <div class="overlay"  style="background-color: {{ $p->active_effect }}">
+                                                        <img src="{{ ! empty($p->image) ? '/storage/' . str_replace('public', '', $p->image) : 'img/pic/cont.png' }}" alt="img">
+                                                        <div class="overlay" style="{{ $p->hover_check ? '' : 'background-color: ' . $p->hover_color }}">
                                                             <div class="overlay_text">
-                                                                {{ $p->short_description }} 
+                                                                @if( ! $p->hover_check)
+                                                                    {{ $p->hover_text }}
+                                                                @else
+                                                                    <img src="{{ ! empty($p->hover_img) ? '/storage/' . str_replace('public', '', $row->hover_img) : 'img/pic/cont.png' }}" alt="hover" />
+                                                                @endif
                                                             </div>
                                                         </div>
-                                                        <div class="overlay-active">
-                                                            <div class="overlay_text">
-                                                                LÆG I KURV
-                                                            </div>
+                                                        <div class="overlay-active" style="background-color: {{ $p->active_effect }}">
+                                                            <div class="overlay_text"></div>
                                                         </div>
                                                     </label>
                                                     <div class="original_box_text">
