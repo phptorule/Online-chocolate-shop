@@ -274,7 +274,7 @@
                                         </label>
                                         <div class="original_box_text">
                                             <span>{{ $p->name }}</span>
-                                            <p>{{ $p->short_description }}</p>
+                                            <p>{{ $p->description }} </p>
                                         </div>
                                     </div>
                                 </div>    
@@ -324,7 +324,7 @@
                                                     </label>
                                                 <div class="packaging_box_text">
                                                     <span>{{ $p->name }}</span>
-                                                    <p>{{ $p->short_description }}</p>
+                                                    <p>{{ $p->description }} </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -374,7 +374,7 @@
                                                     </label>
                                                     <div class="original_box_text">
                                                         <span>{{ $p->name }}</span>
-                                                        <p>{{ $p->short_description }} </p>
+                                                        <p>{{ $p->description }} </p>
                                                     </div>
                                                 </div>
                                             </div>
