@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="shop_caption text-center text-uppercase">{{ __('main.shop') }}</h1>
+                    <h2 class="h2_caption text-center text-uppercase">{{ __('main.shop') }}</h2>
                     <p class="shop_caption_description text-center">{{ __('main.short_description') }} </p>
                     <div class="shop_item_box d-sm-flex justify-content-sm-between">
                         @foreach($category as $c)
@@ -31,7 +31,7 @@
                     <div class="col-md-6">
                         <div class="mix_text text-center">
                             <h2 class="h2_caption">{{ $category['mebfc']->name }}</h2>
-                            
+
                             <p class="mix_paragraphe">
                                 {{ $category['mebfc']->short_description }}
                             </p>
@@ -105,15 +105,15 @@
                             <h2 class="h2_caption">{{ $category['mebfc2']->name }}</h2>
                             <p class="mix_paragraphe">{{ $category['mebfc2']->short_description }}</p>
                             <p class="h2_caption_description">{{ $category['mebfc2']->sub_description }}</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             @foreach($product['mebfc2']['product'] as $row)
-                            <div class="col-md-6 float_item clearfix">
+                            <div class="col-md-5">
                                 <div class="mix_content text-center">
                                     <div class="mix_content_item_box">
                                         <div class="small_mix_content_part">
@@ -134,8 +134,8 @@
                                             </a>
                                             <h4 class="small_mix_item_caption">{{ $row->name }}</h4>
                                         </div>
-                                    </div>                       
-                                
+                                    </div>
+
                                 </div>
                             </div>
                             @endforeach
@@ -191,8 +191,8 @@
         </div>
     </section>
     @endif
-    
-    <section class="original line_shadow" id="ob">
+
+    <section class="original" id="ob">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -210,7 +210,7 @@
                             <p class="original_section_description">{{ $category['70g']->short_description }}</p>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         @foreach($product['70g']['product'] as $p)
                             <div class="col-md-4">
@@ -236,7 +236,7 @@
                                         <p>{{ $p->description }}</p>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -277,14 +277,14 @@
                                             <p>{{ $p->description }} </p>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             @endforeach
                         </div>
                 </div>
             </section>
         @endif
 
-        @if(count($product['200g']['product']))                
+        @if(count($product['200g']['product']))
             <section class="packaging">
                 <div class="container">
                     <div class="row">
@@ -293,9 +293,9 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <h3 class="original_section_caption">{{ $category['200g']->name }}</h3>
-                                        <p class="original_section_caption">{{ $category['200g']->sub_description }}</p>
-                                        <h3 class="original_section_caption">{{ $category['200g']->short_description }}</h3>
-                                        
+                                        <p class="mix_paragraphe">{{ $category['200g']->sub_description }}</p>
+                                        <p class="original_section_description">{{ $category['200g']->short_description }}</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <div class="row">    
+                            <div class="row">
                                     @foreach($product['200g']['product'] as $p)
                                         <div class="col-md-6">
                                             <div class="packaging_box_wrap text-center">
@@ -338,7 +338,7 @@
                 </div>
             </section>
         @endif
-        
+
         @if(count($product['2000g']['product']))
             <section class="original">
                 <div class="container">
@@ -348,7 +348,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <h3 class="original_section_caption">{{ $product['2000g']->name }}</h3>
-                                        <p class="original_section_description">{{ $product['2000g']->sub_description }}</p>
+                                        <p class="mix_paragraphe">{{ $product['2000g']->sub_description }}</p>
                                         <p class="original_section_description">{{ $product['2000g']->short_description }}</p>
                                     </div>
                                 </div>
@@ -380,7 +380,7 @@
                                             </div>
                                         @endforeach
                                     </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -400,10 +400,10 @@
 
     $(document).ready(function() {
         $(".direct-product").click(function() {
-            cart.addToCart($(this).data('id')); 
+            cart.addToCart($(this).data('id'));
             window.location.href = cartUrl;
         });
-        
+
         $('#add_to_hot_card').click(function() {
             cart.addToCart($(this).data('id'), $("#hot_candy").val() * 1);
             window.location.href = cartUrl;
