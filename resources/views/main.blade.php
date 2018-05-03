@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="h2_caption text-center text-uppercase">{{ __('main.shop') }}</h2>
+                    <h1 class="shop_caption text-center text-uppercase">{{ __('main.shop') }}</h1>
                     <p class="shop_caption_description text-center">{{ __('main.short_description') }} </p>
                     <div class="shop_item_box d-sm-flex justify-content-sm-between">
                         @foreach($category as $c)
