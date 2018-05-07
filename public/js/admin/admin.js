@@ -107809,6 +107809,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -107819,6 +107823,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var _product;
 
         return {
+            errors: [],
             langs: [],
             category: [],
             product: (_product = {
@@ -107850,6 +107855,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         'photoshop-picker': __WEBPACK_IMPORTED_MODULE_0_vue_color__["Photoshop"]
     },
     methods: {
+        checkForm: function checkForm(e) {
+            var checkTranslate = true;
+            for (var l in this.langs) {
+                l = this.langs[l];
+                if (!this.product.translate[l.code].name || !this.product.translate[l.code].description) {
+                    checkTranslate = false;
+                }
+            }
+
+            this.errors = [];
+
+            for (var l in this.langs) {
+                l = this.langs[l];
+                console.log(l);
+                if (!this.product.translate[l.code].name) {
+                    this.errors.push("Name [" + l.code + "] required.");
+                }
+
+                if (!this.product.translate[l.code].description) {
+                    this.errors.push("Description [" + l.code + "] required.");
+                }
+            }
+
+            if (!this.product.category_id) this.errors.push("Category required.");
+            if (!this.product.price) this.errors.push("Price required.");
+
+            if (checkTranslate && this.product.category_id && this.product.price) {
+                this.addProduct();
+                return true;
+            }
+
+            e.preventDefault();
+        },
         changeLange: function changeLange(id) {
             this.langs = this.langs.map(function (l) {
                 l.default = l.id == id ? true : false;
@@ -108011,366 +108049,389 @@ var render = function() {
                           }
                         }
                       })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Hover text")
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.translate[l.code].hover_text,
+                            expression: "product.translate[l.code].hover_text"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Hover text" },
+                        domProps: {
+                          value: _vm.product.translate[l.code].hover_text
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.product.translate[l.code],
+                              "hover_text",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ])
                   ]
                 )
               })
             ),
             _vm._v(" "),
-            _c("form", { attrs: { novalidate: "" } }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "category" } }, [
-                  _vm._v("Category")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.category_id,
-                        expression: "product.category_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "category" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.product,
-                          "category_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.category, function(c) {
-                    return _c(
-                      "option",
-                      {
-                        key: c.id,
-                        attrs: { disabled: c.code == "ob" },
-                        domProps: { value: c.id }
-                      },
-                      [
-                        _vm._v(
-                          _vm._s(c.parent_id ? "-" : "") + " " + _vm._s(c.name)
-                        )
-                      ]
-                    )
-                  })
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Picture")]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "file", name: "form-control-file" },
-                  on: {
-                    change: function(e) {
-                      _vm.product.image = e.target.files[0]
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "price" } }, [_vm._v("Price")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.price,
-                      expression: "product.price"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "number", id: "price", placeholder: "Price" },
-                  domProps: { value: _vm.product.price },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "price", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "position" } }, [
-                  _vm._v("Position")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.position,
-                      expression: "product.position"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "position",
-                    placeholder: "Position"
-                  },
-                  domProps: { value: _vm.product.position },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "position", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "status" } }, [_vm._v("Status")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.status,
-                        expression: "product.status"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "status" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.product,
-                          "status",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "active" } }, [
-                      _vm._v("Active")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "deleted" } }, [
-                      _vm._v("Deleted")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [
-                  _vm._v("Active effect")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "input-group" },
-                  [
-                    _c("photoshop-picker", {
-                      model: {
-                        value: _vm.product.active_effect,
-                        callback: function($$v) {
-                          _vm.$set(_vm.product, "active_effect", $$v)
-                        },
-                        expression: "product.active_effect"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [
-                  _vm._v("Hover effect")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
+            _c(
+              "form",
+              { attrs: { novalidate: "novalidate" } },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "category" } }, [
+                    _vm._v("Category")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "label",
-                    { staticClass: "switch switch-3d switch-primary" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.product.hover_check,
-                            expression: "product.hover_check"
-                          }
-                        ],
-                        staticClass: "switch-input",
-                        attrs: { type: "checkbox", value: "true" },
-                        domProps: {
-                          checked: Array.isArray(_vm.product.hover_check)
-                            ? _vm._i(_vm.product.hover_check, "true") > -1
-                            : _vm.product.hover_check
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.product.hover_check,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = "true",
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.product.hover_check = $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  (_vm.product.hover_check = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
-                              }
-                            } else {
-                              _vm.$set(_vm.product, "hover_check", $$c)
-                            }
-                          }
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.product.category_id,
+                          expression: "product.category_id"
                         }
-                      }),
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "category" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.product,
+                            "category_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.category, function(c) {
+                      return _c(
+                        "option",
+                        {
+                          key: c.id,
+                          attrs: { disabled: c.code == "ob" },
+                          domProps: { value: c.id }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(c.parent_id ? "-" : "") +
+                              " " +
+                              _vm._s(c.name)
+                          )
+                        ]
+                      )
+                    })
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Picture")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "file", name: "form-control-file" },
+                    on: {
+                      change: function(e) {
+                        _vm.product.image = e.target.files[0]
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price" } }, [_vm._v("Price")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price,
+                        expression: "product.price"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      id: "price",
+                      placeholder: "Price"
+                    },
+                    domProps: { value: _vm.product.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.product, "price", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "position" } }, [
+                    _vm._v("Position")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.position,
+                        expression: "product.position"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "position",
+                      placeholder: "Position"
+                    },
+                    domProps: { value: _vm.product.position },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.product, "position", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "status" } }, [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.product.status,
+                          expression: "product.status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.product,
+                            "status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "active" } }, [
+                        _vm._v("Active")
+                      ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "switch-label" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "switch-handle" })
+                      _c("option", { attrs: { value: "deleted" } }, [
+                        _vm._v("Deleted")
+                      ])
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                !_vm.product.hover_check
-                  ? _c("div", { staticClass: "card" }, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "hover_text" } }, [
-                            _vm._v("Hover Text")
-                          ]),
-                          _vm._v(" "),
-                          _c("textarea", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.product.hover_text,
-                                expression: "product.hover_text"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              id: "hover_text",
-                              placeholder: "Hover text"
-                            },
-                            domProps: { value: _vm.product.hover_text },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "color" } }, [
+                    _vm._v("Active effect")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "input-group" },
+                    [
+                      _c("photoshop-picker", {
+                        model: {
+                          value: _vm.product.active_effect,
+                          callback: function($$v) {
+                            _vm.$set(_vm.product, "active_effect", $$v)
+                          },
+                          expression: "product.active_effect"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "color" } }, [
+                    _vm._v("Hover effect")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "switch switch-3d switch-primary" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.product.hover_check,
+                              expression: "product.hover_check"
+                            }
+                          ],
+                          staticClass: "switch-input",
+                          attrs: { type: "checkbox", value: "true" },
+                          domProps: {
+                            checked: Array.isArray(_vm.product.hover_check)
+                              ? _vm._i(_vm.product.hover_check, "true") > -1
+                              : _vm.product.hover_check
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.product.hover_check,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "true",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.product.hover_check = $$a.concat([
+                                      $$v
+                                    ]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.product.hover_check = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
                                 }
-                                _vm.$set(
-                                  _vm.product,
-                                  "hover_text",
-                                  $event.target.value
-                                )
+                              } else {
+                                _vm.$set(_vm.product, "hover_check", $$c)
                               }
                             }
-                          })
-                        ]),
+                          }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
+                        _c("span", { staticClass: "switch-label" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "switch-handle" })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  !_vm.product.hover_check
+                    ? _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "hover_text" } }, [
+                                _vm._v("Hover Color")
+                              ]),
+                              _vm._v(" "),
+                              _c("photoshop-picker", {
+                                model: {
+                                  value: _vm.product.hover_color,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.product, "hover_color", $$v)
+                                  },
+                                  expression: "product.hover_color"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.product.hover_check
+                    ? _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "hover_text" } }, [
-                              _vm._v("Hover Color")
+                              _vm._v("Hover Image")
                             ]),
                             _vm._v(" "),
-                            _c("photoshop-picker", {
-                              model: {
-                                value: _vm.product.hover_color,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.product, "hover_color", $$v)
-                                },
-                                expression: "product.hover_color"
+                            _c("input", {
+                              attrs: { type: "file" },
+                              on: {
+                                change: function(e) {
+                                  _vm.product.hover_img = e.target.files[0]
+                                }
                               }
                             })
-                          ],
-                          1
-                        )
+                          ])
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _vm.errors.length
+                  ? _c("p", [
+                      _c("b", [
+                        _vm._v("Please correct the following error(s):")
                       ])
                     ])
                   : _vm._e(),
+                _vm._l(_vm.errors, function(error) {
+                  return _c("div", { staticClass: "alert alert-danger" }, [
+                    _vm._v(_vm._s(error))
+                  ])
+                }),
                 _vm._v(" "),
-                _vm.product.hover_check
-                  ? _c("div", { staticClass: "card" }, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "hover_text" } }, [
-                            _vm._v("Hover Image")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            attrs: { type: "file" },
-                            on: {
-                              change: function(e) {
-                                _vm.product.hover_img = e.target.files[0]
-                              }
-                            }
-                          })
-                        ])
-                      ])
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.addProduct()
-                    }
-                  }
-                },
-                [_vm._v("Add")]
-              )
-            ])
+                _c("p"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button" },
+                    on: { click: _vm.checkForm }
+                  },
+                  [_vm._v("Add")]
+                )
+              ],
+              2
+            )
           ])
         ])
       ])
@@ -108842,6 +108903,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -108850,6 +108914,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            errors: [],
             langs: [],
             category: [],
             product: {
@@ -108882,6 +108947,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'photoshop-picker': __WEBPACK_IMPORTED_MODULE_0_vue_color__["Photoshop"]
     },
     methods: {
+        checkForm: function checkForm(e) {
+            var checkTranslate = true;
+            for (var l in this.langs) {
+                l = this.langs[l];
+                if (!this.product.translate[l.code].name || !this.product.translate[l.code].description) {
+                    checkTranslate = false;
+                }
+            }
+
+            this.errors = [];
+
+            for (var l in this.langs) {
+                l = this.langs[l];
+                console.log(l);
+                if (!this.product.translate[l.code].name) {
+                    this.errors.push("Name [" + l.code + "] required.");
+                }
+
+                if (!this.product.translate[l.code].description) {
+                    this.errors.push("Description [" + l.code + "] required.");
+                }
+            }
+
+            if (!this.product.category_id) this.errors.push("Category required.");
+            if (!this.product.price) this.errors.push("Price required.");
+
+            if (checkTranslate && this.product.category_id && this.product.price) {
+                this.editProduct();
+                return true;
+            }
+
+            e.preventDefault();
+        },
         changeLange: function changeLange(id) {
             this.langs = this.langs.map(function (l) {
                 l.default = l.id == id ? true : false;
@@ -109081,369 +109179,387 @@ var render = function() {
                             }
                           })
                         : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Hover text")
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.translate[l.code].hover_text,
+                            expression: "product.translate[l.code].hover_text"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Hover text" },
+                        domProps: {
+                          value: _vm.product.translate[l.code].hover_text
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.product.translate[l.code],
+                              "hover_text",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ])
                   ]
                 )
               })
             ),
             _vm._v(" "),
-            _c("form", { attrs: { novalidate: "" } }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "category" } }, [
-                  _vm._v("Category")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.category_id,
-                        expression: "product.category_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "category" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.product,
-                          "category_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.category, function(c) {
-                    return _c(
-                      "option",
-                      { key: c.id, domProps: { value: c.id } },
-                      [_vm._v(_vm._s(c.name))]
-                    )
-                  })
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Picture")]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "file", name: "form-control-file" },
-                  on: {
-                    change: function(e) {
-                      _vm.product.tmp_image = e.target.files[0]
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.product.image
-                  ? _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: {
-                        src:
-                          "/storage/" + _vm.product.image.replace("public", ""),
-                        alt: "Image"
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "price" } }, [_vm._v("Price")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.price,
-                      expression: "product.price"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "price", id: "price", placeholder: "Price" },
-                  domProps: { value: _vm.product.price },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "price", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "position" } }, [
-                  _vm._v("Position")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.position,
-                      expression: "product.position"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "position",
-                    placeholder: "Position"
-                  },
-                  domProps: { value: _vm.product.position },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "position", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "status" } }, [_vm._v("Status")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.product.status,
-                        expression: "product.status"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "status" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.product,
-                          "status",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "active" } }, [
-                      _vm._v("Active")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "deleted" } }, [
-                      _vm._v("Deleted")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [
-                  _vm._v("Active effect")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "input-group" },
-                  [
-                    _c("photoshop-picker", {
-                      model: {
-                        value: _vm.product.active_effect,
-                        callback: function($$v) {
-                          _vm.$set(_vm.product, "active_effect", $$v)
-                        },
-                        expression: "product.active_effect"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "color" } }, [
-                  _vm._v("Hover effect")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
+            _c(
+              "form",
+              { attrs: { novalidate: "" } },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "category" } }, [
+                    _vm._v("Category")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "label",
-                    { staticClass: "switch switch-3d switch-primary" },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.product.hover_check,
-                            expression: "product.hover_check"
-                          }
-                        ],
-                        staticClass: "switch-input",
-                        attrs: { type: "checkbox", value: "true" },
-                        domProps: {
-                          checked: Array.isArray(_vm.product.hover_check)
-                            ? _vm._i(_vm.product.hover_check, "true") > -1
-                            : _vm.product.hover_check
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.product.hover_check,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = "true",
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.product.hover_check = $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  (_vm.product.hover_check = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
-                              }
-                            } else {
-                              _vm.$set(_vm.product, "hover_check", $$c)
-                            }
-                          }
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.product.category_id,
+                          expression: "product.category_id"
                         }
-                      }),
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "category" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.product,
+                            "category_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.category, function(c) {
+                      return _c(
+                        "option",
+                        { key: c.id, domProps: { value: c.id } },
+                        [_vm._v(_vm._s(c.name))]
+                      )
+                    })
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Picture")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "file", name: "form-control-file" },
+                    on: {
+                      change: function(e) {
+                        _vm.product.tmp_image = e.target.files[0]
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.product.image
+                    ? _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "/storage/" +
+                            _vm.product.image.replace("public", ""),
+                          alt: "Image"
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price" } }, [_vm._v("Price")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price,
+                        expression: "product.price"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "price", id: "price", placeholder: "Price" },
+                    domProps: { value: _vm.product.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.product, "price", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "position" } }, [
+                    _vm._v("Position")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.position,
+                        expression: "product.position"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "position",
+                      placeholder: "Position"
+                    },
+                    domProps: { value: _vm.product.position },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.product, "position", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "status" } }, [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.product.status,
+                          expression: "product.status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.product,
+                            "status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "active" } }, [
+                        _vm._v("Active")
+                      ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "switch-label" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "switch-handle" })
+                      _c("option", { attrs: { value: "deleted" } }, [
+                        _vm._v("Deleted")
+                      ])
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                !_vm.product.hover_check
-                  ? _c("div", { staticClass: "card" }, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "hover_text" } }, [
-                            _vm._v("Hover Text")
-                          ]),
-                          _vm._v(" "),
-                          _c("textarea", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.product.hover_text,
-                                expression: "product.hover_text"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              id: "hover_text",
-                              placeholder: "Hover text"
-                            },
-                            domProps: { value: _vm.product.hover_text },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "color" } }, [
+                    _vm._v("Active effect")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "input-group" },
+                    [
+                      _c("photoshop-picker", {
+                        model: {
+                          value: _vm.product.active_effect,
+                          callback: function($$v) {
+                            _vm.$set(_vm.product, "active_effect", $$v)
+                          },
+                          expression: "product.active_effect"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "color" } }, [
+                    _vm._v("Hover effect")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "switch switch-3d switch-primary" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.product.hover_check,
+                              expression: "product.hover_check"
+                            }
+                          ],
+                          staticClass: "switch-input",
+                          attrs: { type: "checkbox", value: "true" },
+                          domProps: {
+                            checked: Array.isArray(_vm.product.hover_check)
+                              ? _vm._i(_vm.product.hover_check, "true") > -1
+                              : _vm.product.hover_check
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.product.hover_check,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "true",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.product.hover_check = $$a.concat([
+                                      $$v
+                                    ]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.product.hover_check = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
                                 }
-                                _vm.$set(
-                                  _vm.product,
-                                  "hover_text",
-                                  $event.target.value
-                                )
+                              } else {
+                                _vm.$set(_vm.product, "hover_check", $$c)
                               }
                             }
-                          })
-                        ]),
+                          }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
+                        _c("span", { staticClass: "switch-label" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "switch-handle" })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  !_vm.product.hover_check
+                    ? _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "hover_text" } }, [
+                                _vm._v("Hover Color")
+                              ]),
+                              _vm._v(" "),
+                              _c("photoshop-picker", {
+                                model: {
+                                  value: _vm.product.hover_color,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.product, "hover_color", $$v)
+                                  },
+                                  expression: "product.hover_color"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.product.hover_check
+                    ? _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "hover_text" } }, [
-                              _vm._v("Hover Color")
+                              _vm._v("Hover Image")
                             ]),
                             _vm._v(" "),
-                            _c("photoshop-picker", {
-                              model: {
-                                value: _vm.product.hover_color,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.product, "hover_color", $$v)
-                                },
-                                expression: "product.hover_color"
+                            _c("input", {
+                              attrs: { type: "file" },
+                              on: {
+                                change: function(e) {
+                                  _vm.product.hover_img = e.target.files[0]
+                                }
                               }
                             })
-                          ],
-                          1
-                        )
+                          ])
+                        ])
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _vm.errors.length
+                  ? _c("p", [
+                      _c("b", [
+                        _vm._v("Please correct the following error(s):")
                       ])
                     ])
                   : _vm._e(),
+                _vm._l(_vm.errors, function(error) {
+                  return _c("div", { staticClass: "alert alert-danger" }, [
+                    _vm._v(_vm._s(error))
+                  ])
+                }),
                 _vm._v(" "),
-                _vm.product.hover_check
-                  ? _c("div", { staticClass: "card" }, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "hover_text" } }, [
-                            _vm._v("Hover Image")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            attrs: { type: "file" },
-                            on: {
-                              change: function(e) {
-                                _vm.product.hover_img = e.target.files[0]
-                              }
-                            }
-                          })
-                        ])
-                      ])
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.editProduct()
-                    }
-                  }
-                },
-                [_vm._v("Update")]
-              )
-            ])
+                _c("p"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button" },
+                    on: { click: _vm.checkForm }
+                  },
+                  [_vm._v("Update")]
+                )
+              ],
+              2
+            )
           ])
         ])
       ])

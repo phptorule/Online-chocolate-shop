@@ -24,10 +24,15 @@
                                     <label for="name">Description</label>
                                     <textarea type="text" v-model="product.translate[l.code].description" class="form-control" placeholder="Description" ></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="name">Hover text</label>
+                                    <textarea type="text" v-model="product.translate[l.code].hover_text" class="form-control" placeholder="Hover text" ></textarea>
+                                </div>
                             </div>
                         </div>
 
-                        <form novalidate>
+                        <form novalidate="novalidate">
+
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select id="category" v-model="product.category_id" class="form-control">
@@ -79,10 +84,6 @@
                                 <div class="card" v-if=" ! product.hover_check">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="hover_text">Hover Text</label>
-                                            <textarea class="form-control" v-model="product.hover_text" id="hover_text" placeholder="Hover text"></textarea>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="hover_text">Hover Color</label>
                                             <!-- <input type="color" class="form-control" v-model="product.hover_color" /> -->
                                             <photoshop-picker v-model="product.hover_color" />
@@ -98,8 +99,11 @@
                                     </div>
                                 </div>
                             </div>
-                           
-                            <button type="button" @click="addProduct()" class="btn btn-default">Add</button>
+                             <p v-if="errors.length">
+                                <b>Please correct the following error(s):</b>
+                                <div class="alert alert-danger" v-for="error in errors">{{ error }}</div>
+                            </p>
+                            <button type="button" @click="checkForm" class="btn btn-default">Add</button>
                         </form>
                     </div>
                 </div>
@@ -116,6 +120,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            errors : [],
             langs : [],
             category : [],
             product : {
@@ -148,6 +153,45 @@ export default {
         'photoshop-picker': Photoshop
     },
     methods : {
+        checkForm:function(e) {
+            var checkTranslate = true;
+            for(var l in this.langs) {
+                l = this.langs[l];
+                if ( ! this.product.translate[l.code].name ||
+                    ! this.product.translate[l.code].description) {
+                       checkTranslate = false;
+                    }
+            }
+
+            this.errors = [];
+            
+
+            for(var l in this.langs) {
+                l = this.langs[l];
+                console.log(l)
+                if ( ! this.product.translate[l.code].name) {
+                    this.errors.push("Name [" + l.code + "] required.");
+                }
+
+                if ( ! this.product.translate[l.code].description) {
+                    this.errors.push("Description [" + l.code + "] required.");
+                }
+            }
+
+            if( ! this.product.category_id) this.errors.push("Category required.");
+            if( ! this.product.price) this.errors.push("Price required.");
+            
+             if(
+                checkTranslate &&
+                this.product.category_id &&
+                this.product.price
+                ) {
+                this.addProduct();
+                return true;
+            }
+
+            e.preventDefault();
+        },
         changeLange(id) {
             this.langs = this.langs.map((l) => { 
                 l.default = l.id == id ? true : false;
