@@ -45,5 +45,15 @@ class Product extends Model
         return ! empty($translate->translate->short_description) ? $translate->translate->short_description : "";
     }
 
+    public function getHoverTextAttribute($value) {
+        $translate = $this->translate->filter(function($t){
+            if ($t->lang->code == LaravelLocalization::getCurrentLocale()) {
+                return true;
+            }
+        })->first();
+
+        return ! empty($translate->translate->hover_text) ? $translate->translate->hover_text : "";
+    }
+
 
 }
