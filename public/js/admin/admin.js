@@ -110494,6 +110494,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -110552,15 +110563,47 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(o.email))]),
                             _vm._v(" "),
+                            _c(
+                              "td",
+                              _vm._l(o.cart, function(product, index) {
+                                return !(String(index).indexOf("box") + 1)
+                                  ? _c("div", { key: index }, [
+                                      _c("img", {
+                                        attrs: {
+                                          width: "50",
+                                          height: "50",
+                                          src: product.product.image.replace(
+                                            "public",
+                                            "storage"
+                                          ),
+                                          alt: "img"
+                                        }
+                                      }),
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(product.product.name) +
+                                          "\n                                            (" +
+                                          _vm._s(product.product.price) +
+                                          " DKK)\n                                        "
+                                      )
+                                    ])
+                                  : _c("div", [
+                                      _vm._v(
+                                        "\n                                            box\n                                        "
+                                      )
+                                    ])
+                              })
+                            ),
+                            _vm._v(" "),
                             _c("td", [
-                              _c("span", [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(o.cart) +
-                                    "\n                                        "
-                                )
-                              ])
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(o.count) +
+                                  "\n                                    "
+                              )
                             ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(o.total))]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
@@ -110613,6 +110656,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
         _c("th", [_vm._v("Product")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Count")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")]),
         _vm._v(" "),
         _c("th", [_vm._v("Status")])
       ])

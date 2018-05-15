@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -34,7 +35,30 @@ class OrderController extends Controller
     }
 
     public function get(Request $request) {
-        return Order::get();
+        $orders = Order::get();
+        $products = Product::get()->keyBy('id');
+
+        $orders = $orders->each(function($value) use ($products) {
+            $value->count = collect($value->cart)->sum('count');
+            
+            $total = 0;
+            $value->cart = collect($value->cart)->each(function($cart) use ($products, &$total)  {
+                $cart->product = ! empty($products[$cart->product_id]) ? $products[$cart->product_id] : false;
+                $total += $cart->product->price * $cart->count;
+            });
+            
+            $value->total = $total;
+        });
+
+        $orders->each(function($order) {
+            if (collect($order->cart)->every(function($value, $key) {
+                return ! empty($value->box) ? true : false;
+            })) {
+                $order->cart = collect($order->cart)->groupBy('box');    
+            }
+        });
+
+        return $orders;
     }
 
     
