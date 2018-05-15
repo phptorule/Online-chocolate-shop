@@ -15,6 +15,8 @@
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Product</th>
+                                        <th>Count</th>
+                                        <th>Total</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -24,10 +26,19 @@
                                         <td>{{ o.phone }}</td>
                                         <td>{{ o.email }}</td>
                                         <td>
-                                            <span>
-                                                {{ o.cart }}
-                                            </span>
+                                            <div v-if=" ! (String(index).indexOf('box') + 1)" v-for="(product, index) in  o.cart" :key="index">
+                                                <img width="50" height="50" :src="product.product.image.replace('public', 'storage')" alt="img" />
+                                                {{ product.product.name }}
+                                                ({{ product.product.price }} DKK)
+                                            </div>
+                                            <div v-else>
+                                                box
+                                            </div>
                                         </td>
+                                        <td>
+                                            {{ o.count }}
+                                        </td>
+                                        <td>{{ o.total }}</td>
                                         <td>
                                            {{ o.status}}
                                         </td>
