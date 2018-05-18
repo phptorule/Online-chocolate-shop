@@ -271,12 +271,13 @@ button {
 
 .h2_caption_description {
     margin-bottom: 30px;
+    font-family: "CooperHewittLight";
 }
 
 .mix_paragraphe {
     margin-bottom: 45px;
     line-height: 20px;
-    font-family: "CamboRegular";
+    font-family: "CooperHewittLight";
 }
 
 .mix_paragraphe > span {
