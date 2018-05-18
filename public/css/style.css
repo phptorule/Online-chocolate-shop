@@ -334,6 +334,7 @@ button {
 .mix_count_caption_description {
     margin-bottom: 25px;
     text-align: center;
+    font-family: "CooperHewittLight";
 }
 
 .mix_count_list {
@@ -452,11 +453,13 @@ button {
     font-size: 32px;
     line-height: 36px;
     margin: 0 0 10px 0;
+    
 }
 
 .original_section_description {
     font-size: 20px;
     margin: 0 0 90px 0;
+    font-family: "CooperHewittLight";
 }
 
 .original_box {
