@@ -14,14 +14,14 @@ button {
 
 
 .line_shadow {
-    -webkit-box-shadow: 0 8px 17px -7px rgba(0, 0, 0, 0.85);    
-    box-shadow: 0 8px 17px -7px rgba(0, 0, 0, 0.85) 
+    -webkit-box-shadow: 0 8px 17px -7px rgba(0, 0, 0, 0.85);
+    box-shadow: 0 8px 17px -7px rgba(0, 0, 0, 0.85)
 }
 
 .item {
     position: relative;
     z-index: 0;
-    border-radius: 50%; 
+    border-radius: 50%;
     cursor: pointer;
 }
 
@@ -40,7 +40,7 @@ button {
     bottom: 0;
     left: 0;
     margin: auto;
-    border-radius: 50%;    
+    border-radius: 50%;
     -webkit-box-shadow: 9px 9px 30px -6px rgba(0, 0, 0, 0.85) inset;
     box-shadow: 9px 9px 30px -6px rgba(0, 0, 0, 0.85) inset;
 }
@@ -159,7 +159,7 @@ button {
 }
 
 .item.light {
-    background-color: #fef7ed; 
+    background-color: #fef7ed;
 }
 
 .item.dark_button{
@@ -181,7 +181,7 @@ button {
 /*HEADER*/
 .header {
     min-height: 109px;
-    background-color: rgba(255, 255, 255, 0.87);
+    background-color: rgba(242,243,244,1);
     -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.38);
             box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.38);
     border-top: 0px solid rgba(47, 46, 46, 1);
@@ -203,12 +203,12 @@ button {
 }
 /*SHOP*/
 .shop {
-    padding: 70px 0 80px;  
+    padding: 70px 0 80px;
 }
 
 .shop_caption {
     margin: 0;
-    font-family: "CooperHewittMedium";
+    font-family: "CooperHewittHeavy";
     font-size: 86px;
     line-height: 86px;
     letter-spacing: 8px;
@@ -310,8 +310,8 @@ button {
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    margin-right:auto; 
-    margin-left:auto; 
+    margin-right:auto;
+    margin-left:auto;
 }
 
 .mix_count {
@@ -371,7 +371,7 @@ button {
 
 .small_mix_item_caption {
     font-size: 16px;
-    max-width: 190px;
+    /* max-width: 190px; */
 }
 /*CANDIES_COUNT*/
 .candies_count {
@@ -435,7 +435,7 @@ button {
 }
 
 .original_box {
-    padding: 0 0 60px 0;
+    /* padding: 0 0 60px 0; */
 }
 
 .original_caption {
@@ -523,7 +523,7 @@ button {
 
 .packaging {
     padding: 90px 0 120px;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .packaging .container {
@@ -556,8 +556,8 @@ button {
     height: auto;
     border-radius: 50%;
     float: right;
-    -webkit-transform: translateX(55px);
-            transform: translateX(55px);
+    -webkit-transform: translateX(15px);
+            transform: translateX(15px);
 }
 
 /*FOOTER*/
@@ -729,11 +729,11 @@ button {
 .table_cart .header_row {
     border: 1px solid #73492a;
 }
- 
+
 .cart .h2_caption {
     font-family: "CicleFina";
-    font-size: 30px;   
-    margin-bottom: 50px;         
+    font-size: 30px;
+    margin-bottom: 50px;
 }
 
 .cart .h2_caption span,
@@ -1054,7 +1054,7 @@ button {
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.7);
 }
-  
+
 .img_box:hover .overlay_inst {
     opacity: 1;
 }
@@ -1095,7 +1095,7 @@ button {
 }
 
 .inst_description {
-    padding-left: 
+    padding-left:
 }
 
 .inst_img {
