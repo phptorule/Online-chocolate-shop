@@ -40,11 +40,11 @@
                     <div class="header_social">
                         <!-- <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), 'search') }}"> -->
                         <div class="header_social_lang">
-                            <a href="{{ LaravelLocalization::getLocalizedURL('dk') }}" class="header_social_lang_box">
+                            <a href="{{ url('dk') }}" class="header_social_lang_box">
                                 <img src="/img/pic/norway.png" alt="">
                                 <span>DA</span>
                             </a>
-                            <a href="{{ url('en') }}" class="header_social_lang_box">
+                            <a href="{{ LaravelLocalization::getLocalizedURL('en') }}" class="header_social_lang_box">
                                 <img src="/img/pic/usa.png" alt="usa" />
                                 <span>EN</span>
                             </a>
