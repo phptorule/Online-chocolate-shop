@@ -100,6 +100,8 @@ $(document).ready(function() {
             window[box].push(product_id);
         }
         
+        console.log(window.limitation[box], window[box].length)
+
         if (window.limitation[box] == window[box].length) {
             $("button[data-box='" + box + "']").removeAttr('disabled');
             $("button[data-box='" + box + "']").removeClass('disabled');

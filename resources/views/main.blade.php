@@ -117,7 +117,7 @@
                                 <div class="mix_content ">
                                     <div class="mix_content_item_box">
                                         <div class="small_mix_content_part">
-                                            <a href="javascript:void(0);" class="original_box_item item_hover  hover_brown item white candi_item" data-box="candies" data-title="{{ $row->name }}" data-id="{{ $row->id }}">
+                                            <a href="javascript:void(0);" class="original_box_item item_hover  hover_brown item white candi_item" data-box="candle" data-title="{{ $row->name }}" data-id="{{ $row->id }}">
                                                 <img src="{{ ! empty($row->image) ? '/storage/' . str_replace('public', '', $row->image) : 'img/pic/cont.png' }}" alt="img">
                                                 <div class="overlay" style="{{ $row->hover_check ? '' : 'background-color: ' . $row->hover_color }}">
                                                     <div class="overlay_text">
